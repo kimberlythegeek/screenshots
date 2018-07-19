@@ -26,3 +26,7 @@ cookie-jar.txt
 /*.xpi
 # Created by py.test:
 /test/server/.cache
+.cache
+.idea
+__pycache__
+.pytest_cache
