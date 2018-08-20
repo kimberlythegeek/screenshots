@@ -1,26 +1,26 @@
 import pytest
-from regions.screenshot_interface import ScreenshotInterface
-from regions.door_hanger import DoorHanger
-from regions.onboarding import Onboarding
-from regions.selection import PreSelection, Selection
+from pages.door_hanger import DoorHangerRegion
+from pages.onboarding import OnboardingPage
+from pages.selection import PreSelectionRegion, SelectionRegion
+from pages.home import Home
 
 @pytest.fixture
-def screenshot_interface(base_url, selenium):
+def home_page(base_url, selenium):
     selenium.get(base_url)
-    return ScreenshotInterface(selenium).wait_for_page_to_load()
+    return Home(selenium, base_url).wait_for_page_to_load()
 
 @pytest.fixture
-def door_hanger(screenshot_interface):
-    return DoorHanger(screenshot_interface).wait_for_region_to_load()
+def door_hanger(home_page):
+    return DoorHangerRegion(home_page).wait_for_region_to_load()
 
 @pytest.fixture
-def onboarding(screenshot_interface):
-    return Onboarding(screenshot_interface)
+def onboarding(home_page):
+    return OnboardingPage(home_page).wait_for_page_to_load()
 
 @pytest.fixture
-def preselection(screenshot_interface):
-    return PreSelection(screenshot_interface)
+def preselection(home_page):
+    return PreSelectionRegion(home_page).wait_for_region_to_load()
 
 @pytest.fixture
-def selection(screenshot_interface):
-    return Selection(screenshot_interface)
+def selection(home_page):
+    return SelectionRegion(home_page).wait_for_region_to_load()

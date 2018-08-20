@@ -1,9 +1,9 @@
-"""Locators and actions preselection and selection iframes."""
+"""Locators and actions for the preselection and selection iframes."""
 
 from pypom import Region
 from selenium.webdriver.common.by import By
 
-class PreSelection(Region):
+class PreSelectionRegion(Region):
     """Locators and actions for the selection and pre-selection iframes."""
     _preselection_iframe_locator = (By.ID,
                                     'firefox-screenshots-preselection-iframe')
@@ -14,14 +14,14 @@ class PreSelection(Region):
         preselect = self.find_element(*self._preselection_iframe_locator)
         return preselect.is_displayed()
 
-    def _click_desired_screenshot_area(self):
+    def click_desired_screenshot_area(self):
         self.selenium.switch_to.default_content()
         area = self.find_element(*self._download_firefox_cta_locator)
         action = self.selenium.ActionChains(self.selenium).move_to_element(area)
         action.perform()
 
 
-class Selection(Region):
+class SelectionRegion(Region):
     """Locators and actions for the selection iframe."""
     _selection_iframe_locator = (By.ID,
                                 'firefox-screenshots-selection-iframe')
@@ -32,7 +32,7 @@ class Selection(Region):
         select = self.find_element(*self._selection_iframe_locator)
         return select.is_displayed()
 
-    def _save_screenshot(self):
+    def click_save_screenshot(self):
         self.wait_for_region_to_load()
         select = self.find_element(*self._selection_iframe_locator)
         self.selenium.switch_to.frame(select)

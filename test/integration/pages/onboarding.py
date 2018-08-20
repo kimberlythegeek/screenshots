@@ -1,9 +1,9 @@
 """Locators and actions for onboarding iframe interactions."""
 
-from pypom import Region
+from pypom import Page
 from selenium.webdriver.common.by import By
 
-class Onboarding(Region):
+class OnboardingPage(Page):
     """Locators and actions related to the onboarding iframe."""
     _onboarding_iframe_locator = (By.ID,
                                     'firefox-screenshots-onboarding-iframe')
@@ -11,16 +11,16 @@ class Onboarding(Region):
 
     @property
     def loaded(self):
-        onboarding = self.find_element(*self._onboarding_iframe_locator)
-        return onboarding.is_displayed()
+        page = self.find_element(*self._onboarding_iframe_locator)
+        return page.is_displayed()
 
     def _switch_to_onboarding_iframe(self):
         with self.selenium.context(self.selenium.CONTEXT_CONTENT):
-            self.wait_for_region_to_load()
-            onboarding = self.find_element(*self._onboarding_iframe_locator)
-            self.selenium.switch_to.frame(onboarding)
+            self.wait_for_page_to_load()
+            frame = self.find_element(*self._onboarding_iframe_locator)
+            self.selenium.switch_to.frame(frame)
 
-    def _skip_screenshots_onboarding(self):
+    def skip_screenshots_onboarding(self):
         self._switch_to_onboarding_iframe()
-        skip = self.find_element(*self._onboarding_skip_button_locator)
-        skip.click()
+        skip_button = self.find_element(*self._onboarding_skip_button_locator)
+        skip_button.click()
