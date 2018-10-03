@@ -14,10 +14,13 @@ gSignIn = સાઇન ઇન
 
 ## Header
 
-signInButton =
-    .aria-label = સાઇન ઇન
-settingsButton =
-    .aria-label = સેટિંગ્સ
+buttonSettings =
+    .title = સેટિંગ્સ
+buttonSignIn =
+    .title = સાઇન ઇન કરો
+screenshotsLogo =
+    .title = સ્ક્રીનશૉટ્સ હોમ
+bannerMessage = તમારા સમગ્ર ઉપકરણો પર તમારા સ્ક્રીનશૉટ્સને ઍક્સેસ કરવા માટે સાઇન ઇન કરો અથવા સાઇન અપ કરો અને હંમેશાં તમારા મનપસંદોને સાચવો.
 
 ## Footer
 
@@ -25,6 +28,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = શરતો
 footerLinkPrivacy = ગોપનીયતા સૂચના
+footerReportShot = સ્ક્રીનશૉટ્ અહેવાલ
+    .title = દુરુપયોગ, સ્પામ અથવા અન્ય સમસ્યાઓ માટે આ સ્ક્રીનશૉટ્ની જાણ કરો
 footerLinkFaqs = વારંવાર પૂછવામાં આવતા પ્રશ્ન
 footerLinkDMCA = IP ઉલ્લંઘનની જાણ કરો
 footerLinkDiscourse = અભીપ્રાય આપો
@@ -110,8 +115,8 @@ shotPagePrivacyMessage = લિંક ધરાવનાર કોઈપણ આ 
 shotPageCopyImageText =
     .label = છબી ટેક્સ્ટ નકલ કરો
 shotPageConfirmDeletion = શું તમે ખરેખર આ શોટને કાયમ માટે કાઢી નાખવા માંગો છો?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = જો તમે કશું કરશો નહીં, આ શોટ કાયમી રૂપે કાઢી નાખવામાં આવશે { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = જો તમે કશું કરશો નહીં, આ શોટ કાયમી રૂપે કાઢી નાખવામાં આવશે <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = જ્યાં સુધી પુનઃસ્થાપિત કરો { $date }
@@ -120,15 +125,23 @@ shotPageExpiredMessage = આ શોટની સમયસીમા સમાપ�
 shotPageExpiredMessageDetails = અહીં તે પૃષ્ઠ છે જે મૂળથી બનાવવામાં આવ્યું હતું:
 shotPageDeleteButton =
     .title = આ શોટ કાઢી નાખો
-shotPageAbuseButton =
-    .title = દુરુપયોગ, સ્પામ અથવા અન્ય સમસ્યાઓ માટે આ શોટની જાણ કરો
 shotPageDownloadShot =
     .title = ડાઉનલોડ કરો
 shotPageEditButton =
     .title = આ છબી સંપાદિત કરો
 shotPagefavoriteButton =
     .title = આ શોટ મનપસંદમાં ઉમેરો
+shotPageBackToHomeButton =
+    .title = મુખ્યપૃષ્ઠ
+shotPageAllShotsButton =
+    .title = બધા સ્ક્રીનશૉટ્સ
+shotPageAllShots = બધા સ્ક્રીનશૉટ્સ
 shotPageDownload = ડાઉનલોડ કરો
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = દોરો
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = પ્રિય
+shotPageDelete = કાઢી નાખો
 shotPageScreenshotsDescription = સ્ક્રીનશોટને સરળ બનાવી. Firefox છોડ્યાં વગર સ્ક્રીનશોટ લો, સાચવો અને વહેંચો.
 shotPageUpsellFirefox = હમણાં Firefox મેળવો
 shotPageDMCAMessage = તૃતીય પક્ષ બૌદ્ધિક સંપદા દાવાને કારણે આ શોટ હવે ઉપલબ્ધ નથી.
@@ -154,10 +167,10 @@ shotPageKeepOneMonth = 1 મહિનો
 shotPageSaveExpiration = સંગ્રહો
 shotPageCancelExpiration = રદ કરો
 shotPageDoesNotExpire = સમાપ્ત થતું નથી
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = સમાપ્ત થાય છે { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = સમાપ્ત થઈ { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = સમાપ્ત થાય છે <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = સમાપ્ત થઈ <timediff></timediff>
 timeDiffJustNow = હમણાજ
 timeDiffMinutesAgo =
     { $number ->
@@ -293,6 +306,8 @@ shotIndexPageNoShotsInvitation = જાઓ, કેટલાક બનાવો
 shotIndexPageLookingForShots = તમારા શૉટ્સ શોધી રહ્યાં છે…
 shotIndexPageNoSearchResultsIntro = હમમ
 shotIndexPageNoSearchResults = અમે તમારી શોધ સાથે મેળ ખાતા કોઈપણ શોટ શોધી શકતા નથી.
+shotIndexPageMyShotsButton =
+    .title = મારા સ્ક્રીનશૉટ્સ
 shotIndexPageClearSearchButton =
     .title = શોધ સાફ કરો
 shotIndexPageConfirmShotDelete = આ શોટ કાઢી નાખીએ?
@@ -300,13 +315,11 @@ shotIndexPagePreviousPage =
     .title = પાછળનું પાનું
 shotIndexPageNextPage =
     .title = પછીનું પાનું
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = આ શોટ સમાપ્ત થતો નથી
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = આ કોઈ મનપસંદ સ્ક્રીનશૉટ્ નથી અને તે સમાપ્ત થશે
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =

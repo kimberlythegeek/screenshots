@@ -9,6 +9,19 @@ gHomeLink = خانه
 gNoShots =
     .alt = هیچ تصویری پیدا نشد
 gScreenshotsDescription = عکس گرفتن از صفحه آسان شده است. بگیرید، ذخیره‌ کنید و عکس گرفته شده از صفحه را بدون ترک فایرفاکس همرسانی کنید.
+gSettings = تنظیمات
+gSignIn = ورود
+
+## Header
+
+buttonSettings =
+    .title = تنظیمات
+buttonSignIn =
+    .title = ورود
+screenshotsLogo =
+    .title = صفحه خانگی تصاویر صفحه
+bannerMessage = برای دسترسی به عکس‌ها در تمام دستگاه‌هایتان و ذخیره همیشگی عکس‌های مورد علاقه‌تان، وارد شوید یا ثبت نام کنید.
+bannerUpsell = { gScreenshotsDescription } <a>هم‌اکنون فایرفاکس را دریافت کنید</a>
 
 ## Footer
 
@@ -16,6 +29,8 @@ gScreenshotsDescription = عکس گرفتن از صفحه آسان شده است
 footerLinkMozilla = موزیلا
 footerLinkTerms = شرایط استفاده
 footerLinkPrivacy = نکات حفظ حریم‌شخصی
+footerReportShot = گزارش عکس
+    .title = این عکس را به خاطر سواستفاده، هرزنامه یا مشکلات دیگر گزارش کنید
 footerLinkFaqs = سوالات متداول
 footerLinkDMCA = گزارش تخلف IP
 footerLinkDiscourse = ارسال بازخورد
@@ -38,7 +53,6 @@ homePageButtonMyShots = برو به عکس‌های من
 homePageTeaser = به زودی…
 homePageDownloadFirefoxTitle = فایرفاکس
 homePageDownloadFirefoxSubTitle = دریافت رایگان
-homePageGetStarted = شروع کنید
 # Note: do not translate 'Firefox Screenshots' when translating this string
 homePageHowScreenshotsWorks = Firefox Screenshots چگونه کار می‌کند
 homePageGetStartedTitle = شروع کنید
@@ -88,6 +102,8 @@ shotPageConfirmDelete = آیا مطمئن هستید که می‌خواهید ا
 shotPageShareButton =
     .title = هم‌رسانی
 shotPageCopy = رونوشت
+shotPageCopyButton =
+    .title = رونشت عکس به کلیپ‌بورد
 shotPageCopied = رونوشت شد
 shotPageShareFacebook =
     .title = هم‌رسانی در فیسبوک
@@ -102,8 +118,8 @@ shotPagePrivacyMessage = هر کسی با این پیوند می‌تواند ا
 shotPageCopyImageText =
     .label = رونوشت از متنِ عکس
 shotPageConfirmDeletion = آیا مطمئن هستید که می‌خواهید این عکس را به صورت دائمی حذف کنید؟
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = اگر کاری انجام ندهید، این عکس { $timediff } به صورت دائمی حذف خواهد شد.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = اگر کاری انجام ندهید، این عکس <timediff></timediff> به صورت دائمی حذف خواهد شد.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = بازگرداندن تا { $date }
@@ -112,15 +128,24 @@ shotPageExpiredMessage = این عکس منقضی شده است.
 shotPageExpiredMessageDetails = این صفحه‌ای است که از روی آن ساخته شده بود:
 shotPageDeleteButton =
     .title = حذف این عکس
-shotPageAbuseButton =
-    .title = این عکس را برای سوء استفاده، هرزه‌نگاری یا مسائل دیگر گزارش کنید
 shotPageDownloadShot =
     .title = دریافت
 shotPageEditButton =
     .title = ویرایش این تصویر
+shotPagefavoriteButton =
+    .title = این عکس را محبوب کنید
+shotPageBackToHomeButton =
+    .title = صفحه خانگی
+shotPageAllShotsButton =
+    .title = همه عکس‌ها
+shotPageAllShots = همه عکس‌ها
 shotPageDownload = دریافت
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = کشیدن
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = محبوب
+shotPageDelete = حذف
 shotPageScreenshotsDescription = Screenshots ساده ساخته شده است. بدون خروج از فایرفاکس عکس بگیرید، ذخیره و هم‌رسان کنید.
-shotPageUpsellFirefox = هم اکنون فایرفاکس را دریافت کنید
 shotPageDMCAMessage = این عکس به دلیل درخواست مالکیت معنوی یک شخص ثالث، دیگر در دسترس نیست.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = لطفا برای درخواست اطلاعات بیشتر به { $dmca } ایمیل بزنید.
@@ -144,10 +169,10 @@ shotPageKeepOneMonth = ‏‏۱ ماه
 shotPageSaveExpiration = ذخیره
 shotPageCancelExpiration = لغو
 shotPageDoesNotExpire = منقضی نمی‌شود
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = { $timediff } منقضی می‌شود
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = منقضی شده { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = <timediff></timediff> منقضی می‌شود
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = منقضی شده <timediff></timediff>
 timeDiffJustNow = هم‌اکنون
 timeDiffMinutesAgo =
     { $number ->
@@ -250,6 +275,12 @@ textToolCancelButton = لغو
 textToolInputPlaceholder =
     .placeholder = سلام
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = خطایی رخ داد
+
 ## Settings Page
 
 settingsDisconnectButton = قطع اتصال
@@ -276,13 +307,13 @@ shotIndexPageSearchResultsTitle = عکس‌های من : جستجو کن برا�
 shotIndexPageErrorRendering = خطا هنگام پردازش کردن صفحه: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = جستجو در عکس‌های من
-shotIndexPageSearchButton =
-    .title = جستجو
 shotIndexPageNoShotsMessage = عکس ذخیره شده‌ای وجود ندارد.
 shotIndexPageNoShotsInvitation = ادامه بده، چندتا بساز.
 shotIndexPageLookingForShots = در حال گشتن برای عکس‌های شما…
 shotIndexPageNoSearchResultsIntro = همم
 shotIndexPageNoSearchResults = نمی‌توانیم هیچ عکسی مطابق با آنچه جستحو کردید بیابیم.
+shotIndexPageMyShotsButton =
+    .title = عکس‌های من
 shotIndexPageClearSearchButton =
     .title = پاک کردن جستجو
 shotIndexPageConfirmShotDelete = حذف این عکس؟
@@ -290,12 +321,17 @@ shotIndexPagePreviousPage =
     .title = صفحه قبل
 shotIndexPageNextPage =
     .title = صفحه بعد
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = این عکس منقضی نخواد شد
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = این عکس در فهرست موردعلاقه‌های شما قرار ندارد و منقضی خواهد شد
+# This is the tooltip for a "heart" symbol in the upper top corner of the
+# card for a shot on the My Shots page. It indicate that the shot was marked as
+# a favorite by the owner.
+shotIndexFavoriteIcon =
+    .title = این عکس در فهرست موردعلاقه‌های شما قرار دارد و منقضی نخواهد شد
+shotIndexSyncedShot =
+    .title = عکس گرفته شده در دستگاه دیگر
 
 ## Delete Confirmation Dialog
 

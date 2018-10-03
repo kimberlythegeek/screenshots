@@ -1,7 +1,8 @@
 /* globals controller */
 const sendEvent = require("../../browser-send-event.js");
 const reactruntime = require("../../reactruntime");
-const { Footer } = require("../../footer-view.js");
+const classnames = require("classnames");
+const { MyShotsFooter } = require("./footer");
 const React = require("react");
 const PropTypes = require("prop-types");
 const { ShareButton } = require("../../share-buttons");
@@ -38,16 +39,17 @@ class Body extends React.Component {
   render() {
     return (
       <reactruntime.BodyTemplate {...this.props}>
-        <div className="column-space full-height default-color-scheme" id="shot-index-page">
-          <MyShotsHeader hasDeviceId={this.props.hasDeviceId} hasFxa={this.props.hasFxa}
-            enableUserSettings={this.props.enableUserSettings} />
+        <div className="column-space full-height" id="shot-index-page">
+          <MyShotsHeader
+            hasDeviceId={this.props.hasDeviceId} hasFxa={this.props.hasFxa}
+            enableUserSettings={this.props.enableUserSettings} staticLink={this.props.staticLink} />
           { this.props.disableSearch ? null : this.renderSearchForm() }
           <div id="shot-index" className="flex-1">
             { this.renderShots() }
           </div>
           { this.renderPageNavigation() }
           { this.renderErrorMessages() }
-          <Footer forUrl="shots" {...this.props} />
+          <MyShotsFooter {...this.props} />
         </div>
       </reactruntime.BodyTemplate>
     );
@@ -109,7 +111,7 @@ class Body extends React.Component {
     return (
       <div id="shot-index-page-navigation" hidden={hidden} >
         <span className={prevClasses}>
-          <Localized id="shotIndexPagePreviousPage">
+          <Localized id="shotIndexPagePreviousPage" attrs={{title: true}}>
             {
               hasPrev
               ? <a href={ controller.getNewUrl({p: prevPageNumber})}
@@ -122,7 +124,7 @@ class Body extends React.Component {
         </span>
         <span id="shots-page-number">{this.props.pageNumber} / {totalPages}</span>
         <span className={nextClasses}>
-          <Localized id="shotIndexPageNextPage">
+          <Localized id="shotIndexPageNextPage" attrs={{title: true}}>
             {
               hasNext
               ? <a href={ controller.getNewUrl({p: nextPageNumber}) }
@@ -159,7 +161,7 @@ class Body extends React.Component {
   renderNoShots() {
     return (
       <div className="no-shots" key="no-shots-found">
-        <Localized id="gNoShots">
+        <Localized id="gNoShots" attrs={{alt: true}}>
           <img src={ this.props.staticLink("/static/img/image-noshots_screenshots.svg") } alt="no Shots found" width="432" height="432"/>
         </Localized>
         <Localized id="shotIndexPageNoShotsMessage">
@@ -175,7 +177,7 @@ class Body extends React.Component {
   renderNoDeviceId() {
     return (
       <div className="no-shots" key="no-shots-found">
-        <Localized id="gNoShots">
+        <Localized id="gNoShots" attrs={{alt: true}}>
           <img src={ this.props.staticLink("/static/img/image-search_screenshots.svg") } alt="no Shots found" width="432" height="432"/>
         </Localized>
         <Localized id="shotIndexPageLookingForShots">
@@ -188,7 +190,7 @@ class Body extends React.Component {
   renderNoSearchResults() {
     return (
       <div className="no-shots" key="no-shots-found">
-        <Localized id="gNoShots">
+        <Localized id="gNoShots" attrs={{alt: true}}>
           <img src={ this.props.staticLink("/static/img/image-search_screenshots.svg") } alt="no Shots found" width="432" height="432"/>
         </Localized>
         <Localized id="shotIndexPageNoSearchResultsIntro">
@@ -203,12 +205,12 @@ class Body extends React.Component {
 
   renderSearchForm() {
     return (
-      <form id="search-form" className="default-color-scheme" onSubmit={ this.onSubmitForm.bind(this) }>
+      <form id="search-form" onSubmit={ this.onSubmitForm.bind(this) }>
         <span className="search-label" />
-        <Localized id="shotIndexPageSearchPlaceholder">
+        <Localized id="shotIndexPageSearchPlaceholder" attrs={{title: true}}>
           <input type="search" id="search" ref={searchInput => this.searchInput = searchInput} maxLength="100" placeholder="search my shots" defaultValue={this.state.defaultSearch} onChange={this.onChangeSearch.bind(this)} />
         </Localized>
-        <Localized id="shotIndexPageClearSearchButton">
+        <Localized id="shotIndexPageClearSearchButton" attrs={{title: true}}>
           <div className="clear-search" title="clear search" onClick={this.onClearSearch.bind(this)}></div>
         </Localized>
       </form>
@@ -313,13 +315,25 @@ class Card extends React.Component {
       imageUrl = this.props.staticLink("img/question-mark.svg");
     }
 
-    let neverExpireIndicator = null;
+    let favoriteIndicator = null;
     if (!shot.expireTime) {
-      if (this.props.hasFxa) {
-        neverExpireIndicator = <Localized id="shotIndexFavoriteIcon"><div className="favorite-shot" title=""></div></Localized>;
-      } else {
-        neverExpireIndicator = <Localized id="shotIndexNoExpirationSymbol"><div className="never-expires" title=""></div></Localized>;
-      }
+      favoriteIndicator = <Localized id="shotIndexFavoriteIcon" attrs={{title: true}}>
+          <div className={classnames("indicator fav-shot", {"inactive": !this.props.hasFxa})}
+            title=""></div>
+        </Localized>;
+    } else if (this.props.hasFxa) {
+      favoriteIndicator = <Localized id="shotIndexNonFavoriteIcon" attrs={{title: true}}>
+          <div className="indicator non-fav-shot" title=""></div>
+        </Localized>;
+    }
+
+    let syncedShotIndicator = null;
+    if (shot.isSynced) {
+      syncedShotIndicator = <Localized id="shotIndexSyncedShot" attrs={{title: true}}>
+        <div className="indicator synced-shot" title="">
+          <img src={this.props.staticLink("/static/img/icon-sync.svg")} />
+        </div>
+      </Localized>;
     }
 
     const deleteConfirmationClass = this.state.deletePanelOpen ? "panel-open" : "";
@@ -349,17 +363,20 @@ class Card extends React.Component {
           </div>
         </a>
         <div className="alt-actions-container">
-          <Localized id="shotPageDownloadShot">
+          <Localized id="shotPageDownloadShot" attrs={{title: true}}>
             <a className="button transparent download" href={ downloadUrl } onClick={ this.onClickDownload.bind(this) }
               title="Download the shot image" ref={downloadButton => this.downloadButton = downloadButton} />
           </Localized>
           <ShareButton setPanelState={this.setPanelState.bind(this)} abTests={this.props.abTests} clipUrl={imageUrl} shot={shot} isOwner={this.props.isOwner} staticLink={this.props.staticLink} isExtInstalled={this.props.isExtInstalled} />
           <DeleteShotButton
+            isIcon = {true}
             clickDeleteHandler={this.clickDeleteHandler.bind(this)}
             confirmDeleteHandler={this.confirmDeleteHandler.bind(this, shot)}
-            cancelDeleteHandler={this.cancelDeleteHandler.bind(this)} />
+            cancelDeleteHandler={this.cancelDeleteHandler.bind(this)}
+            staticLink={this.props.staticLink} />
         </div>
-        {neverExpireIndicator}
+        {favoriteIndicator}
+        {syncedShotIndicator}
       </div>
     );
   }

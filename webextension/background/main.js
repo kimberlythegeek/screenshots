@@ -71,7 +71,7 @@ this.main = (function() {
       if (!isLoaded) {
         sendEvent("start-shot", "site-request", {incognito: tab.incognito});
         setIconActive(true, tab.id);
-        selectorLoader.toggle(tab.id, false);
+        selectorLoader.toggle(tab.id, Promise.resolve(false));
       }
     });
   }
@@ -96,7 +96,7 @@ this.main = (function() {
           sendEvent("goto-myshots", "about-newtab", {incognito: tab.incognito});
         }));
         catcher.watchPromise(
-          auth.authHeaders()
+          auth.maybeLogin()
           .then(() => browser.tabs.update({url: backend + "/shots"})));
       } else {
         catcher.watchPromise(
@@ -189,7 +189,7 @@ this.main = (function() {
 
   communication.register("openMyShots", (sender) => {
     return catcher.watchPromise(
-      auth.authHeaders()
+      auth.maybeLogin()
       .then(() => browser.tabs.create({url: backend + "/shots"})));
   });
 
@@ -299,6 +299,11 @@ this.main = (function() {
     return catcher.watchPromise(browser.runtime.getPlatformInfo().then(platformInfo => {
       return platformInfo.os;
     }));
+  });
+
+  // This allows the web site show notifications through sitehelper.js
+  communication.register("showNotification", (sender, notification) => {
+    return browser.notifications.create(notification);
   });
 
   return exports;

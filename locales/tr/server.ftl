@@ -14,10 +14,14 @@ gSignIn = Giriş yap
 
 ## Header
 
-signInButton =
-    .aria-label = Giriş yap
-settingsButton =
-    .aria-label = Ayarlar
+buttonSettings =
+    .title = Ayarlar
+buttonSignIn =
+    .title = Giriş yap
+screenshotsLogo =
+    .title = Screenshots ana sayfası
+bannerMessage = Görüntülerinize tüm cihazlarınızdan ulaşmak ve favorilerinizi kalıcı olarak saklamak için giriş yapın veya kaydolun.
+bannerUpsell = { gScreenshotsDescription } <a>Firefox’u indir</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Koşullar
 footerLinkPrivacy = Gizlilik Bildirimi
+footerReportShot = Görüntüyü raporla
+    .title = Bu görüntüyü kötüye kullanım, spam veya diğer sorunlar için bildirin
 footerLinkFaqs = SSS
 footerLinkDMCA = Telif hakkı ihlali bildir
 footerLinkDiscourse = Görüş bildir
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Bu görüntüyü kalıcı olarak silmek istediğinizden 
 shotPageShareButton =
     .title = Paylaş
 shotPageCopy = Kopyala
+shotPageCopyButton =
+    .title = Resmi panoya kopyala
 shotPageCopied = Kopyalandı
 shotPageShareFacebook =
     .title = Facebook'ta paylaş
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Linke sahip olan herkes bu görüntüyü görebilir.
 shotPageCopyImageText =
     .label = Resim metnini kopyala
 shotPageConfirmDeletion = Bu görüntüyü kalıcı olarak silmek istediğinizden emin misiniz?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Hiçbir şey yapmazsanız bu görüntü { $timediff } kalıcı olarak silinecektir.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Hiçbir şey yapmazsanız bu görüntü <timediff></timediff> kalıcı olarak silinecektir.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = { $date } tarihine kadar geri yükle
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Bu görüntünün süresi dolmuştur.
 shotPageExpiredMessageDetails = Görüntünün alındığı sayfanın orijinali:
 shotPageDeleteButton =
     .title = Bu görüntüyü sil
-shotPageAbuseButton =
-    .title = Bu görüntüyü suistimal, spam ve diğer sorunlar nedeniyle rapor et
 shotPageDownloadShot =
     .title = İndir
 shotPageEditButton =
     .title = Bu resmi düzenle
 shotPagefavoriteButton =
     .title = Bu görüntüyü favorilerime ekle
+shotPageBackToHomeButton =
+    .title = Ana sayfa
+shotPageAllShotsButton =
+    .title = Tüm görüntüler
+shotPageAllShots = Tüm görüntüler
 shotPageDownload = İndir
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Çiz
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Favorilere ekle
+shotPageDelete = Sil
 shotPageScreenshotsDescription = Ekran görüntüsü almayı basitleştirdik. Firefox’tan çıkmadan ekran görüntüleri alabilir, kaydedebilir ve paylaşabilirsiniz.
-shotPageUpsellFirefox = Firefox’u hemen indir
 shotPageDMCAMessage = Üçüncü bir şahsın telif hakkı iddiası nedeniyle bu görüntü artık kullanılamaz.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Daha fazla bilgi almak isterseniz { $dmca } adresine e-posta gönderebilirsiniz.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 ay
 shotPageSaveExpiration = kaydet
 shotPageCancelExpiration = iptal et
 shotPageDoesNotExpire = silinmeyecek
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = { $timediff } silinecek
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = { $timediff } silindi
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = <timediff></timediff> silinecek
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = <timediff></timediff> silindi
 timeDiffJustNow = az önce
 timeDiffMinutesAgo = 1 dakika önce
 timeDiffHoursAgo = 1 saat önce
@@ -236,6 +251,13 @@ textToolCancelButton = İptal
 textToolInputPlaceholder =
     .placeholder = Merhaba
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Bir hata oluştu
+copyImageErrorMessage = Görüntü panoya kopyalanamadı.
+
 ## Settings Page
 
 settingsDisconnectButton = Bağlantıyı kes
@@ -262,13 +284,13 @@ shotIndexPageSearchResultsTitle = Ekran görüntülerim: { $searchTerm } aramas�
 shotIndexPageErrorRendering = Sayfa oluşturma hatası: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Görüntülerimde ara
-shotIndexPageSearchButton =
-    .title = Ara
 shotIndexPageNoShotsMessage = Kayıtlı görüntünüz yok.
 shotIndexPageNoShotsInvitation = Hadi, bir şeyler kaydedin.
 shotIndexPageLookingForShots = Görüntüleriniz aranıyor…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Aramanızla eşleşen bir görüntü bulamadık.
+shotIndexPageMyShotsButton =
+    .title = Görüntülerim
 shotIndexPageClearSearchButton =
     .title = Aramayı temizle
 shotIndexPageConfirmShotDelete = Bu görüntü silinsin mi?
@@ -276,17 +298,17 @@ shotIndexPagePreviousPage =
     .title = Önceki sayfa
 shotIndexPageNextPage =
     .title = Sonraki sayfa
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Bu görüntü zaman aşımına uğramaz
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Bu görüntü favorilerinizde olmadığı için silinecektir
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Bu görüntü favorilerinizde olduğu için zaman aşımına uğramayacak
+shotIndexSyncedShot =
+    .title = Görüntü başka bir cihazdan alınmış
 
 ## Delete Confirmation Dialog
 

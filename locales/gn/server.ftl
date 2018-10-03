@@ -14,10 +14,14 @@ gSignIn = Jeike
 
 ## Header
 
-signInButton =
-    .aria-label = Jeike
-settingsButton =
-    .aria-label = Tekopyahu
+buttonSettings =
+    .title = Ñemboheko
+buttonSignIn =
+    .title = Jeike
+screenshotsLogo =
+    .title = Screenshots kuatiarogue ñepyrũ
+bannerMessage = Emoñepyrũ tembiapo eike hag̃ua ne ra’angakuérape opaite mba’e’oka guive ha eñongatu umi erohoryvéva opa árape g̃uarãva.
+bannerUpsell = { gScreenshotsDescription } <a>Eguereko Firefox ko'ág̃a</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Jejapopy
 footerLinkPrivacy = Mombe'u ñeñomipy
+footerReportShot = Emomarandu japyhypy rehegua
+    .title = Emomarandu ko ta'anga imarãha, spam ha ambue apañuãi
 footerLinkFaqs = Porandu py'ỹi
 footerLinkDMCA = Emombe’u IP-pe oĩvaíva
 footerLinkDiscourse = Ñe'ẽte ñemondo
@@ -96,6 +102,8 @@ shotPageConfirmDelete = ¿Emboguesetépa ko japyhypy opa árape g̃uarã?
 shotPageShareButton =
     .title = Moherakuã
 shotPageCopy = Monguatia
+shotPageCopyButton =
+    .title = Embohasa ta'anga kuatiajokohápe
 shotPageCopied = Monguatiapyre
 shotPageShareFacebook =
     .title = Emoherakuã Facebook-pe
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Oimeraẽva juajuha ndive ikatukuaa ohecha ko japyhypy.
 shotPageCopyImageText =
     .label = Emonguatia ta’anga moñe’ẽrã
 shotPageConfirmDeletion = ¿Emboguesépa ko japyhypy opa árape g̃uarã?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Nderejapóiramo mba’eve, pe japyhypy oguéta opa árape g̃uarã { $timediff } pe.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Nderejapóiramo mba’eve, pe japyhypy oguéta opa árape g̃uarã <timediff></timediff> pe.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = embojevy { $date } peve
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Ko japyhypy ndoikovéima.
 shotPageExpiredMessageDetails = Kóva ha’e kuatiarogue oñemoheñói hague:
 shotPageDeleteButton =
     .title = Embogue ko japyhypy
-shotPageAbuseButton =
-    .title = Emomarandu ko japyhypy oĩvaiha, spam térã ambue apañuãi.
 shotPageDownloadShot =
     .title = Mboguejy
 shotPageEditButton =
     .title = Embosako’i ko ta’anga
 shotPagefavoriteButton =
     .title = Emongurusu ko japyhypyre techaramovévarõ
+shotPageBackToHomeButton =
+    .title = Kuatiarogue ñepyrũ
+shotPageAllShotsButton =
+    .title = Opaite japyhypy
+shotPageAllShots = Opaite japyhypy
 shotPageDownload = Mboguejy
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Moha'anga
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Guerohoryvéva
+shotPageDelete = Mboguete
 shotPageScreenshotsDescription = Japyhypy mba'erechaha jejapónteva. Eñohẽ, eñongatu ha emoherakuã mba'erechaha japyhypy eheja'ỹre Firefox.
-shotPageUpsellFirefox = Eguereko Firefox ko'ág̃a
 shotPageDMCAMessage = Ko japyhypy ndojepurukuaái peteĩ tapicha akaguai rupi ha'eha ijára.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Eguerahauka peteĩ ñanduti veve { $dmca }-pe ejerure hag̃ua maranduve.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 jasy
 shotPageSaveExpiration = ñongatu
 shotPageCancelExpiration = heja
 shotPageDoesNotExpire = ndopái gueteri
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = opáma { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = opáma { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = opáma <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = opáma <timediff></timediff>
 timeDiffJustNow = ko'ag̃aite
 timeDiffMinutesAgo =
     { $number ->
@@ -260,6 +275,13 @@ textToolCancelButton = Heja
 textToolInputPlaceholder =
     .placeholder = Mba'éichapa
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Oĩ osẽvaíva
+copyImageErrorMessage = Ndaikatúi embohasa nde japyhykue kuatiajokohápe.
+
 ## Settings Page
 
 settingsDisconnectButton = Ñesẽte
@@ -286,13 +308,13 @@ shotIndexPageSearchResultsTitle = Che japyhypy: eheka { $searchTerm }
 shotIndexPageErrorRendering = Jejavy emoha’angávo kuatiarogue: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Ahekáta che japyhypy
-shotIndexPageSearchButton =
-    .title = Heka
 shotIndexPageNoShotsMessage = Ndaipóri japyhypy ñongatupyre.
 shotIndexPageNoShotsInvitation = Eku’éna, emoheñóina peteĩ jepe.
 shotIndexPageLookingForShots = Ohekahína nde japyhypy…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Ndaikatúi rojuhu japyhypy ojojoguáva rehekáva ndive.
+shotIndexPageMyShotsButton =
+    .title = Che japyhypy
 shotIndexPageClearSearchButton =
     .title = Embogue jehekakue
 shotIndexPageConfirmShotDelete = Embogue ko japyhypy
@@ -300,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Kuatiarogue mboyveguáva
 shotIndexPageNextPage =
     .title = Kuatiarogue upeiguáva
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = ∞
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Kóva ndaha'éi japyhypy eguerohoryvéva ha oguerekóta hi'arange paha
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Kóva japyhypyre techaramovéva ha oñembyai'ỹva
+shotIndexSyncedShot =
+    .title = Jejapyhy ojejapopyre ambue mba’e’okápe
 
 ## Delete Confirmation Dialog
 

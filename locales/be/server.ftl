@@ -14,10 +14,14 @@ gSignIn = Увайсці
 
 ## Header
 
-signInButton =
-    .aria-label = Увайсці
-settingsButton =
-    .aria-label = Параметры
+buttonSettings =
+    .title = Налады
+buttonSignIn =
+    .title = Увайсці
+screenshotsLogo =
+    .title = Хатняя старонка Screenshots
+bannerMessage = Увайдзіце або зарэгіструйцеся, каб мець доступ да вашых здымкаў з розных прылад і захоўваць упадабаныя заўсёды.
+bannerUpsell = { gScreenshotsDescription } <a>Атрымаць Firefox</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Умовы выкарыстання
 footerLinkPrivacy = Паведамленне аб прыватнасці
+footerReportShot = Паведаміць пра здымак
+    .title = Паведаміць, што гэтым здымкам злоўжываюць, спамяць, ці яшчэ што
 footerLinkFaqs = Пытанні і адказы
 footerLinkDMCA = Паведаміць аб парушэнні аўтарскіх правоў
 footerLinkDiscourse = Даць водгук
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Вы сапраўды хочаце назаўсёды в
 shotPageShareButton =
     .title = Падзяліцца
 shotPageCopy = Капіяваць
+shotPageCopyButton =
+    .title = Капіяваць відарыс у буфер абмену
 shotPageCopied = Скапіявана
 shotPageShareFacebook =
     .title = Падзяліцца на Фэйсбуку
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Любы, хто мае гэту спасылку, мо
 shotPageCopyImageText =
     .label = Капіяваць тэкст выявы
 shotPageConfirmDeletion = Вы сапраўды хочаце назаўсёды выдаліць гэты здымак?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Калі вы нічога не будзеце рабіць, здымак будзе выдалены назаўсёды { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Калі вы нічога не будзеце рабіць, здымак будзе выдалены назаўсёды <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = працягнуты да { $date }
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Гэты здымак пратэрмінаваны.
 shotPageExpiredMessageDetails = Старонка, з якой створаны гэты здымак:
 shotPageDeleteButton =
     .title = Выдаліць гэты здымак
-shotPageAbuseButton =
-    .title = Гэты здымак з'яўляецца абразлівым, спамам або мае іншыя праблемы
 shotPageDownloadShot =
     .title = Сцягнуць
 shotPageEditButton =
     .title = Рэдагаваць гэту выяву
 shotPagefavoriteButton =
     .title = Дадаць гэты здымак у абраныя
+shotPageBackToHomeButton =
+    .title = Хатняя старонка
+shotPageAllShotsButton =
+    .title = Усе здымкі
+shotPageAllShots = Усе здымкі
 shotPageDownload = Сцягнуць
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Рысаваць
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Упадабаць
+shotPageDelete = Выдаліць
 shotPageScreenshotsDescription = Рабіць скрыншоты стала прасцей. Рабіце, захоўвайце і дзяліцеся скрыншотамі, не пакідаючы Firefox.
-shotPageUpsellFirefox = Атрымаць Firefox зараз
 shotPageDMCAMessage = Гэты здымак больш недаступны з-за парушэння аўтарскіх правоў трэцяга боку.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Калі ласка, напішыце на { $dmca }, каб запытаць дадатковую інфармацыю.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 месяц
 shotPageSaveExpiration = захаваць
 shotPageCancelExpiration = адмяніць
 shotPageDoesNotExpire = неабмежаваны тэрмін
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = тэрмін захоўвання мінае { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = тэрмін захоўвання скончыўся { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = тэрмін захоўвання мінае <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = тэрмін захоўвання скончыўся <timediff></timediff>
 timeDiffJustNow = толькі што
 timeDiffMinutesAgo =
     { $number ->
@@ -266,6 +281,13 @@ textToolCancelButton = Скасаваць
 textToolInputPlaceholder =
     .placeholder = Вітаем
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Нешта пайшло не так
+copyImageErrorMessage = Немагчыма скапіраваць ваш здымак у буфер абмену.
+
 ## Settings Page
 
 settingsDisconnectButton = Адлучыцца
@@ -292,13 +314,13 @@ shotIndexPageSearchResultsTitle = Мае здымкі: пошук { $searchTerm 
 shotIndexPageErrorRendering = Памылка рэндэрынгу старонкі: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Пошук маіх здымкаў
-shotIndexPageSearchButton =
-    .title = Пошук
 shotIndexPageNoShotsMessage = Няма захаваных здымкаў.
 shotIndexPageNoShotsInvitation = Давайце, стварыце некалькі.
 shotIndexPageLookingForShots = Пошук вашых здымкаў…
 shotIndexPageNoSearchResultsIntro = Хмм
 shotIndexPageNoSearchResults = Мы не можам знайсці здымкі па вашаму запыту.
+shotIndexPageMyShotsButton =
+    .title = Мае здымкі
 shotIndexPageClearSearchButton =
     .title = Ачысціць пошук
 shotIndexPageConfirmShotDelete = Выдаліць гэты здымак?
@@ -306,17 +328,17 @@ shotIndexPagePreviousPage =
     .title = Папярэдняя старонка
 shotIndexPageNextPage =
     .title = Наступная старонка
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Гэты здымак не пратэрмінаваны
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Гэта не ўпадабаны здымак, яго тэрмін захоўвання скончыцца
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Гэта абраны здымак, ён мае неабмежаваны тэрмін
+shotIndexSyncedShot =
+    .title = Здымак зроблены на іншай прыладзе
 
 ## Delete Confirmation Dialog
 

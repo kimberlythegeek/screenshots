@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Anmelden
 screenshotsLogo =
     .title = Startseite von Screenshots
+bannerMessage = Melden Sie sich an oder registrieren Sie sich, um geräteübergreifend Ihre Bildschirmfotos anzusehen und Ihre Favoriten dauerhaft zu speichern.
+bannerUpsell = { gScreenshotsDescription } <a>Jetzt Firefox herunterladen</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Soll dieses Bildschirmfoto wirklich dauerhaft gelöscht 
 shotPageShareButton =
     .title = Teilen
 shotPageCopy = Kopieren
+shotPageCopyButton =
+    .title = Bildschirmfoto in Zwischenablage kopieren
 shotPageCopied = Kopiert
 shotPageShareFacebook =
     .title = Auf Facebook teilen
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Jeder mit dem Link kann das Bildschirmfoto ansehen.
 shotPageCopyImageText =
     .label = Grafiktext kopieren
 shotPageConfirmDeletion = Soll dieses Bildschirmfoto wirklich dauerhaft gelöscht werden?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Wenn Du nichts tust, wird dieses Bildschirmfoto automatisch { $timediff } gelöscht.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Wenn Du nichts tust, wird dieses Bildschirmfoto automatisch <timediff></timediff> gelöscht.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = Wiederherstellen bis { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Zeichnen
 shotPageFavorite = Als Favorit speichern
 shotPageDelete = Löschen
 shotPageScreenshotsDescription = Bildschirmfotos einfach machen, speichern und teilen – ohne Firefox zu verlassen.
-shotPageUpsellFirefox = Hole Dir jetzt Firefox
 shotPageDMCAMessage = Dieses Bildschirmfoto ist aufgrund von Urheberrechtsansprüchen von Dritten nicht mehr verfügbar.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Weitere Informationen erhälst Du per E-Mail an { $dmca }.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = Ein Monat
 shotPageSaveExpiration = speichern
 shotPageCancelExpiration = Abbrechen
 shotPageDoesNotExpire = Läuft nicht ab
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = Läuft ab { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = Lief ab { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = Läuft ab <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = Lief ab <timediff></timediff>
 timeDiffJustNow = gerade eben
 timeDiffMinutesAgo =
     { $number ->
@@ -272,6 +275,13 @@ textToolCancelButton = Abbrechen
 textToolInputPlaceholder =
     .placeholder = Hallo
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Irgendetwas ist schiefgegangen
+copyImageErrorMessage = Ihr Bildschirmfoto konnte nicht in die Zwischenablage kopiert werden.
+
 ## Settings Page
 
 settingsDisconnectButton = Verbindung trennen
@@ -298,8 +308,6 @@ shotIndexPageSearchResultsTitle = Meine Bildschirmfotos: Suchen nach { $searchTe
 shotIndexPageErrorRendering = Fehler beim Darstellen der Seite: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Meine Bildschirmfotos durchsuchen
-shotIndexPageSearchButton =
-    .title = Suchen
 shotIndexPageNoShotsMessage = Keine gespeicherten Bildschirmfotos.
 shotIndexPageNoShotsInvitation = Los, erstellen Sie welche.
 shotIndexPageLookingForShots = Suchen nach Ihren Bildschirmfotos…
@@ -314,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Vorherige Seite
 shotIndexPageNextPage =
     .title = Nächste Seite
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Dieses Bildschirmfoto läuft nicht ab
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Dieses Bildschirmfoto ist kein Favorit, daher läuft es ab
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Dieses Bildschirmfoto ist ein Favorit und läuft nicht ab
+shotIndexSyncedShot =
+    .title = Auf anderem Gerät aufgenommenes Bildschirmfoto
 
 ## Delete Confirmation Dialog
 

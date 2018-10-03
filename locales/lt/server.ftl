@@ -14,17 +14,23 @@ gSignIn = Prisijungti
 
 ## Header
 
-signInButton =
-    .aria-label = Prisijungti
-settingsButton =
-    .aria-label = Nuostatos
+buttonSettings =
+    .title = Nuostatos
+buttonSignIn =
+    .title = Prisijungti
+screenshotsLogo =
+    .title = Ekranų nuotraukų pradžia
+bannerMessage = Prisijunkite, norėdami matyti savo nuotraukas visuose įrenginiuose ir amžiams išsaugoti mėgstamiausias.
+bannerUpsell = { gScreenshotsDescription } <a>Parsisiųskite „Firefox“</a>
 
 ## Footer
 
 # Note: link text for a link to mozilla.org
 footerLinkMozilla = Mozilla
 footerLinkTerms = Sąlygos
-footerLinkPrivacy = Privatumo nuostatai
+footerLinkPrivacy = Privatumo pranešimas
+footerReportShot = Pranešti apie nuotrauką
+    .title = Pranešti apie šią nuotrauką dėl išnaudojimo, brukalų, ar kitų problemų
 footerLinkFaqs = Dažni klausimai
 footerLinkDMCA = Pranešti apie intelektinės nuosavybės pažeidimą
 footerLinkDiscourse = Pateikti atsiliepimą
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Ar tikrai norite visam laikui ištrinti šią nuotrauką
 shotPageShareButton =
     .title = Dalintis
 shotPageCopy = Kopijuoti
+shotPageCopyButton =
+    .title = Kopijuoti vaizdą į iškarpinę
 shotPageCopied = Nukopijuota
 shotPageShareFacebook =
     .title = Dalintis per „Facebook“
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Bet kas, turintis saitą, galės peržiūrėti šią nu
 shotPageCopyImageText =
     .label = Kopijuoti paveikslo tekstą
 shotPageConfirmDeletion = Ar tikrai norite visam laikui ištrinti šią nuotrauką?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Jei nieko nedarysite, ši nuotrauka bus ištrinta visam laikui { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Jei nieko nedarysite, ši nuotrauka bus ištrinta visam laikui <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = atkurti iki { $date }
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Ši nuotrauka baigė galioti.
 shotPageExpiredMessageDetails = Štai tinklalapis, iš kurio jis buvo sukurtas:
 shotPageDeleteButton =
     .title = Ištrinti šią nuotrauką
-shotPageAbuseButton =
-    .title = Pranešti apie išnaudojimą, nepageidaujamą informaciją arba kitas šios nuotraukos problemas
 shotPageDownloadShot =
     .title = Atsisiųsti
 shotPageEditButton =
     .title = Redaguoti paveikslą
 shotPagefavoriteButton =
     .title = Pažymėti kaip mėgstamą
+shotPageBackToHomeButton =
+    .title = Pradžios tinklalapis
+shotPageAllShotsButton =
+    .title = Visos nuotraukos
+shotPageAllShots = Visos nuotraukos
 shotPageDownload = Atsisiųsti
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Piešti
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Mėgti
+shotPageDelete = Šalinti
 shotPageScreenshotsDescription = Ekrano nuotraukos paprastai. Darykite, saugokite ir dalinkitės ekrano nuotraukomis nepalikdami „Firefox“.
-shotPageUpsellFirefox = Gauti „Firefox“ dabar
 shotPageDMCAMessage = Ši nuotrauka nepasiekiama dėl trečiųjų šalių intelektinės nuosavybės teisių.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Prašome susisiekti su { $dmca } dėl daugiau informacijos.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 mėnesį
 shotPageSaveExpiration = įrašyti
 shotPageCancelExpiration = atsisakyti
 shotPageDoesNotExpire = nesibaigia
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = baigs galioti { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = baigė galioti { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = baigs galioti <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = baigė galioti <timediff></timediff>
 timeDiffJustNow = ką tik
 timeDiffMinutesAgo =
     { $number ->
@@ -266,6 +281,13 @@ textToolCancelButton = Atsisakyti
 textToolInputPlaceholder =
     .placeholder = Labas
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Atsitiko kažkas negero
+copyImageErrorMessage = Jūsų nuotraukos nepavyko nukopijuoti į iškarpinę.
+
 ## Settings Page
 
 settingsDisconnectButton = Atsijungti
@@ -292,13 +314,13 @@ shotIndexPageSearchResultsTitle = Mano kardai: ieškoti { $searchTerm }
 shotIndexPageErrorRendering = Klaida atvaizduojant tinklalapį: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Ieškoti mano nuotraukų
-shotIndexPageSearchButton =
-    .title = Ieškoti
 shotIndexPageNoShotsMessage = Nėra įrašytų nuotraukų.
 shotIndexPageNoShotsInvitation = Nagi, sukurkite keletą.
 shotIndexPageLookingForShots = Ieškome jūsų nuotraukų…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Negalime rasti jokių nuotraukų, atitinkančių jūsų paiešką.
+shotIndexPageMyShotsButton =
+    .title = Mano nuotraukos
 shotIndexPageClearSearchButton =
     .title = Išvalyti paiešką
 shotIndexPageConfirmShotDelete = Ištrinti šią nuotrauką?
@@ -306,17 +328,17 @@ shotIndexPagePreviousPage =
     .title = Ankstesnis puslapis
 shotIndexPageNextPage =
     .title = Kitas puslapis
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Ši nuotrauka galioja neribotą laiką
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Tai nėra pamėgta nuotrauka, tad vėliau pradings
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Ši nuotrauka mėgstama, ir niekur nedings
+shotIndexSyncedShot =
+    .title = Nuotrauka padaryta kitame įrenginyje
 
 ## Delete Confirmation Dialog
 

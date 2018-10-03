@@ -18,6 +18,10 @@ buttonSettings =
     .title = Nastavitve
 buttonSignIn =
     .title = Prijava
+screenshotsLogo =
+    .title = Domača stran Screenshots
+bannerMessage = Prijavite ali registrirajte se, da boste lahko dostopali do svojih posnetkov z več naprav in priljubljene shranili za vedno.
+bannerUpsell = { gScreenshotsDescription }<a>Prenesite Firefox zdaj</a>
 
 ## Footer
 
@@ -98,6 +102,8 @@ shotPageConfirmDelete = Ali ste prepričani, da želite trajno izbrisati ta posn
 shotPageShareButton =
     .title = Deli
 shotPageCopy = Kopiraj
+shotPageCopyButton =
+    .title = Kopiraj sliko v odložišče
 shotPageCopied = Kopirano
 shotPageShareFacebook =
     .title = Deli na Facebooku
@@ -112,8 +118,8 @@ shotPagePrivacyMessage = Kdorkoli s povezavo si lahko ogleda ta posnetek.
 shotPageCopyImageText =
     .label = Kopiraj besedilo slike
 shotPageConfirmDeletion = Ali ste prepričani, da želite trajno izbrisati ta posnetek?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Če ne storite ničesar, bo ta posnetek trajno izbrisan { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Če ne storite ničesar, bo ta posnetek trajno izbrisan <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = obnovi do { $date }
@@ -134,9 +140,12 @@ shotPageAllShotsButton =
     .title = Vsi posnetki
 shotPageAllShots = Vsi posnetki
 shotPageDownload = Prenesi
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Riši
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Dodaj med priljubljene
 shotPageDelete = Izbriši
 shotPageScreenshotsDescription = Poenostavljeni posnetki zaslona. Zajemite, shranite in delite zaslonske posnetke, ne da bi zapustili Firefox.
-shotPageUpsellFirefox = Prenesite Firefox zdaj
 shotPageDMCAMessage = Ta posnetek ni več na voljo zaradi zahtev intelektualne lastnine tretje osebe.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Za več informacij pošljite e-pošto na { $dmca }
@@ -160,10 +169,10 @@ shotPageKeepOneMonth = 1 mesec
 shotPageSaveExpiration = shrani
 shotPageCancelExpiration = prekliči
 shotPageDoesNotExpire = ne poteče
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = poteče { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = poteklo { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = poteče <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = poteklo <timediff></timediff>
 timeDiffJustNow = zdaj
 timeDiffMinutesAgo =
     { $number ->
@@ -278,6 +287,13 @@ textToolCancelButton = Prekliči
 textToolInputPlaceholder =
     .placeholder = Zdravo
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Prišlo je do napake
+copyImageErrorMessage = Posnetka ni bilo mogoče kopirati v odložišče.
+
 ## Settings Page
 
 settingsDisconnectButton = Prekini povezavo
@@ -304,8 +320,6 @@ shotIndexPageSearchResultsTitle = Moji posnetki: išči { $searchTerm }
 shotIndexPageErrorRendering = Napaka pri izrisovanju strani: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Iskanje mojih posnetkov
-shotIndexPageSearchButton =
-    .title = Išči
 shotIndexPageNoShotsMessage = Ni shranjenih posnetkov.
 shotIndexPageNoShotsInvitation = Kar pogumno, zajemite jih nekaj.
 shotIndexPageLookingForShots = Iskanje vaših posnetkov …
@@ -320,17 +334,17 @@ shotIndexPagePreviousPage =
     .title = Prejšnja stran
 shotIndexPageNextPage =
     .title = Naslednja stran
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Ta posnetek ne poteče
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Ta posnetek ni med priljubljenimi in bo pretekel
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Ta posnetek je med priljubljenimi in ne preteče
+shotIndexSyncedShot =
+    .title = Posnetek zajet na drugi napravi
 
 ## Delete Confirmation Dialog
 

@@ -20,6 +20,8 @@ buttonSignIn =
     .title = შესვლა
 screenshotsLogo =
     .title = Screenshots მთავარი
+bannerMessage = შედით ან შექმენით ანგარიში თქვენს გადაღებულ სურათებთან წვდომის მისაღებად სხვადასხვა მოწყობილობებიდან და რჩეულების სამუდამოდ შესანახად.
+bannerUpsell = { gScreenshotsDescription } <a>გადმოწერეთ Firefox ახლავე</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = ნამდვილად გსურთ ამ ს�
 shotPageShareButton =
     .title = გაზიარება
 shotPageCopy = დაკოპირება
+shotPageCopyButton =
+    .title = სურათის დაკოპირება
 shotPageCopied = დაკოპირებულია
 shotPageShareFacebook =
     .title = გაზიარება Facebook-ით
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = ამ ბმულის საშუალები�
 shotPageCopyImageText =
     .label = სურათის ტექსტის დაკოპირება
 shotPageConfirmDeletion = ნამდვილად გსურთ ამ სურათის სამუდამოდ წაშლა?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = თუ არაფერს მოიმოქმედებთ, ეს სურათი სამუდამოდ წაიშლება { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = თუ არაფერს მოიმოქმედებთ, ეს სურათი სამუდამოდ წაიშლება <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = აღდგენა { $date }-მდე
@@ -142,7 +146,6 @@ shotPageDraw = დახატვა
 shotPageFavorite = რჩეული
 shotPageDelete = წაშლა
 shotPageScreenshotsDescription = ეკრანისთვის სურათის გადაღება უმარტივესია. გადაუღეთ, შეინახეთ და გააზიარეთ სურათები Firefox-ის დატოვების გარეშე.
-shotPageUpsellFirefox = გადმოწერეთ Firefox ახლავე
 shotPageDMCAMessage = სურათი წაიშალა მესამე მხარის მოთხოვნით, საავტორო უფლების დარღვევის საფუძველზე.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = გთხოვთ მოგვწეროთ მისამართზე { $dmca } დამატებითი ინფორმაციისთვის.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 თვით
 shotPageSaveExpiration = შენახვა
 shotPageCancelExpiration = გაუქმება
 shotPageDoesNotExpire = უვადოა
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = ვადა გაუვა { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = ვადა გაუვიდა { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = ვადა გაუვა <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = ვადა გაუვიდა <timediff></timediff>
 timeDiffJustNow = ახლახანს
 timeDiffMinutesAgo = 1 წუთის წინ
 timeDiffHoursAgo =
@@ -268,6 +271,13 @@ textToolCancelButton = გაუქმება
 textToolInputPlaceholder =
     .placeholder = გამარჯობა
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = რაღაც ხარვეზი წარმოიქმნა
+copyImageErrorMessage = სურათის დაკოპირება ვერ მოხერხდა.
+
 ## Settings Page
 
 settingsDisconnectButton = კავშირის შეწყვეტა
@@ -294,8 +304,6 @@ shotIndexPageSearchResultsTitle = ჩემი გადაღებულებ
 shotIndexPageErrorRendering = შეცდომა გვერდის დამუშავებისას: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = ჩემი გადაღებულების მონახვა
-shotIndexPageSearchButton =
-    .title = ძიება
 shotIndexPageNoShotsMessage = გადაღებული სურათები არ არის
 shotIndexPageNoShotsInvitation = მიდით, შექმენით რამდენიმე.
 shotIndexPageLookingForShots = სურათების მოძიება...
@@ -310,17 +318,17 @@ shotIndexPagePreviousPage =
     .title = წინა გვერდი
 shotIndexPageNextPage =
     .title = მომდევნო გვერდი
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = ეს სურათი უვადოა
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = ეს არ წარმოადგენს თქვენს რჩეულ გადაღებულ სურათს, შესაბამისად ვადა გაუვა.
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = ეს სურათი რჩეულია და არასდროს გაუვა ვადა
+shotIndexSyncedShot =
+    .title = სხვა მოწყობილობაზეა გადაღებული
 
 ## Delete Confirmation Dialog
 

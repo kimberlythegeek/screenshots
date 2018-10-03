@@ -20,6 +20,7 @@ buttonSignIn =
     .title = Kirjaudu sisään
 screenshotsLogo =
     .title = Screenshots-etusivu
+bannerUpsell = { gScreenshotsDescription } <a>Hanki Firefox nyt</a>
 
 ## Footer
 
@@ -27,6 +28,8 @@ screenshotsLogo =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Käyttöehdot
 footerLinkPrivacy = Tietosuojakäytäntö
+footerReportShot = Ilmoita kaappaus
+    .title = Ilmoita tämä kaappaus väärinkäytön, roskauksen tai muun ongelman takia
 footerLinkFaqs = UKK
 footerLinkDMCA = Ilmoita immateriaalioikeuksien loukkauksesta
 footerLinkDiscourse = Anna palautetta
@@ -98,6 +101,8 @@ shotPageConfirmDelete = Haluatko varmasti poistaa tämän kaappauksen pysyvästi
 shotPageShareButton =
     .title = Jaa
 shotPageCopy = Kopioi
+shotPageCopyButton =
+    .title = Kopioi kuva leikepöydälle
 shotPageCopied = Kopioitu
 shotPageShareFacebook =
     .title = Jaa Facebookissa
@@ -112,8 +117,8 @@ shotPagePrivacyMessage = Kaikki linkin haltijat voivat katsoa tätä kaappausta.
 shotPageCopyImageText =
     .label = Kopioi kuvateksti
 shotPageConfirmDeletion = Haluatko varmasti poistaa tämän kaappauksen pysyvästi?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Jos et tee mitään, kaappaus poistetaan pysyvästi { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Jos et tee mitään, kaappaus poistetaan pysyvästi <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = palauta { $date } saakka
@@ -140,7 +145,6 @@ shotPageDraw = Piirrä
 shotPageFavorite = Merkitse suosikiksi
 shotPageDelete = Poista
 shotPageScreenshotsDescription = Kuvakaappaukset helposti. Ota, tallenna ja jaa kuvakaappauksia poistumatta Firefoxista.
-shotPageUpsellFirefox = Lataa Firefox nyt
 shotPageDMCAMessage = Tämä kaappaus ei ole enää saatavissa, koska kolmas osapuoli teki immateriaalioikeusvaatimuksen.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Pyydä lisätietoja lähettämällä sähköpostia osoitteeseen { $dmca }.
@@ -164,10 +168,10 @@ shotPageKeepOneMonth = 1 kuukausi
 shotPageSaveExpiration = tallenna
 shotPageCancelExpiration = peruuta
 shotPageDoesNotExpire = ei vanhene
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = vanhenee { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = vanheni { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = vanhenee <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = vanheni <timediff></timediff>
 timeDiffJustNow = juuri nyt
 timeDiffMinutesAgo =
     { $number ->
@@ -270,6 +274,13 @@ textToolCancelButton = Peruuta
 textToolInputPlaceholder =
     .placeholder = Hei
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Jokin meni pieleen
+copyImageErrorMessage = Kuvakaappausta ei voitu kopioida leikepöydälle.
+
 ## Settings Page
 
 settingsDisconnectButton = Katkaise yhteys
@@ -296,8 +307,6 @@ shotIndexPageSearchResultsTitle = Omat kaappaukset: haku sanoilla { $searchTerm 
 shotIndexPageErrorRendering = Sivun näyttäminen epäonnistui: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Hae kaappauksista
-shotIndexPageSearchButton =
-    .title = Hae
 shotIndexPageNoShotsMessage = Ei tallennettuja kaappauksia.
 shotIndexPageNoShotsInvitation = Ryhdytäänpä luomaan sellaisia.
 shotIndexPageLookingForShots = Etsitään kaappauksia…
@@ -312,17 +321,17 @@ shotIndexPagePreviousPage =
     .title = Edellinen sivu
 shotIndexPageNextPage =
     .title = Seuraava sivu
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Tämä kaappaus ei vanhene
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Tämä ei ole suosikkikaappaus, se vanhenee
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Tämä on suosikkikaappaus eikä vanhene
+shotIndexSyncedShot =
+    .title = Kuvakaappaus otettu toisella laitteella
 
 ## Delete Confirmation Dialog
 

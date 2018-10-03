@@ -110,8 +110,8 @@ shotPagePrivacyMessage = أي شخص لديه الرابط يمكنه رؤية �
 shotPageCopyImageText =
     .label = انسخ نص الصورة
 shotPageConfirmDeletion = أمتأكد أنك تريد حذف هذه اللقطة إلى الأبد؟
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = إذا لم تفعل أي شيء، ستُحذف هذه اللقطة دون رجعة { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = إذا لم تفعل أي شيء، ستُحذف هذه اللقطة دون رجعة <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = استعدها حتى { $date }
@@ -128,7 +128,12 @@ shotPagefavoriteButton =
     .title = أضِف اللقطة إلى المفضلة
 shotPageBackToHomeButton =
     .title = صفحة البداية
+shotPageAllShotsButton =
+    .title = كل اللقطات
+shotPageAllShots = كل اللقطات
 shotPageDownload = نزّل
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = المفضّلة
 shotPageScreenshotsDescription = لقطات الشاشة صارت أسهل. خذ لقطات الشاشة و احفظها و شاركها دون مغادرة فَيرفُكس.
 shotPageUpsellFirefox = نزّل فَيَرفُكس الآن
 shotPageDMCAMessage = لم تعد هذه اللقطة متاحة نظرًا لادعاء الملكية الفكرية لطرف آخر.
@@ -154,10 +159,10 @@ shotPageKeepOneMonth = شهر واحد
 shotPageSaveExpiration = احفظ
 shotPageCancelExpiration = ألغِ
 shotPageDoesNotExpire = لا تنتهي صلاحيتها
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = تنتهي { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = انتهت { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = تنتهي <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = انتهت <timediff></timediff>
 timeDiffJustNow = للتو
 timeDiffMinutesAgo =
     { $number ->
@@ -315,6 +320,8 @@ shotIndexPageNoShotsInvitation = حرّك نفسك والتقط شيئا.
 shotIndexPageLookingForShots = يبحث عن لقطاتك…
 shotIndexPageNoSearchResultsIntro = إم
 shotIndexPageNoSearchResults = تعذّر العثور على أي لقطة تطابق معايير البحث.
+shotIndexPageMyShotsButton =
+    .title = لقطاتي
 shotIndexPageClearSearchButton =
     .title = امسح البحث
 shotIndexPageConfirmShotDelete = أنحذف هذه اللقطة؟
@@ -322,13 +329,7 @@ shotIndexPagePreviousPage =
     .title = الصفحة السابقة
 shotIndexPageNextPage =
     .title = الصفحة التالية
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = لا تنتهي صلاحية اللقطة
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =

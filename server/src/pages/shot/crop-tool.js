@@ -123,11 +123,11 @@ exports.CropTool = class CropTool extends React.Component {
   }
 
   renderToolbar() {
-    return <div className="editor-header default-color-scheme"><div className="annotation-tools">
-      <Localized id="annotationCropConfirmButton">
+    return <div className="editor-header"><div className="annotation-tools">
+      <Localized id="annotationCropConfirmButton" attrs={{title: true}}>
         <button className={`button transparent confirm-crop`} id="confirm-crop" onClick={this.onClickConfirm.bind(this)} title="Confirm selection">Crop</button>
       </Localized>
-      <Localized id="annotationCropCancelButton">
+      <Localized id="annotationCropCancelButton" attrs={{title: true}}>
         <button className={`button transparent cancel-crop`} id="cancel-crop" onClick={this.onClickCancel.bind(this)} title="Cancel selection">Cancel</button>
       </Localized>
     </div></div>;

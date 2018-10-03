@@ -9,6 +9,19 @@ gHomeLink = Avaleht
 gNoShots =
     .alt = Pilte ei leitud
 gScreenshotsDescription = Ekraanipildid lihtsalt. Tee, salvesta ja jaga ekraanipilte Firefoxist lahkumata.
+gSettings = Sätted
+gSignIn = Logi sisse
+
+## Header
+
+buttonSettings =
+    .title = Sätted
+buttonSignIn =
+    .title = Logi sisse
+screenshotsLogo =
+    .title = Avaleht
+bannerMessage = Logi sisse või registreeru kasutajaks, et pääseda ligi ekraanipiltidele kõigist oma seadmetest ning salvestada lemmikud jäädavalt.
+bannerUpsell = { gScreenshotsDescription } <a>Hangi Firefox</a>
 
 ## Footer
 
@@ -16,6 +29,8 @@ gScreenshotsDescription = Ekraanipildid lihtsalt. Tee, salvesta ja jaga ekraanip
 footerLinkMozilla = Mozilla
 footerLinkTerms = Kasutustingimused
 footerLinkPrivacy = Privaatsuspoliitika
+footerReportShot = Raporteeri ekraanipildist
+    .title = Anna teada väärkasutatud, spämmivast või muid probleeme sisaldavat ekraanipildist
 footerLinkFaqs = KKK
 footerLinkDMCA = Intellektuaalomandi rikkumisest teatamine
 footerLinkDiscourse = Tagasiside andmine
@@ -38,7 +53,6 @@ homePageButtonMyShots = Minu piltide juurde
 homePageTeaser = Varsti tulekul…
 homePageDownloadFirefoxTitle = Firefox
 homePageDownloadFirefoxSubTitle = Tasuta allalaadimine
-homePageGetStarted = Alustamine
 # Note: do not translate 'Firefox Screenshots' when translating this string
 homePageHowScreenshotsWorks = Kuidas Firefox Screenshots töötab
 homePageGetStartedTitle = Alustamine
@@ -88,6 +102,8 @@ shotPageConfirmDelete = Kas oled kindel, et soovid pildi jäädavalt kustutada?
 shotPageShareButton =
     .title = Jaga
 shotPageCopy = Kopeeri
+shotPageCopyButton =
+    .title = Kopeeri pilt vahemällu
 shotPageCopied = Kopeeritud
 shotPageShareFacebook =
     .title = Jaga Facebookis
@@ -102,8 +118,8 @@ shotPagePrivacyMessage = Kes tahes saab linki teades seda pilti vaadata.
 shotPageCopyImageText =
     .label = Kopeeri pildi tekst
 shotPageConfirmDeletion = Kas oled kindel, et soovid selle pildi jäädavalt kustutada?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Kui sa midagi ei tee, siis kustutatakse see pilt jäädavalt { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Kui sa midagi ei tee, siis kustutatakse see pilt jäädavalt <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = taasta kuni { $date }
@@ -112,15 +128,24 @@ shotPageExpiredMessage = See pilt on aegunud.
 shotPageExpiredMessageDetails = Siin on leht, millel see algselt loodi:
 shotPageDeleteButton =
     .title = Kustuta see pilti
-shotPageAbuseButton =
-    .title = Raporteeri see pilt kuritarvituse, rämpspostituse või teiste probleemide tõttu
 shotPageDownloadShot =
     .title = Laadi alla
 shotPageEditButton =
     .title = Muuda seda pilti
+shotPagefavoriteButton =
+    .title = Lisa lemmikutesse
+shotPageBackToHomeButton =
+    .title = Avalehele
+shotPageAllShotsButton =
+    .title = Kõik pildid
+shotPageAllShots = Kõik pildid
 shotPageDownload = Laadi alla
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Muuda pilti
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Lisa lemmikutesse
+shotPageDelete = Kustuta
 shotPageScreenshotsDescription = Ekraanipildid lihtsalt. Tee, salvesta ja jaga ekraanipilte Firefoxist lahkumata.
-shotPageUpsellFirefox = Hangi Firefox
 shotPageDMCAMessage = See pilt pole enam saadaval intellektuaalomandi nõude tõttu kolmandalt osapoolelt.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Palun kirjuta { $dmca }, kui soovid rohkem teavet.
@@ -144,10 +169,10 @@ shotPageKeepOneMonth = 1 kuu
 shotPageSaveExpiration = salvesta
 shotPageCancelExpiration = tühista
 shotPageDoesNotExpire = ei aegu
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = aegub { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = aegunud { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = aegub <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = aegunud <timediff></timediff>
 timeDiffJustNow = just praegu
 timeDiffMinutesAgo =
     { $number ->
@@ -182,6 +207,15 @@ timeDiffFutureDays =
     }
 errorThirdPartyCookiesEnabled = Kui sina tegid selle pildi ja ei saa seda kustutada, siis pead ehk ajutiselt lubama kolmanda osapoole küpsised oma brauseri sätetes.
 
+## Shot Page New Feature Promotion Dialog.
+
+# Note: If possible, choose a short translation to better fit into the card.
+promoTitle = Teadmiseks!
+promoMessage = Uuendatud muutmise tööriistad võimaldavad kärpida, esile tuua ja isegi pildile teksti lisada.
+promoLink = Tee proovi
+promoCloseButton =
+    .title = Sulge teavitus
+
 ## Annotations
 
 annotationPenButton =
@@ -192,6 +226,8 @@ annotationUndoButton =
     .title = Võta tagasi
 annotationRedoButton =
     .title = Tee uuesti
+annotationTextButton =
+    .title = Lisa tekst
 # Note: This button reverts all the changes on the image since the start of the editing session.
 annotationClearButton =
     .title = Puhasta
@@ -223,6 +259,28 @@ annotationColorSeaGreen =
     .title = Mereroheline
 annotationColorGrey =
     .title = Hall
+# Note: annotationTextSize is a title for text size selection dropdown.
+annotationTextSize =
+    .title = Teksti suurus
+# Values shown in text size selection dropdown
+textSizeSmall = Väike
+textSizeMedium = Keskmine
+textSizeLarge = Suur
+# Confirm and Cancel button title shown when using text tool
+textToolConfirmButton = Kinnita
+    .title = Kinnita
+textToolCancelButton = Loobu
+    .title = Loobu
+# Default placeholder used in input field when adding text annotations
+textToolInputPlaceholder =
+    .placeholder = Tere
+
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Midagi läks valesti
+copyImageErrorMessage = Pilti pole võimalik vahemällu kopeerida.
 
 ## Settings Page
 
@@ -250,13 +308,13 @@ shotIndexPageSearchResultsTitle = Minu pildid: otsi { $searchTerm }
 shotIndexPageErrorRendering = Lehe kuvamisel tekkis viga: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Minu piltidest otsimine
-shotIndexPageSearchButton =
-    .title = Otsi
 shotIndexPageNoShotsMessage = Salvestatud pildid puuduvad.
 shotIndexPageNoShotsInvitation = Ära pelga, tee mõned.
 shotIndexPageLookingForShots = Otsime sinu pilte…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Me ei leidnud su otsingule sobivaid pilte.
+shotIndexPageMyShotsButton =
+    .title = Minu pildid
 shotIndexPageClearSearchButton =
     .title = Tühjenda otsing
 shotIndexPageConfirmShotDelete = Kas tõesti kustutada see pilt?
@@ -264,12 +322,17 @@ shotIndexPagePreviousPage =
     .title = Eelmine leht
 shotIndexPageNextPage =
     .title = Järgmine leht
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = See pilt ei aegu
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = See pilt ei ole lemmikuks märgitud ja see aegub
+# This is the tooltip for a "heart" symbol in the upper top corner of the
+# card for a shot on the My Shots page. It indicate that the shot was marked as
+# a favorite by the owner.
+shotIndexFavoriteIcon =
+    .title = See pilt on märgitud lemmikuks ja see ei aegu
+shotIndexSyncedShot =
+    .title = See pilt tehti teises seadmes
 
 ## Delete Confirmation Dialog
 

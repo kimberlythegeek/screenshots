@@ -14,10 +14,14 @@ gSignIn = साइन इन
 
 ## Header
 
-signInButton =
-    .aria-label = साइन इन
-settingsButton =
-    .aria-label = सेटिंग
+buttonSettings =
+    .title = सेटिंग्स
+buttonSignIn =
+    .title = साइन इन करें
+screenshotsLogo =
+    .title = स्क्रीनशॉट होम
+bannerMessage = अन्य उपकरणों पर अपने स्क्रीनशॉट एक्सेस करने के लिए साइन इन या साइन उप करें एवं अपने पसंदीदाओं को हमेशा के लिए सहेजें।
+bannerUpsell = { gScreenshotsDescription } <a>Firefox अभी पायें</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = शर्तें
 footerLinkPrivacy = गोपनीयता सूचना
+footerReportShot = स्क्रीनशॉट की रिपोर्ट करें
+    .title = दुर्व्यवहार, स्पैम, या अन्य समस्याओं के लिए इस स्क्रीनशॉट की रिपोर्ट करें
 footerLinkFaqs = अक्सर पूछे जाने वाले प्रश्न
 footerLinkDMCA = रिपोर्ट IP उल्लंघन
 footerLinkDiscourse = प्रतिक्रिया दें
@@ -96,6 +102,8 @@ shotPageConfirmDelete = क्या आप वाकई इस शॉट को
 shotPageShareButton =
     .title = साझा
 shotPageCopy = नक़ल करें
+shotPageCopyButton =
+    .title = चित्र को क्लिपबोर्ड में कॉपी करें
 shotPageCopied = नक़ल की गयी
 shotPageShareFacebook =
     .title = firefox पर साझा करें
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = लिंक के द्वारा कोई भी
 shotPageCopyImageText =
     .label = छवि पाठ की प्रतिलिपि बनाएँ
 shotPageConfirmDeletion = क्या आपको यकीन हैं की आप इस शॉट को हमेशा के लिए मिटाना चाहते हैं?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = यदि आप कुछ नहीं करते हैं, तो यह शॉट स्थाई रूप से { $timediff } हटा दिया जाएगा ।
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = यदि आप कुछ नहीं करते हैं, तो यह शॉट स्थाई रूप से <timediff></timediff> हटा दिया जाएगा ।
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = { $Date } तक पुनर्स्थापित करें
@@ -120,17 +128,24 @@ shotPageExpiredMessage = इस शॉट की समय सीमा सम�
 shotPageExpiredMessageDetails = यहां यह मूल रूप से बनाया गया था पृष्ठ है:
 shotPageDeleteButton =
     .title = यह शॉट हटाएँ
-shotPageAbuseButton =
-    .title = यह शॉट दुरुपयोग, स्पैम, या अन्य समस्याओं के लिए रिपोर्ट
 shotPageDownloadShot =
     .title = डाउनलोड करें
 shotPageEditButton =
     .title = इस छवि को संपादित करें
 shotPagefavoriteButton =
     .title = इस शॉट को पसंदीदा करें
+shotPageBackToHomeButton =
+    .title = मुख्यपृष्ठ
+shotPageAllShotsButton =
+    .title = सभी स्क्रीनशॉट
+shotPageAllShots = सभी स्क्रीनशॉट
 shotPageDownload = डाउनलोड करें
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = ड्रा करें
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = फेवरेट बनायें
+shotPageDelete = मिटायें
 shotPageScreenshotsDescription = स्क्रीनशॉट सरल बनाया गया है । Firefox छोडे बिना स्क्रीनशॉट ले, सहेजें, और साझा करें ।
-shotPageUpsellFirefox = अभी firefox पाएँ
 shotPageDMCAMessage = तीसरे पक्ष के बौद्धिक संपदा दावे के कारण यह शॉट अब उपलब्ध नहीं है।
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = अधिक जानकारी का अनुरोध करने के लिए कृपया { $dmca } ईमेल करें
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 महीना
 shotPageSaveExpiration = सहेजें
 shotPageCancelExpiration = रद्द करें
 shotPageDoesNotExpire = समाप्त नहीं होता है
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = { $timediff } समय सीमा समाप्त
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = { $timediff } समाप्त
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = <timediff></timediff> समय सीमा समाप्त
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = <timediff></timediff> समाप्त
 timeDiffJustNow = बस अभी
 timeDiffMinutesAgo =
     { $number ->
@@ -260,6 +275,13 @@ textToolCancelButton = रद्द करें
 textToolInputPlaceholder =
     .placeholder = नमस्ते
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = कुछ त्रुटी उत्पन्न हुयी है
+copyImageErrorMessage = आपके स्क्रीनशॉट को क्लिपबोर्ड में कॉपी करने में असफलता हुयी।
+
 ## Settings Page
 
 settingsDisconnectButton = असम्बद्ध करें
@@ -286,13 +308,13 @@ shotIndexPageSearchResultsTitle = मेरे शॉट्स: के लिए
 shotIndexPageErrorRendering = प्रतिपादन पृष्ठ त्रुटि: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = मेरे शॉट्स खोजें
-shotIndexPageSearchButton =
-    .title = खोजे
 shotIndexPageNoShotsMessage = कोई सहेजे गए शॉट नहीं
 shotIndexPageNoShotsInvitation = चलें, कुछ बनाएँ
 shotIndexPageLookingForShots = अपने शॉट्स की खोज...
 shotIndexPageNoSearchResultsIntro = अच्छा
 shotIndexPageNoSearchResults = हम आपकी खोज से मेल खाने वाले किसी भी शॉट को नहीं ढूंढ सकते.
+shotIndexPageMyShotsButton =
+    .title = मेरे स्क्रीनशॉट
 shotIndexPageClearSearchButton =
     .title = स्पष्ट खोज
 shotIndexPageConfirmShotDelete = इस शॉट को हटाएं?
@@ -300,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = पिछला पृष्ठ
 shotIndexPageNextPage =
     .title = अगला पृष्ठ
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = यह शॉट समाप्त नहीं होता है
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = यह कोई पसंदीदा स्क्रीनशॉट नहीं है तथा ये नियमित समय के बाद मिट जाएगा
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = यह एक पसंदीदा शॉट है और यह समाप्त नहीं होता है
+shotIndexSyncedShot =
+    .title = अन्य उपकरण पर लिए स्क्रीनशॉट
 
 ## Delete Confirmation Dialog
 

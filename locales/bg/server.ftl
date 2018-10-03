@@ -14,10 +14,12 @@ gSignIn = Вписване
 
 ## Header
 
-signInButton =
-    .aria-label = Вписване
-settingsButton =
-    .aria-label = Настройки
+buttonSettings =
+    .title = Настройки
+buttonSignIn =
+    .title = Вписване
+screenshotsLogo =
+    .title = Страница на Screenshots
 
 ## Footer
 
@@ -25,6 +27,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Условия
 footerLinkPrivacy = Политика на поверителност
+footerReportShot = Докладване на снимка
+    .title = Докладвайте снимката за злоупотреба, спам или друг проблем
 footerLinkFaqs = Въпроси и отговори
 footerLinkDMCA = Доклад за нарушение на авторско право
 footerLinkDiscourse = Обратна връзка
@@ -110,8 +114,8 @@ shotPagePrivacyMessage = Всеки, който има препратката м
 shotPageCopyImageText =
     .label = Копиране на текста от снимката
 shotPageConfirmDeletion = Сигурни ли сте, че желаете изображението да бъде необратимо премахнато?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Ако не правите нищо тази снимка ще бъде необратимо премахната { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Ако не правите нищо тази снимка ще бъде необратимо премахната <timediff></timediff>
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = възстановяване до { $date }
@@ -120,15 +124,23 @@ shotPageExpiredMessage = Тази снимка е с изтекла давнос
 shotPageExpiredMessageDetails = Това е страницата, от която е направена:
 shotPageDeleteButton =
     .title = Премахване на снимката
-shotPageAbuseButton =
-    .title = Докладвайте снимката за злоупотреба или други проблеми
 shotPageDownloadShot =
     .title = Изтегляне
 shotPageEditButton =
     .title = Промяна на изображението
 shotPagefavoriteButton =
     .title = Отбележи тази снимка
+shotPageBackToHomeButton =
+    .title = Страница
+shotPageAllShotsButton =
+    .title = Всички снимки
+shotPageAllShots = Всички снимки
 shotPageDownload = Изтегляне
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Рисуване
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Любими
+shotPageDelete = Изтриване
 shotPageScreenshotsDescription = Лесни снимки на екрана. Създавате, запазвате и споделяте снимки на екрана без да напускате Firefox.
 shotPageUpsellFirefox = Вземете Firefox сега
 shotPageDMCAMessage = Това изображение вече не е налично, защото е докладвано като обект на авторско право.
@@ -154,10 +166,10 @@ shotPageKeepOneMonth = 1 месец
 shotPageSaveExpiration = запазване
 shotPageCancelExpiration = отказване
 shotPageDoesNotExpire = не изтича
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = изтича { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = изтекло { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = изтича <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = изтекло <timediff></timediff>
 timeDiffJustNow = току-що
 timeDiffMinutesAgo =
     { $number ->
@@ -293,6 +305,8 @@ shotIndexPageNoShotsInvitation = Хайде, направете няколко.
 shotIndexPageLookingForShots = Търсене на вашите снимки…
 shotIndexPageNoSearchResultsIntro = Хмм
 shotIndexPageNoSearchResults = Не намираме снимки, които отговарят на търсенето ви.
+shotIndexPageMyShotsButton =
+    .title = Моите снимки
 shotIndexPageClearSearchButton =
     .title = Изчистване на търсенето
 shotIndexPageConfirmShotDelete = Сигурни ли сте, че желаете снимката да бъде премахната?
@@ -300,13 +314,11 @@ shotIndexPagePreviousPage =
     .title = Предишна страница
 shotIndexPageNextPage =
     .title = Следваща страница
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Давността на тази снимка не изтича.
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Снимката не е любима и давността ѝ ще изтече
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =

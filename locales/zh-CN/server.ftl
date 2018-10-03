@@ -100,6 +100,8 @@ shotPageConfirmDelete = 您确定要永久删除此截图？
 shotPageShareButton =
     .title = 分享
 shotPageCopy = 复制
+shotPageCopyButton =
+    .title = 将截图复制到剪贴板
 shotPageCopied = 已复制
 shotPageShareFacebook =
     .title = 分享到 Facebook
@@ -114,8 +116,8 @@ shotPagePrivacyMessage = 任何持有此链接的人可以查看此截图。
 shotPageCopyImageText =
     .label = 复制图像文本
 shotPageConfirmDeletion = 您确定要永久删除此截图？
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = 如果您不做操作，此截图将在 { $timediff } 后被永久删除。
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = 如果您不做操作，此截图将在 <timediff></timediff> 后被永久删除。
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = 在 { $date } 前可恢复
@@ -142,7 +144,6 @@ shotPageDraw = 绘制
 shotPageFavorite = 收藏
 shotPageDelete = 删除
 shotPageScreenshotsDescription = 使截图更简单。截取、保存以及分享截图，一切都在 Firefox。
-shotPageUpsellFirefox = 立即获取 Firefox
 shotPageDMCAMessage = 由于第三方宣告知识产权，此截图不再可用。
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = 请发送电子邮件至 { $dmca } 来请求进一步信息。
@@ -166,10 +167,10 @@ shotPageKeepOneMonth = 1 个月
 shotPageSaveExpiration = 保存
 shotPageCancelExpiration = 取消
 shotPageDoesNotExpire = 不会到期
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = { $timediff } 后过期
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = { $timediff } 前已过期
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = <timediff></timediff> 后过期
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = <timediff></timediff> 前已过期
 timeDiffJustNow = 刚刚
 timeDiffMinutesAgo =
     { $number ->
@@ -254,6 +255,13 @@ textToolCancelButton = 取消
 textToolInputPlaceholder =
     .placeholder = 你好
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = 出了点问题
+copyImageErrorMessage = 无法将截图复制到剪贴板。
+
 ## Settings Page
 
 settingsDisconnectButton = 断开连接
@@ -280,8 +288,6 @@ shotIndexPageSearchResultsTitle = 我的截图：搜索 { $searchTerm }
 shotIndexPageErrorRendering = 呈现页面时出错：{ $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = 搜索我的截图
-shotIndexPageSearchButton =
-    .title = 搜索
 shotIndexPageNoShotsMessage = 没有保存截图。
 shotIndexPageNoShotsInvitation = 快来创建一些吧。
 shotIndexPageLookingForShots = 正在查找您的截图…
@@ -296,17 +302,17 @@ shotIndexPagePreviousPage =
     .title = 上一页
 shotIndexPageNextPage =
     .title = 下一页
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = 这张截图不会过期
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = 这不是一张收藏的截图，它将会过期
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = 这是一张收藏的截图，不会过期
+shotIndexSyncedShot =
+    .title = 其他设备上的截图
 
 ## Delete Confirmation Dialog
 

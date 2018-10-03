@@ -86,7 +86,7 @@ exports.Editor = class Editor extends React.Component {
     const toolContent = this.state.isCanvasRendered ? this.renderSelectedTool() : null;
     const toolBar = this.state.isCanvasRendered ? this.renderToolBar() : null;
     const display = this.loader || this.renderCanvas(toolContent);
-    return <div className="inverse-color-scheme full-height column-space"
+    return <div className="full-height column-space"
       onMouseMove={this.onMouseMove.bind(this)}>
       { toolBar }
       { display }
@@ -96,7 +96,7 @@ exports.Editor = class Editor extends React.Component {
   renderCanvas(toolContent) {
     return <div className="main-container">
       <div
-        className={`inverse-color-scheme canvas-container ${this.state.tool}`}
+        className={`canvas-container ${this.state.tool}`}
         id="canvas-container"
         style={{ height: this.state.canvasCssHeight, width: this.state.canvasCssWidth }}>
         <canvas
@@ -183,45 +183,45 @@ exports.Editor = class Editor extends React.Component {
     const undoButtonState = this.state.canUndo ? "active" : "inactive";
     const redoButtonState = this.state.canRedo ? "active" : "inactive";
 
-    return <div className="editor-header default-color-scheme">
-      <div className="shot-main-actions annotation-main-actions">
+    return <div className="editor-header">
+      <div className="shot-edit-main-actions annotation-main-actions">
         <div className="annotation-tools">
-          <Localized id="annotationCropButton">
+          <Localized id="annotationCropButton" attrs={{title: true}}>
             <button className={`button transparent crop-button`} id="crop" onClick={this.onClickCrop.bind(this)} title="Crop"></button>
           </Localized>
           <span className="annotation-divider"></span>
-          <Localized id="annotationPenButton">
+          <Localized id="annotationPenButton" attrs={{title: true}}>
             <button className={`button transparent pen-button ${penState}`} id="pen" onClick={this.onClickPen.bind(this)} title="Pen"></button>
           </Localized>
-          <Localized id="annotationHighlighterButton">
+          <Localized id="annotationHighlighterButton" attrs={{title: true}}>
             <button className={`button transparent highlight-button ${highlighterState}`} id="highlight" onClick={this.onClickHighlight.bind(this)} title="Highlighter"></button>
           </Localized>
-          <Localized id="annotationTextButton">
+          <Localized id="annotationTextButton" attrs={{title: true}}>
             <button className={`button transparent text-button`} id="text" onClick={this.onClickText.bind(this)} title="Text"></button>
           </Localized>
           <ColorPicker activeTool={this.state.tool}
             setColorCallback={this.setColor.bind(this)}
             color={this.state.color} colorName = {this.state.colorName}/>
           <span className="annotation-divider"></span>
-          <Localized id="annotationUndoButton">
+          <Localized id="annotationUndoButton" attrs={{title: true}}>
             <button className={`button transparent undo-button ${undoButtonState}`} id="undo"
               disabled={!this.state.canUndo} onClick={this.onUndo.bind(this)} title="Undo"></button>
           </Localized>
-          <Localized id="annotationRedoButton">
+          <Localized id="annotationRedoButton" attrs={{title: true}}>
             <button className={`button transparent redo-button ${redoButtonState}`} id="redo"
               disabled={!this.state.canRedo} onClick={this.onRedo.bind(this)} title="Redo"></button>
           </Localized>
-          <Localized id="annotationClearButton">
+          <Localized id="annotationClearButton" attrs={{title: true}}>
             <button className={`button transparent clear-button ${undoButtonState}`} id="clear"
               disabled={!this.state.canUndo} onClick={this.onClickClear.bind(this)} title="Clear"></button>
           </Localized>
         </div>
       </div>
-      <div className="shot-alt-actions">
-        <Localized id="annotationSaveEditButton">
+      <div className="shot-edit-alt-actions">
+        <Localized id="annotationSaveEditButton" attrs={{title: true}}>
           <button className="button primary save" id="save" onClick={ this.onClickSave.bind(this) } disabled = { this.state.actionsDisabled } title="Save edit">Save</button>
         </Localized>
-        <Localized id="annotationCancelEditButton">
+        <Localized id="annotationCancelEditButton" attrs={{title: true}}>
           <button className="button secondary cancel" id="cancel" onClick={this.onClickCancel.bind(this)} title="Cancel editing" disabled = { this.state.actionsDisabled }>Cancel</button>
         </Localized>
       </div>

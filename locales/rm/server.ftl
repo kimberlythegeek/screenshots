@@ -14,10 +14,14 @@ gSignIn = S'annunziar
 
 ## Header
 
-signInButton =
-    .aria-label = S'annunziar
-settingsButton =
-    .aria-label = Parameters
+buttonSettings =
+    .title = Parameters
+buttonSignIn =
+    .title = S'annunziar
+screenshotsLogo =
+    .title = Pagina da partenza da Screenshots
+bannerMessage = T'annunzia u ta registrescha per acceder a tes maletgs dal visur cun agid da mintga apparat e memorisar tes favurits per adina.
+bannerUpsell = { gScreenshotsDescription } <a>Telechargiar Firefox</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Cundiziuns d'utilisaziun
 footerLinkPrivacy = Infurmaziuns davart la protecziun da datas
+footerReportShot = Annunziar quest maletg
+    .title = Annunziar quest maletg per motivs dad abus, spam u auters problems
 footerLinkFaqs = Dumondas frequentas
 footerLinkDMCA = Rapportar ina violaziun da proprietad intellectuala
 footerLinkDiscourse = Dar in resun
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Vuls ti propi stizzar definitivamain quest maletg dal vi
 shotPageShareButton =
     .title = Cundivider
 shotPageCopy = Copiar
+shotPageCopyButton =
+    .title = Copiar il maletg en l'archiv provisoric
 shotPageCopied = Copià
 shotPageShareFacebook =
     .title = Cundivider sin Facebook
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Mintgin che ha la colliaziun po vesair quest maletg.
 shotPageCopyImageText =
     .label = Copiar il text dal maletg
 shotPageConfirmDeletion = Vuls ti propi stizzar definitivamain quest maletg dal visur?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Sche ti na fas nagut vegn quest maletg stizzà definitivamain { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Sche ti na fas nagut vegn quest maletg stizzà definitivamain <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = restaurar enfin { $date }
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Quest maletg è scrudà.
 shotPageExpiredMessageDetails = Quai è la pagina da la quala il maletg deriva oriundamain:
 shotPageDeleteButton =
     .title = Stizzar quest maletg
-shotPageAbuseButton =
-    .title = Annunziar quest maletg pervia dad abus, spam u auters problems
 shotPageDownloadShot =
     .title = Telechargiar
 shotPageEditButton =
     .title = Modifitgar quest maletg
 shotPagefavoriteButton =
     .title = Marcar quest maletg sco favurit
+shotPageBackToHomeButton =
+    .title = Pagina da partenza
+shotPageAllShotsButton =
+    .title = Tut ils maletgs
+shotPageAllShots = Tut ils maletgs
 shotPageDownload = Telechargiar
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Dissegnar
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Favurit
+shotPageDelete = Stizzar
 shotPageScreenshotsDescription = Maletgs dal visur en in batterdegl. Prender, memorisar e cundivider maletgs dal visur senza bandunar Firefox.
-shotPageUpsellFirefox = Ussa ir per Firefox
 shotPageDMCAMessage = Quest maletg n'è betg pli disponibel perquai che terzas persunas ha fatg valair ina violaziun dals dretgs d'autur.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Scriva p.pl. a { $dmca } per retschaiver ulteriuras infurmaziuns.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 mais
 shotPageSaveExpiration = memorisar
 shotPageCancelExpiration = interrumper
 shotPageDoesNotExpire = na scroda betg
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = scroda { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = scrudà { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = scroda <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = scrudà <timediff></timediff>
 timeDiffJustNow = gist ussa
 timeDiffMinutesAgo =
     { $number ->
@@ -260,6 +275,13 @@ textToolCancelButton = Interrumper
 textToolInputPlaceholder =
     .placeholder = Chau
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Igl ha dà in problem
+copyImageErrorMessage = Impussibel da copiar tes maletg en l'archiv provisoric.
+
 ## Settings Page
 
 settingsDisconnectButton = Deconnectar
@@ -286,13 +308,13 @@ shotIndexPageSearchResultsTitle = Mes maletgs: tschertgar { $searchTerm }
 shotIndexPageErrorRendering = Errur durant generar la pagina: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Tschertgar en mes maletgs
-shotIndexPageSearchButton =
-    .title = Tschertgar
 shotIndexPageNoShotsMessage = Nagins maletgs memorisads.
 shotIndexPageNoShotsInvitation = Dai! Creescha insaquants.
 shotIndexPageLookingForShots = Nus tschertgain tes maletgs…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Nus n'avain chattà nagin maletg che correspunda a tia tschertga.
+shotIndexPageMyShotsButton =
+    .title = Mes maletgs dal visur
 shotIndexPageClearSearchButton =
     .title = Stizzar la tschertga
 shotIndexPageConfirmShotDelete = Stizzar quest maletg?
@@ -300,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Pagina precedenta
 shotIndexPageNextPage =
     .title = Proxima pagina
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Quest maletg dal visur na scroda betg
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Quest maletg n'è nagin favurit e vegn a scrudar
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Quest maletg è in favurit e na scroda betg
+shotIndexSyncedShot =
+    .title = Maletg fatg cun in auter apparat
 
 ## Delete Confirmation Dialog
 

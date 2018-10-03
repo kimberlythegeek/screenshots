@@ -17,21 +17,18 @@ exports.SignInButton = class SignInButton extends React.Component {
 
   render() {
     if (this.state.displaySettings) {
-      return <Localized id="buttonSettings">
-        <a className="nav-button icon-settings" tabIndex="0" href="/settings" title="Settings">
-          <Localized id="gSettings">
-            <span>Settings</span>
-          </Localized>
-        </a>
-      </Localized>;
+      return <Localized id="buttonSettings" attrs={{title: true}}>
+          <a className="transparent nav-button icon-settings" tabIndex="0" href="/settings" title="Settings">
+            <img src={this.props.staticLink("/static/img/icon-settings.svg")} />
+          </a>
+        </Localized>;
     }
 
     const logInURI = "/api/fxa-oauth/login/" + this.props.initialPage;
-    return <Localized id="buttonSignIn">
-        <a className="nav-button icon-settings" tabIndex="0" href={logInURI} title="SignIn" onClick={this.clickHandler.bind(this)}>
-          <Localized id="gSignIn">
-            <span>Sign In</span>
-          </Localized>
+    return <Localized id="buttonSignIn" attrs={{title: true}}>
+        <a className="transparent nav-button icon-settings" tabIndex="0" href={logInURI} title="SignIn"
+           onClick={this.clickHandler.bind(this)}>
+          <img src={this.props.staticLink("/static/img/icon-settings.svg")} />
         </a>
       </Localized>;
   }
@@ -44,4 +41,5 @@ exports.SignInButton = class SignInButton extends React.Component {
 exports.SignInButton.propTypes = {
   initialPage: PropTypes.string,
   isAuthenticated: PropTypes.bool,
+  staticLink: PropTypes.func,
 };

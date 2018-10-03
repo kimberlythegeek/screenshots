@@ -14,10 +14,14 @@ gSignIn = Kcem
 
 ## Header
 
-signInButton =
-    .aria-label = Kcem
-settingsButton =
-    .aria-label = Iɣewwaṛen
+buttonSettings =
+    .title = Iɣewwaṛen
+buttonSignIn =
+    .title = Kcem
+screenshotsLogo =
+    .title = Tuṭṭfa n wegdil agejdan
+bannerMessage = Qqen neɣ jerred akken ad tkecmeḍ ar tuṭṭfiwin-ik deg ibenkan daɣen ad teskelseḍ ayen tḥemmleḍ i lebda.
+bannerUpsell = { gScreenshotsDescription }<a>Awi Firefox tura</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Tiwtilin
 footerLinkPrivacy = Tasertit n tbaḍnit
+footerReportShot = Aneqqis n tuṭṭfa
+    .title = Azen aneqqis n tuṭṭfa-a, ma yella d aspamneɣ uguuren-nniḍen
 footerLinkFaqs = Isteqsiyen FAQ
 footerLinkDMCA = Mmel-d ataɛdi ɣef ayla agzayan IP
 footerLinkDiscourse = Mudd-d tikti-ik
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Tebɣiḍ ad tekseḍ ṭṭufa-agi i lebda?
 shotPageShareButton =
     .title = Bḍu
 shotPageCopy = Nγel
+shotPageCopyButton =
+    .title = Nɣel tugna ɣef affus
 shotPageCopied = Inγel
 shotPageShareFacebook =
     .title = Bḍu di Facebook
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Yal yiwen ɣur-s a.seɣwen ad yizmir ad iwali tuṭṭf
 shotPageCopyImageText =
     .label = Nγel aḍris n tewlaft
 shotPageConfirmDeletion = Tebɣiḍ ad tekseḍ tuṭṭfa-agi i lebda?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Ma yella ur teggiḍ kra, tuṭṭfa-agi ad tettwakkes ilebda { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Ma yella ur teggiḍ kra, tuṭṭfa-agi ad tettwakkes ilebda <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = Rred armi { $date }
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Tuṭṭfa-agi tfat.
 shotPageExpiredMessageDetails = Hatan usebter ansa i d-tettwarna:
 shotPageDeleteButton =
     .title = Kkes tuṭfa-agi
-shotPageAbuseButton =
-    .title = Azen tuṭṭfa-agi d asexseṛ, d aspam, neɣ uguren-nniḍen
 shotPageDownloadShot =
     .title = Sider
 shotPageEditButton =
     .title = Ẓreg tugna-agi
 shotPagefavoriteButton =
     .title = Smenyif tuṭṭfa-agi
+shotPageBackToHomeButton =
+    .title = Asebter agejdan
+shotPageAllShotsButton =
+    .title = Tuṭṭfiwin meṛṛa
+shotPageAllShots = Tuṭṭfiwin meṛṛa
 shotPageDownload = Sider
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Suneɣ
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Anurif
+shotPageDelete = Kkes
 shotPageScreenshotsDescription = Tuṭṭfa fessusen. Ṭṭef, sekles, sakin bḍu tuṭṭfa war ma tefγeḍ seg Firefox.
-shotPageUpsellFirefox = Awi-d Firefox tura
 shotPageDMCAMessage = Tuṭṭfa-agi ur tezgi tella imi yella ucetki ɣef wayla agzayan i d-yekkan seg wis kraḍ.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Azen-d { $dmca } akken ad tsutreḍ ugar n telɣut.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = Aggur
 shotPageSaveExpiration = Sekles
 shotPageCancelExpiration = Sefsex
 shotPageDoesNotExpire = ur yettmettat ara
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = ad yemmet { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = immut  { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = ad yemmet <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = immut  <timediff></timediff>
 timeDiffJustNow = tura yakan
 timeDiffMinutesAgo = { $number } n tesdatin aya
 timeDiffHoursAgo =
@@ -256,6 +271,13 @@ textToolCancelButton = Sefsex
 textToolInputPlaceholder =
     .placeholder = Azul
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Teḍra-d tuccḍa.
+copyImageErrorMessage = Ur zmir ara ad inɣel tuṭṭfa-inek ɣer "ɣef afus".
+
 ## Settings Page
 
 settingsDisconnectButton = Ffeɣ
@@ -282,13 +304,13 @@ shotIndexPageSearchResultsTitle = Tuṭṭfiwin-iw: anadi n { $searchTerm }
 shotIndexPageErrorRendering = Tuccḍa di tririt n usebter: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Nadi tuṭfiwin inu
-shotIndexPageSearchButton =
-    .title = Nadi
 shotIndexPageNoShotsMessage = Ulac tuṭfiwin ittwaskelsen.
 shotIndexPageNoShotsInvitation = Bdu, Rnu kra.
 shotIndexPageLookingForShots = Anadi n tuṭfiwin inek…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Ulac tuṭfiwin i γef tettnadiḍ.
+shotIndexPageMyShotsButton =
+    .title = Tuṭṭfiwin-iw
 shotIndexPageClearSearchButton =
     .title = Sfeḍ anadi
 shotIndexPageConfirmShotDelete = Kkes tuṭfa-agi?
@@ -296,17 +318,17 @@ shotIndexPagePreviousPage =
     .title = Asebter iεeddan
 shotIndexPageNextPage =
     .title = Asebter i d-iteddun
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Tuṭṭfa-agi ur tettmettat ara
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Tagi mačči d tuṭṭfa i tḥemmleḍ, ihi ad temmet.
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Wagi d anegzum anurif ur yettmettaten ara
+shotIndexSyncedShot =
+    .title = Tuṭṭfa tella-d deg ibenk nniḍen
 
 ## Delete Confirmation Dialog
 

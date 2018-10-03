@@ -14,10 +14,14 @@ gSignIn = Hyni
 
 ## Header
 
-signInButton =
-    .aria-label = Hyni
-settingsButton =
-    .aria-label = Rregullime
+buttonSettings =
+    .title = Rregullime
+buttonSignIn =
+    .title = Hyni
+screenshotsLogo =
+    .title = Kreu i Screenshots
+bannerMessage = Që të përdorni shkrepjet tuaja nga çfarëdo pajisje, dhe që t’i ruani përgjithmonë shkrepjet e parapëlqyera, bëni hyrjen në llogarinë tuaj ose regjistrohuni për një të tillë.
+bannerUpsell = { gScreenshotsDescription } <a>Merreni Firefox-in që tani</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Kushte
 footerLinkPrivacy = Shënim Mbi Privatësinë
+footerReportShot = Njoftoni për Shkrepjen
+    .title = Njoftoni për këtë shkrepje për abuzim, mesazh të padëshiruar, ose për probleme të tjera
 footerLinkFaqs = FAQ
 footerLinkDMCA = Njoftoni Cenim IP-je
 footerLinkDiscourse = Jepni Përshtypjet
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Jeni i sigurt se doni të fshihet përgjithnjë kjo foto
 shotPageShareButton =
     .title = Ndajeni me të tjerë
 shotPageCopy = Kopjoje
+shotPageCopyButton =
+    .title = Kopjoje figurën në të papastër
 shotPageCopied = U kopjua
 shotPageShareFacebook =
     .title = Ndajeni në Facebook
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Cilido që ka lidhjen mund të shohë këtë foto.
 shotPageCopyImageText =
     .label = Kopjo tekstin e figurës
 shotPageConfirmDeletion = Jeni i sigurt se doni të fshihet përgjithmonë kjo foto?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Po nuk bëtë ndonjë veprim, kjo foto do të fshihet përgjithmonë më { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Po nuk bëtë ndonjë veprim, kjo foto do të fshihet përgjithmonë më <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = riktheje deri më { $date }
@@ -120,15 +128,24 @@ shotPageExpiredMessage = Kjo foto ka skaduar.
 shotPageExpiredMessageDetails = Ja faqja prej të cilës qe krijuar fillimisht:
 shotPageDeleteButton =
     .title = Fshije këtë foto
-shotPageAbuseButton =
-    .title = Raportojeni këtë foto për abuzim, spam apo probleme të tjera
 shotPageDownloadShot =
     .title = Shkarkoje
 shotPageEditButton =
     .title = Përpunoni këtë figurë
+shotPagefavoriteButton =
+    .title = Bëje këtë shkrepje të parapëlqyer
+shotPageBackToHomeButton =
+    .title = Kreu
+shotPageAllShotsButton =
+    .title = Krejt Shkrepjet
+shotPageAllShots = Krejt Shkrepjet
 shotPageDownload = Shkarkoje
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Vizatoni
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Bëje të parapëlqyer
+shotPageDelete = Fshije
 shotPageScreenshotsDescription = Screenshots-i i thjeshtuar. Bëni, ruani dhe ndani foto ekrani pa dalë nga Firefox-i.
-shotPageUpsellFirefox = Merreni Firefox-in që tani
 shotPageDMCAMessage = Kjo foto s’mund të kihet më, për shkak pretendimesh pronësie intelektuale nga palë e tretë.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Që të kërkoni informacione të mëtejshme, ju lutemi, dërgoni një email te { $dmca }.
@@ -152,10 +169,10 @@ shotPageKeepOneMonth = 1 Muaj
 shotPageSaveExpiration = ruaje
 shotPageCancelExpiration = anuloje
 shotPageDoesNotExpire = nuk skadon
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = skadon më { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = ka skaduar më { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = skadon më <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = ka skaduar më <timediff></timediff>
 timeDiffJustNow = mu tani
 timeDiffMinutesAgo =
     { $number ->
@@ -191,6 +208,9 @@ errorThirdPartyCookiesEnabled = Nëse bëtë këtë foto dhe s’e fshini dot, m
 
 ## Shot Page New Feature Promotion Dialog.
 
+# Note: If possible, choose a short translation to better fit into the card.
+promoTitle = Mbani Shënim!
+promoMessage = Mjetet e përditësuara të përpunimit ju lejojnë të qethni, theksoni, dhe madje të shtoni tekst te shkrepjet tuaja.
 promoLink = Provojini
 promoCloseButton =
     .title = Mbylle njoftimin
@@ -254,6 +274,13 @@ textToolCancelButton = Anuloje
 textToolInputPlaceholder =
     .placeholder = Tungjatjeta
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Diç shkoi ters
+copyImageErrorMessage = S’u arrit të kopjohej në të papastër shkrepja juaj.
+
 ## Settings Page
 
 settingsDisconnectButton = Shkëputu
@@ -280,13 +307,13 @@ shotIndexPageSearchResultsTitle = Fotot e Mia: kërkoni për { $searchTerm }
 shotIndexPageErrorRendering = Gabim në vizatimin e faqes: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Kërko te fotot e mia
-shotIndexPageSearchButton =
-    .title = Kërko
 shotIndexPageNoShotsMessage = S’ka foto të ruajtura.
 shotIndexPageNoShotsInvitation = Jepini, krijoni ndonjë.
 shotIndexPageLookingForShots = Po shihet për foto tuajat…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = S’gjejmë dot ndonjë foto që përputhet me kërkimet tuaja.
+shotIndexPageMyShotsButton =
+    .title = Shkrepjet e Mia
 shotIndexPageClearSearchButton =
     .title = Pastroje kërkimin
 shotIndexPageConfirmShotDelete = Të fshihet kjo foto?
@@ -294,12 +321,17 @@ shotIndexPagePreviousPage =
     .title = Faqja e mëparshme
 shotIndexPageNextPage =
     .title = Faqja pasuese
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Kjo foto nuk skadon kurrë
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Kjo s’është një shkrepje nga të parapëlqyerat dhe do të skadojë
+# This is the tooltip for a "heart" symbol in the upper top corner of the
+# card for a shot on the My Shots page. It indicate that the shot was marked as
+# a favorite by the owner.
+shotIndexFavoriteIcon =
+    .title = Kjo është një foto e parapëlqyer dhe nuk skadon
+shotIndexSyncedShot =
+    .title = Shkrepje e bërë në pajisje tjetër
 
 ## Delete Confirmation Dialog
 

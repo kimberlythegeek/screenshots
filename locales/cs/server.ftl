@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Přihlásit se
 screenshotsLogo =
     .title = Domovská stránka
+bannerMessage = Pro přístup ke snímkům z jiných zařízení nebo jejich ukládání se prosím přihlaste nebo zaregistrujte.
+bannerUpsell = { gScreenshotsDescription } <a>Získat Firefox</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Opravdu chcete tento snímek navždy smazat?
 shotPageShareButton =
     .title = Sdílet
 shotPageCopy = Kopírovat
+shotPageCopyButton =
+    .title = Zkopírovat do schránky
 shotPageCopied = Zkopírováno
 shotPageShareFacebook =
     .title = Sdílet na Facebooku
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Na tento snímek se může podívat každý, kdo bude m
 shotPageCopyImageText =
     .label = Kopírovat text z obrázku
 shotPageConfirmDeletion = Opravdu chcete tento snímek navždy smazat?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Pokud nic neuděláte, tento snímek bude navždy smazán { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Pokud nic neuděláte, tento snímek bude navždy smazán <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = obnovit do { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Kreslení
 shotPageFavorite = Oblíbené
 shotPageDelete = Smazat
 shotPageScreenshotsDescription = Jednoduchá tvorba snímků webových stránek. Vytvářejte, ukládejte i sdílejte přímo z Firefoxu.
-shotPageUpsellFirefox = Získejte Firefox
 shotPageDMCAMessage = Tento snímek již není dostupný z důvodu uplatnění nároku na duševní vlastnictví třetí strany.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Další informace si můžete vyžádat e-mailem na { $dmca }.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 měsíc
 shotPageSaveExpiration = uložit
 shotPageCancelExpiration = zrušit
 shotPageDoesNotExpire = bez omezené platnosti
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = vyprší { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = vypršel { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = vyprší <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = vypršel <timediff></timediff>
 timeDiffJustNow = právě teď
 timeDiffMinutesAgo =
     { $number ->
@@ -278,6 +281,13 @@ textToolCancelButton = Zrušit
 textToolInputPlaceholder =
     .placeholder = Ahoj
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Nastala chyba
+copyImageErrorMessage = Snímek se nepodařilo do schránky zkopírovat.
+
 ## Settings Page
 
 settingsDisconnectButton = Odpojit
@@ -304,8 +314,6 @@ shotIndexPageSearchResultsTitle = Mé snímky: hledání { $searchTerm }
 shotIndexPageErrorRendering = Při zobrazování stránky nastala chyba: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Prohledat mé snímky
-shotIndexPageSearchButton =
-    .title = Hledat
 shotIndexPageNoShotsMessage = Žádné uložené snímky.
 shotIndexPageNoShotsInvitation = Pojďme nějaké vytvořit.
 shotIndexPageLookingForShots = Hledáme vaše snímky…
@@ -320,17 +328,17 @@ shotIndexPagePreviousPage =
     .title = Předchozí stránka
 shotIndexPageNextPage =
     .title = Další stránka
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Tento snímek je uložen navždy
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Tento snímek není označený jako oblíbený a jeho platnost vyprší
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Tento snímek byl označen jako oblíbený a jeho platnost nevyprší
+shotIndexSyncedShot =
+    .title = Snímek pořízený na jiném zařízení
 
 ## Delete Confirmation Dialog
 

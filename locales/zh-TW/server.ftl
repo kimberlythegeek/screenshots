@@ -20,6 +20,8 @@ buttonSignIn =
     .title = 登入
 screenshotsLogo =
     .title = Screenshots 首頁
+bannerMessage = 請註冊或登入，即可在不同裝置間存取您的擷圖，並永久保存最愛的圖片。
+bannerUpsell = { gScreenshotsDescription } <a>立即下載 Firefox</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = 您確定要刪除這張圖片嗎？
 shotPageShareButton =
     .title = 分享
 shotPageCopy = 複製
+shotPageCopyButton =
+    .title = 複製圖片到剪貼簿
 shotPageCopied = 已複製！
 shotPageShareFacebook =
     .title = 分享到 Facebook
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = 任何有鏈結的人都能看到這張擷圖。
 shotPageCopyImageText =
     .label = 複製圖片文字
 shotPageConfirmDeletion = 您確定要永久刪除這張擷圖嗎？
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = 若不做任何事，將在{ $timediff }刪除此擷圖。
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = 若不做任何事，將在<timediff></timediff>刪除此擷圖。
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = 還原直到 { $date }
@@ -142,7 +146,6 @@ shotPageDraw = 繪圖
 shotPageFavorite = 設為最愛
 shotPageDelete = 刪除
 shotPageScreenshotsDescription = 拍攝擷圖變得簡單。不必離開 Firefox 就能拍攝、儲存、分享畫面擷圖。
-shotPageUpsellFirefox = 立即下載 Firefox
 shotPageDMCAMessage = 因為第三方提出智慧財產權通知，此擷圖已被下架。
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = 請寄信到 { $dmca } 要求更多資訊。
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 個月
 shotPageSaveExpiration = 儲存
 shotPageCancelExpiration = 取消
 shotPageDoesNotExpire = 不過期
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = { $timediff } 後過期
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = 已過期 { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = <timediff></timediff> 後過期
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = 已過期 <timediff></timediff>
 timeDiffJustNow = 剛剛
 timeDiffMinutesAgo = { $number } 分鐘前
 timeDiffHoursAgo = { $number } 小時前
@@ -248,6 +251,13 @@ textToolCancelButton = 取消
 textToolInputPlaceholder =
     .placeholder = 哈囉
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = 有些東西不對勁
+copyImageErrorMessage = 無法將您的擷圖複製到剪貼簿。
+
 ## Settings Page
 
 settingsDisconnectButton = 取消連線
@@ -274,8 +284,6 @@ shotIndexPageSearchResultsTitle = 我的擷圖: 搜尋 { $searchTerm }
 shotIndexPageErrorRendering = 產生頁面時發生錯誤: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = 搜尋我的擷圖
-shotIndexPageSearchButton =
-    .title = 搜尋
 shotIndexPageNoShotsMessage = 沒有已存的擷圖。
 shotIndexPageNoShotsInvitation = 去吧！拍幾張照。
 shotIndexPageLookingForShots = 正在尋找您的擷圖…
@@ -290,17 +298,17 @@ shotIndexPagePreviousPage =
     .title = 上一頁
 shotIndexPageNextPage =
     .title = 下一頁
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = 這張擷圖不會過期
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = 這不是最愛的擷圖，將會過期
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = 這是最愛的擷圖，不會過期
+shotIndexSyncedShot =
+    .title = 在其他裝置上拍攝的擷圖
 
 ## Delete Confirmation Dialog
 

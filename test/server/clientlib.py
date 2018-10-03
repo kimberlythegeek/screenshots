@@ -81,6 +81,10 @@ class ScreenshotsClient(object):
         title = None
         if title_match:
             title = title_match.group(1)
+        download_match = re.search(r'"([^"]+?download=[^"]+)"', page)
+        download_url = None
+        if download_match:
+            download_url = download_match.group(1).replace("&amp;", "&")
         return {
             "page": page,
             "clip_url": clip_url,
@@ -88,6 +92,7 @@ class ScreenshotsClient(object):
             "clip_content_type": clip_content_type,
             "csrf": csrf,
             "title": title,
+            "download_url": download_url,
         }
 
     def set_expiration(self, url, seconds):
@@ -174,6 +179,7 @@ def make_example_shot(deviceId, pad_image_to_length=None, image_index=None, imag
         createdDate=int(time.time() * 1000),
         favicon=None,
         siteName="test site",
+        firefoxChannel="release",
         clips={
             make_uuid(): dict(
                 createdDate=int(time.time() * 1000),

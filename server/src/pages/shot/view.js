@@ -2,7 +2,7 @@
 const React = require("react");
 const PropTypes = require("prop-types");
 const { Localized } = require("fluent-react/compat");
-const { Footer } = require("../../footer-view");
+const { ShotFooter } = require("./footer");
 const sendEvent = require("../../browser-send-event.js");
 const { PromoDialog } = require("./promo-dialog");
 const { DeleteShotButton } = require("../../delete-shot-button");
@@ -43,17 +43,31 @@ class Clip extends React.Component {
     if (!isValidClipImageUrl(clip.image.url)) {
       return null;
     }
-    const node = <img id="clipImage" style={{height: "auto", width: Math.floor(clip.image.dimensions.x) + "px", maxWidth: "100%" }} ref={clipImage => this.clipImage = clipImage} src={ clip.image.url } alt={ clip.image.text } />;
+
+    const node = <img id="clipImage"
+      style={{height: "auto", width: Math.floor(clip.image.dimensions.x) + "px", maxWidth: "100%" }}
+      ref={clipImage => this.clipImage = clipImage}
+      src={clip.image.url}
+      alt={clip.image.text} />;
+
+    const clipUrl = this.props.isMobile
+                    ? this.props.downloadUrl
+                    : clip.image.url;
+
     return <div ref={clipContainer => this.clipContainer = clipContainer} className="clip-container">
       { this.copyTextContextMenu() }
-      <a href={ clip.image.url } onClick={ this.onClickClip.bind(this) } contextMenu="clip-image-context">
+      <a href={ clipUrl } onClick={ this.onClickClip.bind(this) } contextMenu="clip-image-context">
         { node }
       </a>
     </div>;
   }
 
   onClickClip() {
-    sendEvent("goto-clip", "content", {useBeacon: true});
+    if (this.props.isMobile) {
+      sendEvent("mobile-download", "content", {useBeacon: true});
+    } else {
+      sendEvent("goto-clip", "content", {useBeacon: true});
+    }
     // Allow default action to continue
   }
 
@@ -61,7 +75,7 @@ class Clip extends React.Component {
     if (this.props.clip.image.text) {
       return (
         <menu type="context" id="clip-image-context">
-          <Localized id="shotPageCopyImageText">
+          <Localized id="shotPageCopyImageText" attrs={{label: true}}>
             <menuitem label="Copy Image Text" onClick={this.copyImageText.bind(this)} ></menuitem>
           </Localized>
         </menu>
@@ -84,6 +98,8 @@ class Clip extends React.Component {
 
 Clip.propTypes = {
   clip: PropTypes.object,
+  isMobile: PropTypes.bool,
+  downloadUrl: PropTypes.string,
 };
 
 class Head extends React.Component {
@@ -173,18 +189,24 @@ class Body extends React.Component {
     super(props);
     this.state = {
       hidden: false,
-      closeBanner: false,
       imageEditing: false,
+      canCopy: false,
     };
   }
 
   componentDidMount() {
-    this.setState({highlightEditButton: this.props.highlightEditButton || this.props.promoDialog});
-    this.setState({promoDialog: this.props.promoDialog});
+    this.setState({
+      highlightEditButton: this.props.highlightEditButton || this.props.promoDialog,
+      promoDialog: this.props.promoDialog,
+      isClient: true,
+    });
   }
 
-  doCloseBanner() {
-    this.setState({closeBanner: true});
+  static getDerivedStateFromProps(props, state) {
+    if (state.canCopy !== props.canCopy) {
+      return {canCopy: props.canCopy};
+    }
+    return null;
   }
 
   clickDeleteHandler() {
@@ -223,7 +245,9 @@ class Body extends React.Component {
     const clipNames = shot.clipNames();
     const clip = shot.getClip(clipNames[0]);
     return <reactruntime.BodyTemplate {...this.props}>
-        <Editor clip={clip} pngToJpegCutoff={this.props.pngToJpegCutoff} onCancelEdit={this.onCancelEdit.bind(this)} onClickSave={this.onClickSave.bind(this)}></Editor>
+        <Editor clip={clip} pngToJpegCutoff={this.props.pngToJpegCutoff}
+          onCancelEdit={this.onCancelEdit.bind(this)}
+          onClickSave={this.onClickSave.bind(this)}></Editor>
     </reactruntime.BodyTemplate>;
   }
 
@@ -258,7 +282,7 @@ class Body extends React.Component {
 
     return <reactruntime.BodyTemplate {...this.props}>
       <div className="column-center full-height alt-color-scheme">
-        <Localized id="gNoShots">
+        <Localized id="gNoShots" attrs={{alt: true}}>
           <img src={ this.props.staticLink("/static/img/image-nope_screenshots.svg") } alt="no Shots found" width="432" height="432"/>
         </Localized>
         <div className="alt-content">
@@ -281,7 +305,7 @@ class Body extends React.Component {
     if (this.props.isOwner) {
       restoreWidget = (
         <p>
-          <Localized id="shotPageExpirationMessage" $timediff={expirationTimeDiff}>
+          <Localized id="shotPageTimeExpirationMessage" timediff={expirationTimeDiff}>
             <span></span>
           </Localized>
           <Localized id="shotPageRestoreButton" $date={restoreDate}>
@@ -339,47 +363,63 @@ class Body extends React.Component {
     let favoriteShotButton = null;
     let trashOrFlagButton = null;
     let editButton = null;
-    const highlight = this.state.highlightEditButton ? <div className="edit-highlight" onClick={ this.onClickEdit.bind(this) } onMouseOver={ this.onMouseOverHighlight.bind(this) } onMouseOut={ this.onMouseOutHighlight.bind(this) }></div> : null;
-    const activeFavClass = this.props.expireTime ? "" : "is-fav";
-    const shouldShow = this.props.isFxaAuthenticated ? "" : "hidden";
-
-    favoriteShotButton = <div className="favorite-shot-button"><Localized id="shotPagefavoriteButton">
-      <button className={`nav-button ${shouldShow} `} onClick={this.onClickFavorite.bind(this)}>
-        <span className={`icon-favorite favorite ${activeFavClass}`} ></span>
-        <Localized id="shotPageFavorite">
-          <span className={`favorite-text favorite ${activeFavClass} `}>Favorite</span>
-        </Localized>
-      </button></Localized></div>;
-
-    const downloadButton = <div className="download-shot-button"><Localized id="shotPageDownloadShot">
-      <button className={`nav-button icon-download`} onClick={this.onClickDownload.bind(this)}
-        title="Download the shot image">
-        <Localized id="shotPageDownload">
-          <span>Download</span>
-        </Localized>
-      </button>
-    </Localized></div>;
+    let downloadButton = null;
+    let copyButton = null;
 
     if (this.props.isOwner) {
+      const highlight = this.state.highlightEditButton
+        ? <div className="edit-highlight"
+               onClick={this.onClickEdit.bind(this)}
+               onMouseOver={this.onMouseOverHighlight.bind(this)}
+               onMouseOut={this.onMouseOutHighlight.bind(this)}>
+          </div> : null;
+      const favImgSrc = this.props.expireTime ? this.props.staticLink("/static/img/icon-heart-outline.svg") :
+        this.props.staticLink("/static/img/icon-heart.svg");
+      const inactive = this.props.isFxaAuthenticated ? "" : "inactive";
+
+      favoriteShotButton = <div className="favorite-shot-button">
+        <Localized id="shotPagefavoriteButton" attrs={{title: true}}>
+          <button className={`button transparent nav-button ${inactive}`}
+                  disabled={!this.props.isFxaAuthenticated} onClick={this.onClickFavorite.bind(this)}>
+            <img src={favImgSrc} />
+          </button>
+        </Localized></div>;
+
       trashOrFlagButton = <DeleteShotButton
-        clickDeleteHandler={ this.clickDeleteHandler.bind(this) }
-        confirmDeleteHandler={ this.confirmDeleteHandler.bind(this) }
-        cancelDeleteHandler={ this.cancelDeleteHandler.bind(this) } />;
+        clickDeleteHandler={this.clickDeleteHandler.bind(this)}
+        confirmDeleteHandler={this.confirmDeleteHandler.bind(this)}
+        cancelDeleteHandler={this.cancelDeleteHandler.bind(this)}
+        staticLink={this.props.staticLink} />;
 
       editButton = this.props.enableAnnotations ? <div className="edit-shot-button">
-        <Localized id="shotPageEditButton">
-          <button className="nav-button icon-edit transparent edit"
-            title="Edit this image"
-            onClick={this.onClickEdit.bind(this)}
-            ref={(edit) => { this.editButton = edit; }}>
-            <Localized id="shotPageDraw">
-              <span>Draw</span>
-            </Localized>
+        <Localized id="shotPageEditButton" attrs={{title: true}}>
+          <button className="button transparent nav-button"
+                  title="Edit this image"
+                  onClick={this.onClickEdit.bind(this)}
+                  ref={(edit) => { this.editButton = edit; }}>
+            <img src={this.props.staticLink("/static/img/icon-pen.svg")} />
           </button>
         </Localized>
         <PromoDialog promoClose={this.promoClose.bind(this)} display={this.state.promoDialog} />
         { highlight }
         </div> : null;
+
+      downloadButton = <div className="download-shot-button">
+        <Localized id="shotPageDownloadShot" attrs={{title: true}}>
+          <button className={`button transparent nav-button`} onClick={this.onClickDownload.bind(this)}
+                  title="Download the shot image">
+            <img src={this.props.staticLink("/static/img/icon-download.svg")} />
+          </button>
+        </Localized></div>;
+
+      copyButton = <div className="copy-img-button" hidden={this.state.isClient && !this.state.canCopy}>
+        <Localized id="shotPageCopyButton" attrs={{title: true}}>
+          <button className="button nav-button transparent copy"
+                  title="Copy image to clipboard"
+                  onClick={this.onClickCopy.bind(this)}>
+            <img src={this.props.staticLink("/static/img/icon-copy.svg")} />
+          </button>
+        </Localized></div>;
     }
 
     let clip;
@@ -394,18 +434,19 @@ class Body extends React.Component {
     }
 
     let renderGetFirefox = this.props.userAgent && (this.props.userAgent + "").search(/firefox\/\d{1,255}/i) === -1;
-    if (this.props.isMobile || this.state.closeBanner) {
+    if (this.props.isMobile) {
       renderGetFirefox = false;
     }
 
     return (
       <reactruntime.BodyTemplate {...this.props}>
-        { renderGetFirefox ? this.renderFirefoxRequired() : null }
         <div id="frame" className="inverse-color-scheme full-height column-space">
         <ShotPageHeader isOwner={this.props.isOwner} isFxaAuthenticated={this.props.isFxaAuthenticated}
-          shot={this.props.shot} expireTime={this.props.expireTime}>
+          shot={this.props.shot} expireTime={this.props.expireTime} shouldGetFirefox={renderGetFirefox}
+          staticLink={this.props.staticLink}>
           { favoriteShotButton }
           { editButton }
+          { copyButton }
           { downloadButton }
           { trashOrFlagButton }
         </ShotPageHeader>
@@ -414,7 +455,7 @@ class Body extends React.Component {
           { errorMessages }
           { clips }
         </section>
-        <Footer {...this.props} />
+        <ShotFooter {...this.props} />
       </div>
     </reactruntime.BodyTemplate>);
   }
@@ -433,21 +474,6 @@ class Body extends React.Component {
     this.editButton.style.backgroundColor = "transparent";
   }
 
-  renderFirefoxRequired() {
-    return <div className="highlight-color-scheme alt-notification">
-      <div>
-        <Localized id="gScreenshotsDescription">
-          <span>Screenshots made simple. Take, save and share screenshots without leaving Firefox.</span>
-        </Localized>
-        &nbsp;
-        <Localized id="shotPageUpsellFirefox">
-          <a href="https://www.mozilla.org/firefox/new/?utm_source=screenshots.firefox.com&utm_medium=referral&utm_campaign=screenshots-acquisition&utm_content=from-shot" onClick={ this.clickedInstallFirefox.bind(this) }>Get Firefox now</a>
-        </Localized>
-      </div>
-      <a className="close" onClick={ this.doCloseBanner.bind(this) }></a>
-    </div>;
-  }
-
   onClickEdit() {
     if (!this.state.imageEditing) {
       this.setState({imageEditing: true});
@@ -456,6 +482,27 @@ class Body extends React.Component {
     // Close promo dialog if user clicked edit after seeing new edit tool promo
     if (this.props.promoDialog) {
       this.promoClose();
+    }
+  }
+
+  async onClickCopy() {
+    const clipId = this.props.shot.clipNames()[0];
+    const clip = this.props.shot.getClip(clipId);
+    try {
+      const resp = await fetch(clip.image.url);
+
+      if (!resp.ok) {
+        throw new Error(resp.statusText);
+      }
+
+      const blob = await resp.blob();
+      document.dispatchEvent(new CustomEvent("copy-to-clipboard", {detail: blob}));
+    } catch (e) {
+      document.dispatchEvent(new CustomEvent("show-notification", { detail: {
+        type: "basic",
+        title: this.props.copyImageErrorMessage.title,
+        message: this.props.copyImageErrorMessage.message,
+      }}));
     }
   }
 
@@ -515,6 +562,7 @@ Body.propTypes = {
   abTests: PropTypes.object,
   backend: PropTypes.string,
   blockType: PropTypes.string,
+  canCopy: PropTypes.bool,
   controller: PropTypes.object,
   defaultExpiration: PropTypes.number,
   downloadUrl: PropTypes.string,

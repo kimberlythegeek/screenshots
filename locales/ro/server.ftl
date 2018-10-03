@@ -9,15 +9,17 @@ gHomeLink = Start
 gNoShots =
     .alt = Nicio captură găsită
 gScreenshotsDescription = Capturile de ecran simplificate. Realizează, salvează și partajează capturile de ecran fără să părăsești Firefox.
-gSettings = Setări
-gSignIn = Autentificare
 
 ## Header
 
-signInButton =
-    .aria-label = Autentificare
-settingsButton =
-    .aria-label = Setări
+buttonSettings =
+    .title = Setări
+buttonSignIn =
+    .title = Autentificare
+screenshotsLogo =
+    .title = Pagina de start Screenshots
+bannerMessage = Autentifică-te sau înregistrează pentru a accesa capturile de ecran pe toate dispozitivele tale și salvează favoritele pentru totdeauna.
+bannerUpsell = { gScreenshotsDescription }<a>Obţine Firefox acum</a>
 
 ## Footer
 
@@ -25,6 +27,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Termeni
 footerLinkPrivacy = Politica de confidențialitate
+footerReportShot = Raportează captura
+    .title = Raportează această captură pentru abuz, spam sau alte probleme
 footerLinkFaqs = Întrebări frecvente
 footerLinkDMCA = Raportează o încălcare a PI
 footerLinkDiscourse = Oferă feedback
@@ -95,7 +99,8 @@ shotPageAlertErrorUpdatingTitle = Eroare la salvarea titlului
 shotPageConfirmDelete = Sigur vrei să ștergi definitiv această captură?
 shotPageShareButton =
     .title = Partajează
-shotPageCopy = Copiază
+shotPageCopyButton =
+    .title = Copiază imaginea în clipboard
 shotPageCopied = Copiat
 shotPageShareFacebook =
     .title = Partajează pe Facebook
@@ -110,8 +115,8 @@ shotPagePrivacyMessage = Oricine are linkul poate vedea această captură.
 shotPageCopyImageText =
     .label = Copiază textul imaginii
 shotPageConfirmDeletion = Sigur vrei să ștergi definitiv această captură?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Dacă nu faci nimic, această captură va fi ștersă permanent { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Dacă nu faci nimic, această captură va fi ștersă permanent <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = restaurează până la { $date }
@@ -120,17 +125,17 @@ shotPageExpiredMessage = Această captură a expirat.
 shotPageExpiredMessageDetails = Iată pagina de pe care a fost creată inițial:
 shotPageDeleteButton =
     .title = Șterge această captură
-shotPageAbuseButton =
-    .title = Raportează această captură pentru abuz, spam sau alte probleme
 shotPageDownloadShot =
     .title = Descarcă
 shotPageEditButton =
     .title = Editează această imagine
 shotPagefavoriteButton =
     .title = Adaugă la favorite
-shotPageDownload = Descarcă
+shotPageBackToHomeButton =
+    .title = Pagina de start
+shotPageAllShotsButton =
+    .title = Toate capturile
 shotPageScreenshotsDescription = Capturile de ecran simplificate. Realizează, salvează și partajează capturile de ecran fără să părăsești Firefox.
-shotPageUpsellFirefox = Obține Firefox acum
 shotPageDMCAMessage = Această captură nu mai este disponibilă din cauza unei reclamații de proprietate intelectuală.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Te rugăm să trimiți un e-mail la { $dmca } pentru a solicita informații suplimentare.
@@ -154,10 +159,10 @@ shotPageKeepOneMonth = 1 lună
 shotPageSaveExpiration = salvează
 shotPageCancelExpiration = renunță
 shotPageDoesNotExpire = nu expiră
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = expiră { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = a expirat { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = expiră <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = a expirat <timediff></timediff>
 timeDiffJustNow = chiar acum
 timeDiffMinutesAgo =
     { $number ->
@@ -266,6 +271,13 @@ textToolCancelButton = Renunță
 textToolInputPlaceholder =
     .placeholder = Salut
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Ceva nu a funcționat
+copyImageErrorMessage = Nu se poate copia captura pe clipboard.
+
 ## Settings Page
 
 settingsDisconnectButton = Deconectează-te
@@ -292,13 +304,13 @@ shotIndexPageSearchResultsTitle = Capturile mele: caută { $searchTerm }
 shotIndexPageErrorRendering = Eroare la afișarea paginii: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Caută capturile mele
-shotIndexPageSearchButton =
-    .title = Caută
 shotIndexPageNoShotsMessage = Nicio captură salvată.
 shotIndexPageNoShotsInvitation = Haide, realizează câteva.
 shotIndexPageLookingForShots = Se caută capturile tale...
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Nu am găsit capturi după căutarea specificată.
+shotIndexPageMyShotsButton =
+    .title = Capturile mele
 shotIndexPageClearSearchButton =
     .title = Curăță căutarea
 shotIndexPageConfirmShotDelete = Ștergi această captură?
@@ -306,17 +318,17 @@ shotIndexPagePreviousPage =
     .title = Pagina anterioară
 shotIndexPageNextPage =
     .title = Pagina următoare
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Această captură nu expiră
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Acesta nu este o imagine favorită, și va expira
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Aceasta este o captură favorită și nu expiră
+shotIndexSyncedShot =
+    .title = Captură realizată pe alt dispozitiv
 
 ## Delete Confirmation Dialog
 

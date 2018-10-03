@@ -14,10 +14,14 @@ gSignIn = Mewngofnodi
 
 ## Header
 
-signInButton =
-    .aria-label = Mewngofnodi
-settingsButton =
-    .aria-label = Gosodiadau
+buttonSettings =
+    .title = Gosodiadau
+buttonSignIn =
+    .title = Mewngofnodi
+screenshotsLogo =
+    .title = Cartref Screenshots
+bannerMessage = Mewngofnodwch neu gofrestru i gael mynediad i'ch lluniau ar draws dyfeisiau a chadw eich ffefrynnau am byth.
+bannerUpsell = { gScreenshotsDescription } <a>Defnyddiwch Firefox</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Amodau
 footerLinkPrivacy = Hysbysiad Preifatrwydd
+footerReportShot = Adrodd am Lun
+    .title = Adrodd y llun oherwydd camdriniaeth, sbam neu broblem arall
 footerLinkFaqs = Cwestiynau Cyffredin
 footerLinkDMCA = Adrodd ar Torri'r IP
 footerLinkDiscourse = Rhoi Adborth
@@ -96,12 +102,15 @@ shotPageConfirmDelete = Ydych chi'n siŵr eich bod eisiau dileu'r llun yn barhao
 shotPageShareButton =
     .title = Cadw
 shotPageCopy = Copïo
+shotPageCopyButton =
+    .title = Copïo'r ddelwedd i'r clipfwrdd
 shotPageCopied = Copiwyd
 shotPageShareFacebook =
     .title = Rhannu ar Facebook
 shotPageShareTwitter =
     .title = Rhannu ar Twitter
-shotPageSharePinterest = Rhannu ar Pininterest
+shotPageSharePinterest =
+    .title = Rhannu ar Pininterest
 shotPageShareEmail =
     .title = Rhannu dolen drwy e-bost
 shotPageShareLink = Estyn dolen i'w rannu ar gyfer y llun:
@@ -109,8 +118,8 @@ shotPagePrivacyMessage = Mae unrhyw un sydd â'r ddolen yn gallu gweld y llun.
 shotPageCopyImageText =
     .label = Copïo testun y ddelwedd
 shotPageConfirmDeletion = Ydych chi'n siŵr eich bod am ddileu'r llun yn barhaol?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Os wnewch chi ddim byd, bydd y llun yn cael ei ddileu'n barhaol { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Os wnewch chi ddim byd, bydd y llun yn cael ei ddileu'n barhaol <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = adfer tan { $date }
@@ -119,17 +128,24 @@ shotPageExpiredMessage = Mae'r llun wedi dod i ben.
 shotPageExpiredMessageDetails = Dyma'r dudalen lle gafodd ei greu'n wreiddiol:
 shotPageDeleteButton =
     .title = Dileu'r llun
-shotPageAbuseButton =
-    .title = Adrodd ar y llun am gamddefnydd, sbam neu broblem arall
 shotPageDownloadShot =
     .title = Llwytho i Lawr
 shotPageEditButton =
     .title = Golygu'r ddelwedd hon
 shotPagefavoriteButton =
     .title = Ffefrynnu'r llun yma
+shotPageBackToHomeButton =
+    .title = Tudalen Cartref
+shotPageAllShotsButton =
+    .title = Pob Llun
+shotPageAllShots = Pob Llun
 shotPageDownload = Llwytho i Lawr
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Lluniadu
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Ffefryn
+shotPageDelete = Dileu
 shotPageScreenshotsDescription = Lluniau sgrin hawdd. Cipio, cadw a rhannu lluniau sgrin heb adael Firefox.
-shotPageUpsellFirefox = Estyn Firefox nawr
 shotPageDMCAMessage = Nid yw'r llun ar gael bellach oherwydd cais eiddo deallusol trydydd parti.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = E-bostiwch { $dmca } i ofyn am rhagor o wybodaeth.
@@ -153,10 +169,10 @@ shotPageKeepOneMonth = Mis
 shotPageSaveExpiration = cadw
 shotPageCancelExpiration = diddymu
 shotPageDoesNotExpire = nid yw'n dod i ben
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = daw i ben { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = wedi dod i ben { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = daw i ben <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = wedi dod i ben <timediff></timediff>
 timeDiffJustNow = nawr
 timeDiffMinutesAgo =
     { $number ->
@@ -283,6 +299,13 @@ textToolCancelButton = Diddymu
 textToolInputPlaceholder =
     .placeholder = Helo
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Aeth rhywbeth o'i le
+copyImageErrorMessage = Methu copïo eich llun i'r clipfwrdd
+
 ## Settings Page
 
 settingsDisconnectButton = Datgysylltu
@@ -309,13 +332,13 @@ shotIndexPageSearchResultsTitle = Fy Lluniau: chwilio am { $searchTerm }
 shotIndexPageErrorRendering = Gwall wrth gyflwyno'r dudalen: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Chwilio fy lluniau
-shotIndexPageSearchButton =
-    .title = Chwilio
 shotIndexPageNoShotsMessage = Dim lluniau wedi eu cadw
 shotIndexPageNoShotsInvitation = Croeso i chi greu lluniau.
 shotIndexPageLookingForShots = Chwilio am eich lluniau...
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Methu canfod lluniau sy'n cyd-fynd â'ch chwilio.
+shotIndexPageMyShotsButton =
+    .title = Fy Lluniau
 shotIndexPageClearSearchButton =
     .title = Clirio'r chwilio
 shotIndexPageConfirmShotDelete = Dileu'r llun?
@@ -323,17 +346,17 @@ shotIndexPagePreviousPage =
     .title = Tudalen flaenorol
 shotIndexPageNextPage =
     .title = Tudalen nesaf
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Nid yw'r llun yma'n dod i ben
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Nid yw hwn yn hoff lun a bydd yn dod i ben
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Mae hwn yn llun ffefryn ac nid yw'n dod i ben
+shotIndexSyncedShot =
+    .title = Llun wedi ei dynnu gan ddyfais arall
 
 ## Delete Confirmation Dialog
 

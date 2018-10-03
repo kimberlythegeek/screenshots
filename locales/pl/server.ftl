@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Zaloguj się
 screenshotsLogo =
     .title = Strona główna Screenshots
+bannerMessage = Zaloguj się lub zarejestruj, aby mieć dostęp do swoich zrzutów na wszystkich urządzeniach i zachować ulubione na zawsze.
+bannerUpsell = { gScreenshotsDescription } <a>Pobierz Firefoksa</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Czy na pewno trwale usunąć ten zrzut?
 shotPageShareButton =
     .title = Udostępnij
 shotPageCopy = Kopiuj
+shotPageCopyButton =
+    .title = Kopiuj obraz do schowka
 shotPageCopied = Skopiowano
 shotPageShareFacebook =
     .title = Udostępnij na Facebooku
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Wszyscy z tym odnośnikiem mogą wyświetlić ten zrzu
 shotPageCopyImageText =
     .label = Kopiuj tekst obrazu
 shotPageConfirmDeletion = Czy na pewno trwale usunąć ten zrzut?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Ten zrzut zostanie automatycznie usunięty { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Ten zrzut zostanie automatycznie usunięty <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = przywróć do { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Rysuj
 shotPageFavorite = Dodaj do ulubionych
 shotPageDelete = Usuń
 shotPageScreenshotsDescription = Zrzuty ekranu dla każdego. Twórz, zapisuj i udostępniaj zrzuty ekranu bez opuszczania Firefoksa.
-shotPageUpsellFirefox = Pobierz Firefoksa
 shotPageDMCAMessage = Ten zrzut został usunięty z powodu roszczeń prawnych strony trzeciej.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Wyślij wiadomość do { $dmca } w celu uzyskania dalszych informacji.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 miesiąc
 shotPageSaveExpiration = zapisz
 shotPageCancelExpiration = anuluj
 shotPageDoesNotExpire = nie ulega przeterminowaniu
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = ulega przeterminowaniu { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = uległ przeterminowaniu { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = ulega przeterminowaniu <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = uległ przeterminowaniu <timediff></timediff>
 timeDiffJustNow = przed chwilą
 timeDiffMinutesAgo =
     { $number ->
@@ -278,6 +281,13 @@ textToolCancelButton = Anuluj
 textToolInputPlaceholder =
     .placeholder = Cześć
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Coś się nie powiodło
+copyImageErrorMessage = Nie można skopiować zrzutu do schowka.
+
 ## Settings Page
 
 settingsDisconnectButton = Rozłącz
@@ -304,8 +314,6 @@ shotIndexPageSearchResultsTitle = Moje zrzuty: wyszukaj „{ $searchTerm }”
 shotIndexPageErrorRendering = Błąd podczas wyświetlania strony: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Przeszukaj moje zrzuty
-shotIndexPageSearchButton =
-    .title = Szukaj
 shotIndexPageNoShotsMessage = Brak zrzutów.
 shotIndexPageNoShotsInvitation = Może jakiś utworzymy?
 shotIndexPageLookingForShots = Wyszukiwanie zrzutów…
@@ -320,17 +328,17 @@ shotIndexPagePreviousPage =
     .title = Poprzednia strona
 shotIndexPageNextPage =
     .title = Następna strona
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Ten zrzut nie ulega przeterminowaniu
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = To nie jest ulubiony zrzut, ulegnie on przeterminowaniu
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = To ulubiony zrzut, nie ulega on przeterminowaniu
+shotIndexSyncedShot =
+    .title = Zrzut wykonany na innym urządzeniu
 
 ## Delete Confirmation Dialog
 

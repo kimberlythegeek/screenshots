@@ -64,10 +64,10 @@ exports.DeleteShotButton = class DeleteShotButton extends React.Component {
         <div className="delete-confirmation-message">Are you sure you want to delete this shot?</div>
         </Localized>
         <div className="delete-confirmation-buttons">
-          <Localized id="shotDeleteCancel">
+          <Localized id="shotDeleteCancel" attrs={{title: true}}>
           <button className="button primary" title="Cancel" onClick={ this.onCancelDelete.bind(this) }>Cancel</button>
           </Localized>
-          <Localized id="shotDeleteConfirm">
+          <Localized id="shotDeleteConfirm" attrs={{title: true}}>
           <button className="button secondary" title="Delete" onClick={ this.onConfirmDelete.bind(this) }>Delete</button>
           </Localized>
         </div>
@@ -75,16 +75,21 @@ exports.DeleteShotButton = class DeleteShotButton extends React.Component {
       deletePanelOpenClass = "active";
     }
 
+    let deleteButtonStyle = null;
+    if (this.props.isIcon) {
+      deleteButtonStyle = `button transparent trash ${deletePanelOpenClass}`;
+    } else {
+      deleteButtonStyle = `button nav-button transparent ${deletePanelOpenClass}`;
+    }
+
     return (
       <div className="delete-shot-button">
-        <Localized id="shotPageDeleteButton">
-          <button className={`nav-button transparent icon-trash trash ${deletePanelOpenClass} `}
+        <Localized id="shotPageDeleteButton" attrs={{title: true}}>
+          <button className={deleteButtonStyle}
             title="Delete this shot permanently"
             onClick={this.onClickDelete.bind(this)}
             ref={this.trashButtonRef}>
-            <Localized id="shotPageDelete">
-              <span>Delete</span>
-            </Localized>
+            <img src={this.props.staticLink("/static/img/icon-trash.svg")} />
           </button>
         </Localized>
         { confirmationPanel }
@@ -97,4 +102,6 @@ exports.DeleteShotButton.propTypes = {
   clickDeleteHandler: PropTypes.func,
   confirmDeleteHandler: PropTypes.func,
   cancelDeleteHandler: PropTypes.func,
+  isIcon: PropTypes.bool,
+  staticLink: PropTypes.func,
 };

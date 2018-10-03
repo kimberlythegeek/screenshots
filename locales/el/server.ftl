@@ -14,10 +14,13 @@ gSignIn = Είσοδος
 
 ## Header
 
-signInButton =
-    .aria-label = Είσοδος
-settingsButton =
-    .aria-label = Ρυθμίσεις
+buttonSettings =
+    .title = Ρυθμίσεις
+buttonSignIn =
+    .title = Σύνδεση
+screenshotsLogo =
+    .title = Αρχική σελίδα Screenshots
+bannerMessage = Συνδεθείτε ή εγγραφείτε για πρόσβαση στα στιγμιότυπά σας από όλες τις συσκευές και αποθήκευση των αγαπημένων σας για πάντα.
 
 ## Footer
 
@@ -25,6 +28,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Όροι χρήσης
 footerLinkPrivacy = Πολιτική Απορρήτου
+footerReportShot = Αναφορά στιγμιότυπου
+    .title = Αναφέρετε αυτό το στιγμιότυπο ως ακατάλληλο, ανεπιθύμητο ή για άλλα προβλήματα
 footerLinkFaqs = Συχνές ερωτήσεις
 footerLinkDMCA = Αναφορά IP παραβίασης πνευματικής ιδιοκτησίας
 footerLinkDiscourse = Γράψτε το σχόλιο σας
@@ -110,8 +115,8 @@ shotPagePrivacyMessage = Οποιοσδήποτε μπορεί να δει αυ�
 shotPageCopyImageText =
     .label = Αντιγραφή κειμένου εικόνας
 shotPageConfirmDeletion = Θέλετε σίγουρα να διαγράψετε οριστικά αυτό το στιγμιότυπο;
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Αν δεν κάνετε τίποτα, αυτό το στιγμιότυπο θα διαγραφεί οριστικά { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Αν δεν κάνετε τίποτα, αυτό το στιγμιότυπο θα διαγραφεί οριστικά <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = ανάκτηση μέχρι { $date }
@@ -120,15 +125,23 @@ shotPageExpiredMessage = Αυτό το στιγμιότυπο έχει λήξε�
 shotPageExpiredMessageDetails = Ορίστε η σελίδα, από την οποία δημιουργήθηκε αρχικά:
 shotPageDeleteButton =
     .title = Διαγραφή στιγμιότυπου
-shotPageAbuseButton =
-    .title = Αναφορά στιγμιότυπου για κατάχρηση, spam ή άλλα προβλήματα
 shotPageDownloadShot =
     .title = Λήψη
 shotPageEditButton =
     .title = Επεξεργασία εικόνας
 shotPagefavoriteButton =
     .title = Προσθήκη στιγμιότυπου στα αγαπημένα
+shotPageBackToHomeButton =
+    .title = Αρχική σελίδα
+shotPageAllShotsButton =
+    .title = Όλα τα στιγμιότυπα
+shotPageAllShots = Όλα τα στιγμιότυπα
 shotPageDownload = Λήψη
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Σχέδιο
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Αγαπημένο
+shotPageDelete = Διαγραφή
 shotPageScreenshotsDescription = Η λήψη στιγμιοτύπων έγινε εύκολη. Λήψη, αποθήκευση και κοινή χρήση στιγμιοτύπων χωρίς να φύγετε από το Firefox.
 shotPageUpsellFirefox = Λήψη του Firefox τώρα
 shotPageDMCAMessage = Αυτό το στιγμιότυπο δεν είναι πλέον διαθέσιμο λόγω ισχυρισμού πνευματικής ιδιοκτησίας ενός τρίτου.
@@ -154,10 +167,10 @@ shotPageKeepOneMonth = 1 μήνας
 shotPageSaveExpiration = αποθήκευση
 shotPageCancelExpiration = ακύρωση
 shotPageDoesNotExpire = δεν λήγει
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = λήγει { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = έληξε { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = λήγει <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = έληξε <timediff></timediff>
 timeDiffJustNow = μόλις τώρα
 timeDiffMinutesAgo =
     { $number ->
@@ -293,6 +306,8 @@ shotIndexPageNoShotsInvitation = Εμπρός, δημιουργήστε μερι
 shotIndexPageLookingForShots = Αναζήτηση των στιγμιοτύπων σας…
 shotIndexPageNoSearchResultsIntro = Χμμ
 shotIndexPageNoSearchResults = Δεν μπορούμε να βρούμε κανένα στιγμιότυπο που να αντιστοιχεί στην αναζήτησή σας.
+shotIndexPageMyShotsButton =
+    .title = Τα στιγμιότυπά μου
 shotIndexPageClearSearchButton =
     .title = Εκκαθάριση αναζήτησης
 shotIndexPageConfirmShotDelete = Διαγραφή στιγμιότυπου;
@@ -300,13 +315,11 @@ shotIndexPagePreviousPage =
     .title = Προηγούμενη σελίδα
 shotIndexPageNextPage =
     .title = Επόμενη σελίδα
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Αυτό το στιγμιότυπο δεν λήγει
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Αυτό δεν είναι ένα αγαπημένο στιγμιότυπο και θα λήξει
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =

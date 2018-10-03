@@ -14,10 +14,14 @@ gSignIn = Bejelentkezés
 
 ## Header
 
-signInButton =
-    .aria-label = Bejelentkezés
-settingsButton =
-    .aria-label = Beállítások
+buttonSettings =
+    .title = Beállítások
+buttonSignIn =
+    .title = Bejelentkezés
+screenshotsLogo =
+    .title = Screenshots kezdőlap
+bannerMessage = Jelentkezzen be vagy regisztráljon hogy elérje a képeit az összes eszközén, és végleg elmentse a kedvenceit.
+bannerUpsell = { gScreenshotsDescription } <a>Szerezze be a Firefoxot most</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Feltételek
 footerLinkPrivacy = Adatvédelmi nyilatkozat
+footerReportShot = Kép jelentése
+    .title = A kép bejelentése visszaélés, spam vagy más problémák miatt
 footerLinkFaqs = GYIK
 footerLinkDMCA = Szellemi tulajdont érintő jogsértés jelentése
 footerLinkDiscourse = Adjon visszajelzést
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Biztos, hogy véglegesen törölni szeretné ezt a képe
 shotPageShareButton =
     .title = Megosztás
 shotPageCopy = Másolás
+shotPageCopyButton =
+    .title = Kép vágólapra másolása
 shotPageCopied = Átmásolva
 shotPageShareFacebook =
     .title = Megosztás Facebookon
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Bárki megnézheti a képet, aki ismeri a hivatkozást.
 shotPageCopyImageText =
     .label = Kép szövegének másolása
 shotPageConfirmDeletion = Biztos, hogy véglegesen törölni szeretné ezt a képet?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Ha nem tesz semmit, a kép törlésre kerül { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Ha nem tesz semmit, a kép törlésre kerül <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = visszaállítás eddig: { $date }
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Ez a képernyőkép lejárt.
 shotPageExpiredMessageDetails = Itt van az oldal, amelyről eredetileg készült:
 shotPageDeleteButton =
     .title = A képernyőkép törlése
-shotPageAbuseButton =
-    .title = Kép jelentése visszaélés, spam vagy más problémák miatt
 shotPageDownloadShot =
     .title = Letöltés
 shotPageEditButton =
     .title = Kép szerkesztése
 shotPagefavoriteButton =
     .title = A kép beállítása kedvencként
+shotPageBackToHomeButton =
+    .title = Kezdőlap
+shotPageAllShotsButton =
+    .title = Összes kép
+shotPageAllShots = Összes kép
 shotPageDownload = Letöltés
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Rajzolás
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Kedvencnek jelölés
+shotPageDelete = Törlés
 shotPageScreenshotsDescription = Képernyőképek egyszerűen. Készítsen, mentsen és ossza meg a képernyőképeit a Firefox elhagyása nélkül.
-shotPageUpsellFirefox = Szerezze be most a Firefoxot
 shotPageDMCAMessage = A kép egy harmadik fél szerzői jogi követelése miatt már nem érhető el.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = További információ kéréséhez küldjön egy e-mailt ide: { $dmca }
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 hónap
 shotPageSaveExpiration = mentés
 shotPageCancelExpiration = mégse
 shotPageDoesNotExpire = nem jár le
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = { $timediff } jár le
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = { $timediff } lejárt
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = <timediff></timediff> jár le
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = <timediff></timediff> lejárt
 timeDiffJustNow = épp most
 timeDiffMinutesAgo =
     { $number ->
@@ -260,6 +275,13 @@ textToolCancelButton = Mégse
 textToolInputPlaceholder =
     .placeholder = Helló
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Valami hiba történt
+copyImageErrorMessage = Nem másolható a képernyőkép a vágólapra.
+
 ## Settings Page
 
 settingsDisconnectButton = Kapcsolat bontása
@@ -286,13 +308,13 @@ shotIndexPageSearchResultsTitle = Saját képek: keresés erre: { $searchTerm }
 shotIndexPageErrorRendering = Hiba az oldal renderelésekor: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Saját képek keresése
-shotIndexPageSearchButton =
-    .title = Keresés
 shotIndexPageNoShotsMessage = Nincsenek mentett képek.
 shotIndexPageNoShotsInvitation = Hajrá, készítsen néhányat.
 shotIndexPageLookingForShots = Képek keresése…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Nem található a keresésnek megfelelő kép.
+shotIndexPageMyShotsButton =
+    .title = Az Ön képei
 shotIndexPageClearSearchButton =
     .title = Keresés törlése
 shotIndexPageConfirmShotDelete = Törli ezt a képet?
@@ -300,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Előző oldal
 shotIndexPageNextPage =
     .title = Következő oldal
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Ez a kép nem évül el
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Ez nem egy kedvenc kép, és el fog évülni
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Egy egy kedvenc képernyőkép, és nem jár le
+shotIndexSyncedShot =
+    .title = Másik eszközön készült képernyőkép
 
 ## Delete Confirmation Dialog
 

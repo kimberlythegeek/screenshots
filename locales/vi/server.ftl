@@ -14,10 +14,13 @@ gSignIn = Đăng nhập
 
 ## Header
 
-signInButton =
-    .aria-label = Đăng nhập
-settingsButton =
-    .aria-label = Cài đặt
+buttonSettings =
+    .title = Cài đặt
+buttonSignIn =
+    .title = Đăng nhập
+screenshotsLogo =
+    .title = Trang chủ Screenshots
+bannerMessage = Đăng nhập hoặc đăng ký để truy cập ảnh của bạn trên các thiết bị và lưu các mục yêu thích của bạn mãi mãi.
 
 ## Footer
 
@@ -25,6 +28,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Điều khoản
 footerLinkPrivacy = Chính sách Riêng tư
+footerReportShot = Báo cáo ảnh chụp
+    .title = Báo cáo ảnh chụp này vì lạm dụng, spam hay các vấn đề khác
 footerLinkFaqs = Câu hỏi thường gặp
 footerLinkDMCA = Báo cáo IP vi phạm
 footerLinkDiscourse = Gửi phản hồi
@@ -48,7 +53,7 @@ homePageTeaser = Sắp ra mắt ...
 homePageDownloadFirefoxTitle = Firefox
 homePageDownloadFirefoxSubTitle = Tải về miễn phí
 # Note: do not translate 'Firefox Screenshots' when translating this string
-homePageHowScreenshotsWorks = Cách để Trình chụp ảnh Firefox làm việc
+homePageHowScreenshotsWorks = Cách để Firefox Screenshots làm việc
 homePageGetStartedTitle = Bắt đầu
 # Note: Screenshots is an abbreviation for Firefox Screenshots, and should not be translated.
 homePageGetStartedDescription = Tìm biểu tượng Ảnh chụp màn hình mới trên thanh công cụ của bạn. Chọn nó, và trình đơn Ảnh chụp màn hình sẽ xuất hiện ở đầu cửa sổ trình duyệt của bạn.
@@ -60,8 +65,6 @@ homePageCaptureRegionDescription = Nhấp và kéo để chọn khu vực bạn 
 homePageCapturePage = Chụp một trang
 homePageCapturePageDescription = Sử dụng các nút ở phía trên bên phải để chụp toàn bộ trang. Nút Lưu Ghi nhớ sẽ chụp khu vực bạn có thể xem mà không cần di chuyển, và Lưu toàn bộ Trang sẽ chụp mọi thứ trên trang.
 homePageSaveShare = Lưu và chia sẻ
-# Note: Screenshots is an abbreviation for Firefox Screenshots, and should not be translated.
-homePageSaveShareDescription = Khi bạn chụp, Firefox đăng ảnh chụp màn hình của bạn lên thư viện Ảnh chụp màn hình trực tuyến của bạn và sao chép liên kết tới khay nhớ tạm của bạn. Chúng tôi tự động lưu ảnh chụp màn hình của bạn trong hai tuần, nhưng bạn có thể xóa ảnh chụp bất kỳ lúc nào hoặc thay đổi ngày hết hạn để giữ chúng trong thư viện của bạn lâu hơn.
 homePageLegalLink = Thông tin pháp lý
 homePagePrivacyLink = Chính sách riêng tư
 homePageTermsLink = Điều khoản
@@ -110,8 +113,8 @@ shotPagePrivacyMessage = Bất kỳ ai có liên kết đều có thể xem ản
 shotPageCopyImageText =
     .label = Sao chép hình ảnh văn bản
 shotPageConfirmDeletion = Bạn có chắc chắn muốn xóa vĩnh viễn ảnh này?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Nếu bạn không làm gì, ảnh này sẽ bị xóa vĩnh viễn { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Nếu bạn không làm gì, ảnh này sẽ bị xóa vĩnh viễn <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = khôi phục đến { $date }
@@ -120,15 +123,22 @@ shotPageExpiredMessage = Ảnh này đã quá hạn.
 shotPageExpiredMessageDetails = Đây là trang nó ban đầu được tạo ra từ:
 shotPageDeleteButton =
     .title = Xóa ảnh này
-shotPageAbuseButton =
-    .title = Báo cáo ảnh chụp này vì lạm dụng, spam hoặc các vấn đề khác
 shotPageDownloadShot =
     .title = Tải về
 shotPageEditButton =
     .title = Chỉnh sửa hình ảnh
+shotPagefavoriteButton =
+    .title = Đánh dấu ảnh này là yêu thích
+shotPageBackToHomeButton =
+    .title = Trang chủ
+shotPageAllShotsButton =
+    .title = Tất cả ảnh chụp
+shotPageAllShots = Tất cả ảnh chụp
 shotPageDownload = Tải xuống
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Yêu thích
+shotPageDelete = Xóa
 shotPageScreenshotsDescription = Ảnh chụp màn hình được thực hiện đơn giản. Thực hiện, lưu và chia sẻ ảnh chụp màn hình mà không rời khỏi Firefox.
-shotPageUpsellFirefox = Tải ngay Firefox
 shotPageDMCAMessage = Bức ảnh này không còn nữa do yêu cầu sở hữu trí tuệ của bên thứ ba.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Vui lòng gửi email cho { $dmca } để yêu cầu thêm thông tin.
@@ -152,11 +162,11 @@ shotPageKeepOneMonth = 1 tháng
 shotPageSaveExpiration = lưu
 shotPageCancelExpiration = huỷ bỏ
 shotPageDoesNotExpire = Không có thời hạn
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = Hết hạn vào { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = Đã hết hạn vào { $timediff }
-timeDiffJustNow = Mới đây
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = Hết hạn vào <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = Đã hết hạn vào <timediff></timediff>
+timeDiffJustNow = mới đây
 timeDiffMinutesAgo = { $number } phút trước
 timeDiffHoursAgo = { $number } giờ trước
 timeDiffDaysAgo =
@@ -240,6 +250,12 @@ textToolCancelButton = Hủy bỏ
 textToolInputPlaceholder =
     .placeholder = Xin chào
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Có thứ gì đó không ổn
+
 ## Settings Page
 
 settingsDisconnectButton = Ngắt kết nối
@@ -266,13 +282,13 @@ shotIndexPageSearchResultsTitle = Ảnh chụp của tôi: tìm kiếm { $search
 shotIndexPageErrorRendering = Đã xảy ra lỗi khi tạo trang: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Tìm kiếm ảnh chụp của tôi
-shotIndexPageSearchButton =
-    .title = Tìm kiếm
 shotIndexPageNoShotsMessage = Không có ảnh chụp đã lưu.
 shotIndexPageNoShotsInvitation = Bắt đầu, tạo một vài ảnh.
 shotIndexPageLookingForShots = Tìm kiếm ảnh chụp của bạn...
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Chúng tôi không thể tìm thấy ảnh chụp nào trùng khớp với từ khóa của bạn.
+shotIndexPageMyShotsButton =
+    .title = Các ảnh chụp của tôi
 shotIndexPageClearSearchButton =
     .title = Xóa lịch sử tìm kiếm
 shotIndexPageConfirmShotDelete = Xóa ảnh chụp này?
@@ -280,17 +296,17 @@ shotIndexPagePreviousPage =
     .title = Trang trước
 shotIndexPageNextPage =
     .title = Trang kế tiếp
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Ảnh chụp này không bao giờ hết hạn
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Đây không phải là ảnh ưa thích và nó sẽ hết hạn
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Đây là ảnh chụp yêu thích và nó không hết hạn
+shotIndexSyncedShot =
+    .title = Ảnh đã được chụp từ thiết bị khác
 
 ## Delete Confirmation Dialog
 
@@ -304,7 +320,7 @@ shotDeleteConfirm = Xóa
 ## All metrics strings are optional for translation
 
 # Note: 'Firefox Screenshots' should not be translated
-metricsPageTitle = Số liệu thống kê Ảnh chụp màn hình Firefox
+metricsPageTitle = Số liệu thống kê Firefox Screenshots
 metricsPageTotalsQueryTitle = Tổng cộng
 # Note: Screenshots is an abbreviation for Firefox Screenshots, and should not be translated.
 metricsPageTotalsQueryDescription = Tổng quan về Ảnh chụp màn hình

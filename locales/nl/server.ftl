@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Aanmelden
 screenshotsLogo =
     .title = Startpagina van Screenshots
+bannerMessage = Meld u aan of registreer om uw afbeeldingen op meerdere apparaten te benaderen en uw favorieten voor altijd op te slaan.
+bannerUpsell = { gScreenshotsDescription } <a>Firefox nu downloaden</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Weet u zeker dat u deze afbeelding definitief wilt verwi
 shotPageShareButton =
     .title = Delen
 shotPageCopy = Kopiëren
+shotPageCopyButton =
+    .title = Afbeelding naar klembord kopiëren
 shotPageCopied = Gekopieerd
 shotPageShareFacebook =
     .title = Delen op Facebook
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Iedereen met de koppeling kan deze afbeelding bekijken.
 shotPageCopyImageText =
     .label = Afbeeldingstekst kopiëren
 shotPageConfirmDeletion = Weet u zeker dat u deze afbeelding definitief wilt verwijderen?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Als u niets doet, wordt deze afbeelding { $timediff } definitief verwijderd.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Als u niets doet, wordt deze afbeelding <timediff></timediff> definitief verwijderd.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = terugzetten tot { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Tekenen
 shotPageFavorite = Favoriet maken
 shotPageDelete = Verwijderen
 shotPageScreenshotsDescription = Schermafbeeldingen worden makkelijk. Maak, bewaar en deel schermafbeeldingen zonder Firefox te verlaten.
-shotPageUpsellFirefox = Download Firefox nu
 shotPageDMCAMessage = Deze afbeelding is vanwege een claim op intellectueel eigendom door een externe partij niet meer beschikbaar.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Stuur een e-mail naar { $dmca } om meer informatie op te vragen.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 maand
 shotPageSaveExpiration = opslaan
 shotPageCancelExpiration = annuleren
 shotPageDoesNotExpire = verloopt niet
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = verloopt { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = { $timediff } verlopen
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = verloopt <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = <timediff></timediff> verlopen
 timeDiffJustNow = zojuist
 timeDiffMinutesAgo =
     { $number ->
@@ -272,6 +275,13 @@ textToolCancelButton = Annuleren
 textToolInputPlaceholder =
     .placeholder = Hallo
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Er is iets misgegaan
+copyImageErrorMessage = Kan uw afbeelding niet naar het klembord kopiëren.
+
 ## Settings Page
 
 settingsDisconnectButton = Verbinding verbreken
@@ -298,8 +308,6 @@ shotIndexPageSearchResultsTitle = Mijn afbeeldingen: zoeken naar { $searchTerm }
 shotIndexPageErrorRendering = Fout bij weergeven van pagina: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Mijn afbeeldingen doorzoeken
-shotIndexPageSearchButton =
-    .title = Zoeken
 shotIndexPageNoShotsMessage = Geen opgeslagen afbeeldingen.
 shotIndexPageNoShotsInvitation = Toe maar, maak er een paar.
 shotIndexPageLookingForShots = Zoeken naar uw afbeeldingen…
@@ -314,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Vorige pagina
 shotIndexPageNextPage =
     .title = Volgende pagina
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Deze afbeelding verloopt niet
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Deze afbeelding is geen favoriet en zal verlopen
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Deze afbeelding is een favoriet en verloopt niet
+shotIndexSyncedShot =
+    .title = Op ander apparaat gemaakte afbeelding
 
 ## Delete Confirmation Dialog
 

@@ -274,6 +274,15 @@ exports.handleResult = function(req) {
       throw err;
     }
 
+    // Check if there was an upstream error at PhotoDNA.
+    // We leave the result as null.
+    if (req.body.error) {
+      const err = new Error(`Watchdog submission encountered an error at PhotoDNA.`);
+      err.watchdogSubmissionId = String(record.id);
+      err.photodnaResponseStatus = req.body.response.Status;
+      throw err;
+    }
+
     if (req.body.positive) {
       handlePositive(record);
     } else {
@@ -287,11 +296,26 @@ exports.handleResult = function(req) {
 
 function handleNegative(record) {
   mozlog.debug("watchdog-negative-match", {msg: `Watchdog submission ${record.id} is a negative match.`});
+
+  if (config.watchdog.logsOnly) {
+    return null;
+  }
+
   return db.update("UPDATE watchdog_submissions SET positive_result = FALSE WHERE id = $1", [record.id]);
 }
 
 function handlePositive(record) {
-  mozlog.info("watchdog-positive-match", {msg: `Watchdog submission ${record.id} is a positive match.`});
+  mozlog.info(
+    "watchdog-positive-match", {
+      msg: `Watchdog submission for shot ${record.shot_id} is a positive match.`,
+      watchdogId: record.request_id,
+      watchdogSubmissionId: record.id,
+    });
+
+  if (config.watchdog.logsOnly) {
+    return null;
+  }
+
   return db.transaction(client => {
     return db.queryWithClient(
       client,

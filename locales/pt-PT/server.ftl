@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Iniciar sessão
 screenshotsLogo =
     .title = Início do Screenshots
+bannerMessage = Inicie sessão ou registe-se para aceder às suas capturas entre dispositivos e guardar as suas favoritas para sempre.
+bannerUpsell = { gScreenshotsDescription } <a>Obter o Firefox agora</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Tem a certeza de que deseja apagar esta captura permanen
 shotPageShareButton =
     .title = Partilhar
 shotPageCopy = Copiar
+shotPageCopyButton =
+    .title = Copiar imagem para a área de transferência
 shotPageCopied = Copiada
 shotPageShareFacebook =
     .title = Partilhar no Facebook
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Qualquer pessoa com a ligação pode ver esta captura.
 shotPageCopyImageText =
     .label = Copiar texto da imagem
 shotPageConfirmDeletion = Tem certeza de que deseja apagar esta captura permanentemente?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Se não fizer nada, esta captura irá ser apagada permanentemente { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Se não fizer nada, esta captura irá ser apagada permanentemente <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = restaurar até { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Desenhar
 shotPageFavorite = Favorito
 shotPageDelete = Apagar
 shotPageScreenshotsDescription = As capturas de ecrã tornadas simples. Tire, guarde e partilhe capturas de ecrã sem sair do Firefox.
-shotPageUpsellFirefox = Obter o Firefox agora
 shotPageDMCAMessage = Esta captura já não está disponível devido a uma reivindicação de propriedade intelectual de terceiros.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Por favor envie um email para { $dmca } para solicitar mais informação.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 mês
 shotPageSaveExpiration = guardar
 shotPageCancelExpiration = cancelar
 shotPageDoesNotExpire = não expira
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = expira { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = expirou { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = expira <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = expirou <timediff></timediff>
 timeDiffJustNow = agora mesmo
 timeDiffMinutesAgo =
     { $number ->
@@ -272,6 +275,13 @@ textToolCancelButton = Cancelar
 textToolInputPlaceholder =
     .placeholder = Olá
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Algo correu mal
+copyImageErrorMessage = Não foi possível copiar a sua captura para a área de transferência.
+
 ## Settings Page
 
 settingsDisconnectButton = Desligar
@@ -298,8 +308,6 @@ shotIndexPageSearchResultsTitle = Minhas capturas: pesquisar por { $searchTerm }
 shotIndexPageErrorRendering = Erro ao renderizar a página: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Pesquisar nas minhas capturas
-shotIndexPageSearchButton =
-    .title = Pesquisar
 shotIndexPageNoShotsMessage = Sem capturas guardadas.
 shotIndexPageNoShotsInvitation = Vá, crie algumas.
 shotIndexPageLookingForShots = À procura das suas capturas...
@@ -314,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Página anterior
 shotIndexPageNextPage =
     .title = Página seguinte
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Esta captura não expira
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Esta não é uma captura favorita e irá expirar
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Esta é uma captura favorita e não expira.
+shotIndexSyncedShot =
+    .title = Captura tirada noutro dispositivo
 
 ## Delete Confirmation Dialog
 

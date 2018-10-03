@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Přizjewić
 screenshotsLogo =
     .title = Startowa strona Screenshots
+bannerMessage = Přizjewće so abo registrujće so, zo byšće přistup na swoje fota wobrazowki přez graty měł a składujće swoje fawority na přeco.
+bannerUpsell = { gScreenshotsDescription } <a>Wobstarajće so Firefox nětko</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Chceće tute foto wobrazowki woprawdźe na přeco zhaše
 shotPageShareButton =
     .title = Dźělić
 shotPageCopy = Kopěrować
+shotPageCopyButton =
+    .title = Wobraz do mjezyskłada kopěrować
 shotPageCopied = Kopěrowany
 shotPageShareFacebook =
     .title = Na Facebooku dźělić
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Kóždy z tutym wotkazom móže sej tute foto wobrazowk
 shotPageCopyImageText =
     .label = Wobrazowy tekst kopěrować
 shotPageConfirmDeletion = Chceće tute foto wobrazowki woprawdźe na přeco zhašeć?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Jeli ničo nječiniće, so tute foto wobrazowki na přeco zhaša { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Jeli ničo nječiniće, so tute foto wobrazowki na přeco zhaša <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = wobnowić hač do { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Rysować
 shotPageFavorite = Jako faworit składować
 shotPageDelete = Zhašeć
 shotPageScreenshotsDescription = Fota wobrazowki lochko činjene. Čińće, składujće a dźělće fota wobrazowki bjez toho, zo byšće Firefox wopušćił.
-shotPageUpsellFirefox = Wobstarajće sej nětko Firefox
 shotPageDMCAMessage = Tute foto wobrazowki dla prawow awtorstwa třećich hižo k dispoziciji njeje.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Dalše informacije přez e-mejl na { $dmca } dóstanjeće.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 měsac
 shotPageSaveExpiration = składować
 shotPageCancelExpiration = přetorhnyć
 shotPageDoesNotExpire = njespadnje
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = spadnje { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = spadnjeny { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = spadnje <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = spadnjeny <timediff></timediff>
 timeDiffJustNow = runje
 timeDiffMinutesAgo =
     { $number ->
@@ -284,6 +287,13 @@ textToolCancelButton = Přetorhnyć
 textToolInputPlaceholder =
     .placeholder = Witaj
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Něšto je so nimokuliło
+copyImageErrorMessage = Njeje móžno, waše foto wobrazowki do mjezyskłada kopěrować.
+
 ## Settings Page
 
 settingsDisconnectButton = Zwisk dźělić
@@ -310,8 +320,6 @@ shotIndexPageSearchResultsTitle = Moje fota wobrazowki: Za { $searchTerm } pyta�
 shotIndexPageErrorRendering = Zmylk při zwobraznjenju strony: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Moje fota wobrazowki přepytać
-shotIndexPageSearchButton =
-    .title = Pytać
 shotIndexPageNoShotsMessage = Žane składowane fota wobrazowki.
 shotIndexPageNoShotsInvitation = Pójće, wutworće někajke.
 shotIndexPageLookingForShots = Pyta so za wašimi fotami wobrazowki...
@@ -326,17 +334,17 @@ shotIndexPagePreviousPage =
     .title = Předchadna strona
 shotIndexPageNextPage =
     .title = Přichodna strona
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Tute foto wobrazowki njespadnje
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = To woblubowane foto wobrazowki njeje a spadnje
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = To je woblubowane foto wobrazowki a njespadnje
+shotIndexSyncedShot =
+    .title = Foto wobrazowki z druheho grata
 
 ## Delete Confirmation Dialog
 

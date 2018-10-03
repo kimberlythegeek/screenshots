@@ -78,6 +78,7 @@ exports.launch = function(data) {
   }
   model.highlightEditButton = shouldHighlightEditIcon(model);
   model.promoDialog = shouldShowPromo(model);
+
   if (firstSet) {
     refreshHash();
   }
@@ -104,6 +105,8 @@ exports.launch = function(data) {
     } else {
       sendEvent("visit", "non-owner");
     }
+
+  document.dispatchEvent(new CustomEvent("request-addon-present"));
 };
 
 exports.changeShotExpiration = function(shot, expiration) {
@@ -280,5 +283,15 @@ exports.setTitle = function(title) {
 function render() {
   page.render(model);
 }
+
+document.addEventListener("addon-present", (e) => {
+  if (e.detail) {
+    const capabilities = JSON.parse(e.detail);
+    if (capabilities["copy-to-clipboard"]) {
+      model.canCopy = true;
+      render();
+    }
+  }
+});
 
 window.controller = exports;

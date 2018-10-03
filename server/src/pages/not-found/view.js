@@ -28,11 +28,11 @@ class Body extends React.Component {
   render() {
     return (
       <reactruntime.BodyTemplate {...this.props}>
-        <div className="column-space full-height default-color-scheme">
+        <div className="column-space full-height">
           <Header hasLogo={true} />
           <div id="shot-index" className="flex-1">
             <div className="no-shots" key="no-shots-found">
-              <Localized id="gNoShots">
+              <Localized id="gNoShots" attrs={{alt: true}}>
                 <img src={ this.props.staticLink("/static/img/image-nope_screenshots.svg") } alt="no Shots found" width="432" height="432"/>
               </Localized>
               <Localized id="notFoundPageIntro">
@@ -43,7 +43,7 @@ class Body extends React.Component {
               </Localized>
             </div>
           </div>
-          <Footer forUrl="shots" {...this.props} />
+          <Footer {...this.props} />
         </div>
       </reactruntime.BodyTemplate>
     );

@@ -14,10 +14,14 @@ gSignIn = Oanmelde
 
 ## Header
 
-signInButton =
-    .aria-label = Oanmelde
-settingsButton =
-    .aria-label = Ynstellingen
+buttonSettings =
+    .title = Ynstellingen
+buttonSignIn =
+    .title = Oanmelde
+screenshotsLogo =
+    .title = Startside fan Screenshots
+bannerMessage = Meld jo oan of registrearje om jo ôfbyldingen op mear apparaten te benaderjen en jo favoriten foar altyd te bewarjen.
+bannerUpsell = { gScreenshotsDescription } <a>Firefox no downloade</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Betingsten
 footerLinkPrivacy = Privacyferklearring
+footerReportShot = Ofbylding rapportearje
+    .title = Dizze ôfbylding rapportearje fanwegen misbrûk, spam of oare problemen
 footerLinkFaqs = FAQ's
 footerLinkDMCA = IP-misbrûk rapportearje
 footerLinkDiscourse = Kommentaar jaan
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Binne jo wis dat jo dizze ôfbylding definityf fuortsmit
 shotPageShareButton =
     .title = Diele
 shotPageCopy = Kopiearje
+shotPageCopyButton =
+    .title = Ofbylding nei klamboerd kopiearje
 shotPageCopied = Kopiearre
 shotPageShareFacebook =
     .title = Diele op Facebook
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Elkenien mei de keppeling kin dizze ôfbylding besjen.
 shotPageCopyImageText =
     .label = Ofbyldingstekst kopiearje
 shotPageConfirmDeletion = Binne jo wis dat jo dizze ôfbylding definityf fuortsmite wolle?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = As jo neat dogge, wurdt dizze ôfbylding { $timediff } definityf fuortsmiten.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = As jo neat dogge, wurdt dizze ôfbylding <timediff></timediff> definityf fuortsmiten.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = tebeksette oant { $date }
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Dizze ôfbylding is ferfallen.
 shotPageExpiredMessageDetails = Dit is de side fan wêrôf dizze oarspronklik makke is:
 shotPageDeleteButton =
     .title = Dizze ôfbylding fuortsmite
-shotPageAbuseButton =
-    .title = Dizze ôfbylding rapportearje fanwege misbrûk, spam of oare problemen
 shotPageDownloadShot =
     .title = Downloade
 shotPageEditButton =
     .title = Dizze ôfbylding bewurkje
 shotPagefavoriteButton =
     .title = Dizze ôfbylding favoryt meitsje
+shotPageBackToHomeButton =
+    .title = Startside
+shotPageAllShotsButton =
+    .title = Alle ôfbyldingen
+shotPageAllShots = Alle ôfbyldingen
 shotPageDownload = Downloade
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Tekenje
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Favoryt meitsje
+shotPageDelete = Fuortsmite
 shotPageScreenshotsDescription = Skermôfbyldingen wurde maklik. Meitsje, bewarje en diel skermôfbyldingen sûnder Firefox te ferlitten.
-shotPageUpsellFirefox = Download Firefox no
 shotPageDMCAMessage = Dizze ôfbylding is fanwegen in claim op yntellektueel eigendom troch in eksterne partij net mear beskikber.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Stjoer in e-mail nei { $dmca } om mear ynformaasje op te freegjen.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 moanne
 shotPageSaveExpiration = bewarje
 shotPageCancelExpiration = annulearje
 shotPageDoesNotExpire = ferrint net
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = ferrint { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = { $timediff } ferrûn
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = ferrint <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = <timediff></timediff> ferrûn
 timeDiffJustNow = sa krekt
 timeDiffMinutesAgo =
     { $number ->
@@ -260,6 +275,13 @@ textToolCancelButton = Annulearje
 textToolInputPlaceholder =
     .placeholder = Hallo
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Der is wat misgien
+copyImageErrorMessage = Kin jo ôfbylding net nei it klamboard kopiearje.
+
 ## Settings Page
 
 settingsDisconnectButton = Ferbrekke
@@ -286,13 +308,13 @@ shotIndexPageSearchResultsTitle = Myn ôfbyldingen: sykje nei { $searchTerm }
 shotIndexPageErrorRendering = Flater by werjaan fan side: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Myn ôfbyldingen trochsykje
-shotIndexPageSearchButton =
-    .title = Sykje
 shotIndexPageNoShotsMessage = Gjin bewarre ôfbyldingen.
 shotIndexPageNoShotsInvitation = Toe mar, meitsje der in pear.
 shotIndexPageLookingForShots = Sykje nei jo ôfbyldingen…
 shotIndexPageNoSearchResultsIntro = Hmm
 shotIndexPageNoSearchResults = Wy kinne gjin ôfbyldingen finen dy't oan jo sykopdracht foldocht.
+shotIndexPageMyShotsButton =
+    .title = Myn ôfbyldingen
 shotIndexPageClearSearchButton =
     .title = Sykopdracht wiskje
 shotIndexPageConfirmShotDelete = Dizze ôfbylding fuortsmite?
@@ -300,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Foarige side
 shotIndexPageNextPage =
     .title = Folgjende side
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Dizze skermôfdruk ferrint nea
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Dizze ôfbylding is gjin favoryt en sil ferrinne
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Dizze skermôfdruk is in favoryt en ferrint net
+shotIndexSyncedShot =
+    .title = Op oar apparaat makke ôfbylding
 
 ## Delete Confirmation Dialog
 

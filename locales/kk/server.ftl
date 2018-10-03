@@ -14,10 +14,14 @@ gSignIn = Кіру
 
 ## Header
 
-signInButton =
-    .aria-label = Кіру
-settingsButton =
-    .aria-label = Баптаулар
+buttonSettings =
+    .title = Баптаулар
+buttonSignIn =
+    .title = Кіру
+screenshotsLogo =
+    .title = Скриншоттар үй парағы
+bannerMessage = Скриншоттарға әр түрлі құрылғылардан қатынау және таңдамалыларды мәңгі сақтау үшін кіріңіз немесе тіркеліңіз.
+bannerUpsell = { gScreenshotsDescription } <a>Firefox-ты қазір алу</a>
 
 ## Footer
 
@@ -25,6 +29,8 @@ settingsButton =
 footerLinkMozilla = Mozilla
 footerLinkTerms = Қолдану шарттары
 footerLinkPrivacy = Жекелік ескертуі
+footerReportShot = Скриншотты хабарлау
+    .title = Бұл скриншотты ереже бұзу, спам, немесе басқа мәселелері салдарынан хабарлау
 footerLinkFaqs = ЖҚС-тер
 footerLinkDMCA = Авторлық құқықтардың бұзылуы жөнінде хабарлау
 footerLinkDiscourse = Кері байланыс
@@ -96,6 +102,8 @@ shotPageConfirmDelete = Бұл скриншотты толығымен өшір�
 shotPageShareButton =
     .title = Бөлісу
 shotPageCopy = Көшіріп алу
+shotPageCopyButton =
+    .title = Суретті алмасу буферіне көшіру
 shotPageCopied = Көшірілген
 shotPageShareFacebook =
     .title = Facebook-те бөлісу
@@ -110,8 +118,8 @@ shotPagePrivacyMessage = Сілтемесі бар әр адам бұл скри
 shotPageCopyImageText =
     .label = Сурет мәтінін көшіріп алу
 shotPageConfirmDeletion = Бұл скриншотты толығымен өшіруді шынымен қалайсыз ба?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Ешнәрсе жасамасаңыз, бұл скриншот { $timediff } толығымен өшіріледі.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Ешнәрсе жасамасаңыз, бұл скриншот <timediff></timediff> толығымен өшіріледі.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = ұзартылған { $date } дейін
@@ -120,17 +128,24 @@ shotPageExpiredMessage = Бұл скриншоттың мерзімі аяқта
 shotPageExpiredMessageDetails = Бұл скриншот жасалған парақ:
 shotPageDeleteButton =
     .title = Бұл скриншотты өшіру
-shotPageAbuseButton =
-    .title = Бұл скриншот туралы бұзу, спам немесе басқа да мәселелер жөнінде хабарлау
 shotPageDownloadShot =
     .title = Жүктеп алу
 shotPageEditButton =
     .title = Бұл суретті түзету
 shotPagefavoriteButton =
     .title = Бұл скриншотты таңдамалы қылу
+shotPageBackToHomeButton =
+    .title = Үй парағы
+shotPageAllShotsButton =
+    .title = Барлық скриншоттар
+shotPageAllShots = Барлық скриншоттар
 shotPageDownload = Жүктеп алу
+# Note: Draw text is used on shot page as a verb (action)
+shotPageDraw = Сурет салу
+# Note: Favorite text is used on shot page as a verb (action)
+shotPageFavorite = Таңдамалы
+shotPageDelete = Өшіру
 shotPageScreenshotsDescription = Скриншоттар қарапайым түрде. Тура Firefox ішінен скриншоттарды түсіру, сақтау және олармен бөлісу.
-shotPageUpsellFirefox = Firefox-ты қазір алу
 shotPageDMCAMessage = Бұл скриншот үшінші жақтың зияткерлік меншігі арызы салдарынан енді қолжетерсіз.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Көбірек білу үшін, { $dmca } адресіне жазыңыз.
@@ -154,10 +169,10 @@ shotPageKeepOneMonth = 1 ай
 shotPageSaveExpiration = сақтау
 shotPageCancelExpiration = бас тарту
 shotPageDoesNotExpire = мерзімі аяқталмайды
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = мерзімі { $timediff } аяқталады
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = мерзімі { $timediff } аяқталды
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = мерзімі <timediff></timediff> аяқталады
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = мерзімі <timediff></timediff> аяқталды
 timeDiffJustNow = жаңа ғана
 timeDiffMinutesAgo =
     { $number ->
@@ -254,6 +269,13 @@ textToolCancelButton = Бас тарту
 textToolInputPlaceholder =
     .placeholder = Сәлеметсіз бе
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Бірнәрсе қате кетті
+copyImageErrorMessage = Скриншотыңызды алмасу буферіне көшіру мүмкін емес.
+
 ## Settings Page
 
 settingsDisconnectButton = Байланысты үзу
@@ -280,13 +302,13 @@ shotIndexPageSearchResultsTitle = Менің скрншоттарым: { $search
 shotIndexPageErrorRendering = Парақты рендерлеу қатесі: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Менің скриншоттарымнан іздеу
-shotIndexPageSearchButton =
-    .title = Іздеу
 shotIndexPageNoShotsMessage = Сақталған скриншоттар жоқ.
 shotIndexPageNoShotsInvitation = Бірнешеуін сақтаңыз.
 shotIndexPageLookingForShots = Скриншоттарыңызды іздеу…
 shotIndexPageNoSearchResultsIntro = Хмм
 shotIndexPageNoSearchResults = Іздеуіңізге сай скриншоттар табылмады.
+shotIndexPageMyShotsButton =
+    .title = Менің скриншоттарым
 shotIndexPageClearSearchButton =
     .title = Іздеуді тазарту
 shotIndexPageConfirmShotDelete = Бұл скриншотты өшіру керек пе?
@@ -294,17 +316,17 @@ shotIndexPagePreviousPage =
     .title = Алдыңғы бет
 shotIndexPageNextPage =
     .title = Келесі бет
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = Бұл скриншот мерзімі аяқталмайды
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = Бұл таңдамалы скриншот емес, оның мерзімі бітеді
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = Бұл скриншот таңдамалы, оның мерзімі аяқталмайды
+shotIndexSyncedShot =
+    .title = Басқа құрылғыда алынған скриншот
 
 ## Delete Confirmation Dialog
 

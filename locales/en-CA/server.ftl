@@ -20,6 +20,8 @@ buttonSignIn =
     .title = Sign In
 screenshotsLogo =
     .title = Screenshots Home
+bannerMessage = Sign in or sign up to access your shots across devices and save your favourites forever.
+bannerUpsell = { gScreenshotsDescription } <a>Get Firefox now</a>
 
 ## Footer
 
@@ -100,6 +102,8 @@ shotPageConfirmDelete = Are you sure you want to delete this shot permanently?
 shotPageShareButton =
     .title = Share
 shotPageCopy = Copy
+shotPageCopyButton =
+    .title = Copy image to clipboard
 shotPageCopied = Copied
 shotPageShareFacebook =
     .title = Share on Facebook
@@ -114,8 +118,8 @@ shotPagePrivacyMessage = Anyone with the link can view this shot.
 shotPageCopyImageText =
     .label = Copy image text
 shotPageConfirmDeletion = Are you sure you want to delete this shot permanently?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = If you do nothing, this shot will be permanently deleted { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = If you do nothing, this shot will be permanently deleted <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = restore until { $date }
@@ -142,7 +146,6 @@ shotPageDraw = Draw
 shotPageFavorite = Favourite
 shotPageDelete = Delete
 shotPageScreenshotsDescription = Screenshots made simple. Take, save, and share screenshots without leaving Firefox.
-shotPageUpsellFirefox = Get Firefox now
 shotPageDMCAMessage = This shot is no longer available due to a third party intellectual property claim.
 # Note: { $dmca } is a placeholder for a link to send email (a 'mailto' link)
 shotPageDMCAContact = Please email { $dmca } to request further information.
@@ -166,10 +169,10 @@ shotPageKeepOneMonth = 1 Month
 shotPageSaveExpiration = save
 shotPageCancelExpiration = cancel
 shotPageDoesNotExpire = does not expire
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = expires { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = expired { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = expires <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = expired <timediff></timediff>
 timeDiffJustNow = just now
 timeDiffMinutesAgo =
     { $number ->
@@ -272,6 +275,13 @@ textToolCancelButton = Cancel
 textToolInputPlaceholder =
     .placeholder = Hello
 
+## The following are the title and message for an error displayed as a Firefox
+## notification. It is triggered by an action in the shot page and the strings
+## are passed from the shot page to the addon.
+
+copyImageErrorTitle = Something went wrong
+copyImageErrorMessage = Unable to copy your shot to the clipboard.
+
 ## Settings Page
 
 settingsDisconnectButton = Disconnect
@@ -298,8 +308,6 @@ shotIndexPageSearchResultsTitle = My Shots: search for { $searchTerm }
 shotIndexPageErrorRendering = Error rendering page: { $error }
 shotIndexPageSearchPlaceholder =
     .placeholder = Search my shots
-shotIndexPageSearchButton =
-    .title = Search
 shotIndexPageNoShotsMessage = No saved shots.
 shotIndexPageNoShotsInvitation = Go on, create some.
 shotIndexPageLookingForShots = Looking for your shots…
@@ -314,17 +322,17 @@ shotIndexPagePreviousPage =
     .title = Previous page
 shotIndexPageNextPage =
     .title = Next page
-# This symbol is used in the lower right corner of the card for a shot on the
-# My Shots page to indicate that the shot does not expire. It should be a
-# single character (or simply nothing if no such symbol is available for a
-# language/culture).
-shotIndexNoExpirationSymbol = ∞
-    .title = This shot does not expire
-# This is the tooltip for a "heart" symbol in the lower right corner of the
+# This is tooltip for a "blank heart" symbol used in the upper top corner of the card for a shot on the
+# My Shots page to indicate that the shot does expire.
+shotIndexNonFavoriteIcon =
+    .title = This is not a favourite shot and it will expire
+# This is the tooltip for a "heart" symbol in the upper top corner of the
 # card for a shot on the My Shots page. It indicate that the shot was marked as
 # a favorite by the owner.
 shotIndexFavoriteIcon =
     .title = This is a favourite shot and it does not expire
+shotIndexSyncedShot =
+    .title = Shot taken on another device
 
 ## Delete Confirmation Dialog
 

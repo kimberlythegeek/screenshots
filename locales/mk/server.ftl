@@ -10,6 +10,9 @@ gNoShots =
     .alt = Нема слики од екран
 gScreenshotsDescription = Слики од екран поедноставени. Фаќајте, снимајте и споделувајте слики од екран без да го напуштите Firefox.
 
+## Header
+
+
 ## Footer
 
 # Note: link text for a link to mozilla.org
@@ -38,7 +41,6 @@ homePageButtonMyShots = Појди до Мои слики
 homePageTeaser = Наскоро...
 homePageDownloadFirefoxTitle = Firefox
 homePageDownloadFirefoxSubTitle = Слободно преземање
-homePageGetStarted = Вовед
 # Note: do not translate 'Firefox Screenshots' when translating this string
 homePageHowScreenshotsWorks = Како работи Firefox Screenshots
 homePageGetStartedTitle = Вовед
@@ -102,8 +104,8 @@ shotPagePrivacyMessage = Сите што ја имаат адресата до �
 shotPageCopyImageText =
     .label = Копирај го текстот на сликата
 shotPageConfirmDeletion = Сигурно сакате да ја избришете оваа слика од екран трајно?
-# Note: { $timediff } is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
-shotPageExpirationMessage = Ако не направите ништо, оваа слика ќе биде трајно избришана { $timediff }.
+# Note: <timediff></timediff> is a placeholder for a future relative time clause like 'in 3 days' or 'tomorrow'
+shotPageTimeExpirationMessage = Ако не направите ништо, оваа слика ќе биде трајно избришана <timediff></timediff>.
 # Note: { $date } is a placeholder for a localized future date as returned by Date.toLocaleString.
 # For example, in en-US, { $date } could be "7/12/2017, 1:52:50 PM".
 shotPageRestoreButton = можно враќање до { $date }
@@ -112,8 +114,6 @@ shotPageExpiredMessage = Рокот на траење на оваа слика �
 shotPageExpiredMessageDetails = Еве ја страницата од којашто е оригинално избработена:
 shotPageDeleteButton =
     .title = Избриши ја оваа слика
-shotPageAbuseButton =
-    .title = Пријави ја оваа слика како злоупотреба, спам или нешто друго
 shotPageDownloadShot =
     .title = Преземи
 shotPageEditButton =
@@ -144,10 +144,10 @@ shotPageKeepOneMonth = 1 месец
 shotPageSaveExpiration = сними
 shotPageCancelExpiration = откажи
 shotPageDoesNotExpire = нема рок на траење
-# Note: { $timediff } is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
-shotPageExpiresIn = важи { $timediff }
-# Note: { $timediff } is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
-shotPageExpired = рокот измина { $timediff }
+# Note: <timediff></timediff> is a placeholder for a future relative time clause, like "in 1 week" or "tomorrow"
+shotPageTimeExpiresIn = важи <timediff></timediff>
+# Note: <timediff></timediff> is a placeholder for a past relative time clause, like "1 week ago" or "yesterday"
+shotPageTimeExpired = рокот измина <timediff></timediff>
 timeDiffJustNow = сега
 timeDiffMinutesAgo =
     { $number ->
@@ -181,6 +181,10 @@ timeDiffFutureDays =
        *[other] за { $number } дена
     }
 errorThirdPartyCookiesEnabled = Ако вие ја фативте оваа слика и не можете да ја избришете, можеби треба привремено да овозможите користење на колачиња од трети страни во Опциите на прелистувачот.
+
+## Shot Page New Feature Promotion Dialog.
+
+promoLink = Пробајте ги
 
 ## Annotations
 
