@@ -85,6 +85,13 @@ jobs:
             export PATH=~/firefox:$PATH
             FIREFOX_CHANNEL=NIGHTLY MOZ_HEADLESS=1 npm test
       - run:
+          name: Run Accessibility Tests
+          command: |
+            pip install tox
+            export PATH=~/firefox:$PATH
+            FIREFOX_CHANNEL=NIGHTLY MOZ_HEADLESS=1
+            tox
+      - run:
           # run zap baseline against the server
           # Only fail on error code 1, which indicates at least one FAIL was found.
           # error codes 2 & 3 indicate WARN or other, and should not break the run
