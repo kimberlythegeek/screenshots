@@ -4,7 +4,6 @@ jobs:
     docker:
       - image: circleci/node:8.12.0@sha256:5b3515c955c21aa9c69dea410a20804859c7332c1ff9491a8260f63efde957cf
     working_directory: ~/screenshots
-    environment: GECKODRIVER=0.22.0
     steps:
       - checkout
       - restore_cache:
@@ -32,6 +31,7 @@ jobs:
       - ENABLE_COVERAGE: false
       - NODE_ENV: dev
       - CIRCLE_TEST_REPORTS: /home/circleci/test-reports
+      - GECKODRIVER: 0.23.0
     # A machine executor is used here because of the OWASP ZAP step. When using
     # a docker executor, all the run steps are executed in the primary
     # container, so we cannot run zap-baseline.py. A CircleCI employee
@@ -47,7 +47,6 @@ jobs:
       - run:
           name: Start Server
           command: |
-            echo $GECKODRIVER
             . "$NVM_DIR/nvm.sh"
             nvm install 8.10.0
             node -e 'require("babel-polyfill"); require("./build/server/server");'
