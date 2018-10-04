@@ -4,8 +4,7 @@ jobs:
     docker:
       - image: circleci/node:8.12.0@sha256:5b3515c955c21aa9c69dea410a20804859c7332c1ff9491a8260f63efde957cf
     working_directory: ~/screenshots
-    environment:
-      GECKODRIVER: "0.23.0"
+    environment: GECKODRIVER=0.22.0
     steps:
       - checkout
       - restore_cache:
@@ -48,6 +47,7 @@ jobs:
       - run:
           name: Start Server
           command: |
+            echo $GECKODRIVER
             . "$NVM_DIR/nvm.sh"
             nvm install 8.10.0
             node -e 'require("babel-polyfill"); require("./build/server/server");'
