@@ -99,6 +99,7 @@ jobs:
             export PATH=~/firefox:$PATH
             export PATH=$HOME/geckodriver:$PATH
             FIREFOX_CHANNEL=NIGHTLY MOZ_HEADLESS=1
+            pyenv global system 3.5.2 2.7.12
             tox
       - run:
           # run zap baseline against the server
