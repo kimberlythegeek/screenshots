@@ -1,5 +1,4 @@
 import pytest
-import sys
 from pytest_axe.pytest_axe import PytestAxe as Axe
 from selenium import webdriver
 from selenium.webdriver.common.by import By
