@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 base_url = "https://screenshots.stage.mozaws.net/"
 
 _panel_button_locator = "pageActionButton"
-_take_screenshot_button_locator = (By.ID, "pageAction-panel-screenshots")
+_take_screenshot_button_locator = (By.ID, "pageAction-panel-screenshots_mozilla_org")
 _onboarding_iframe_locator = (By.ID, "firefox-screenshots-onboarding-iframe")
 _test_image_locator = "banner-image-front"
 _preselection_iframe_locator = (By.ID, "firefox-screenshots-preselection-iframe")
