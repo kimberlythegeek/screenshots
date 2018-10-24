@@ -80,12 +80,14 @@ jobs:
             get-firefox --branch nightly --platform linux --extract --target ~/
             ~/firefox/firefox -v
             firefox --version
+            export PATH=/node_modules/.bin/geckodriver:$PATH
             geckodriver --version
       - run:
           name: Run npm test
           command: |
             . "$NVM_DIR/nvm.sh"
             nvm use 8.10.0
+            export PATH=/node_modules/.bin/geckodriver:$PATH
             export PATH=~/firefox:$PATH
             FIREFOX_CHANNEL=NIGHTLY MOZ_HEADLESS=1 npm test
       - run:
