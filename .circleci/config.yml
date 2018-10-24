@@ -90,7 +90,7 @@ jobs:
       - run:
           name: Run Accessibility Tests
           command: |
-            pip install -U pip
+            pip install -U pip && pip install -r ./bin/require.pip
             export PATH=/node_modules/.bin/geckodriver:$PATH
             export PATH=~/firefox:$PATH
             FIREFOX_CHANNEL=NIGHTLY MOZ_HEADLESS=1
