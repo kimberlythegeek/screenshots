@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 download_dir = os.path.join(os.getcwd(), "test", "addon", ".artifacts")
 addon_file_location = os.path.join(
-    os.path.dirname(__file__), "..", "..", "build", "screenshots.xpi"
+    os.path.dirname(__file__), "..", "..", "build", "screenshots.zip"
 )
 
 base_url = "https://screenshots.stage.mozaws.net/"
@@ -39,7 +39,7 @@ def firefox_profile():
 def driver(firefox_profile):
     """Install Screenshots."""
     driver = webdriver.Firefox(firefox_profile=firefox_profile)
-    addon = os.path.abspath(os.path.join("build", "screenshots.xpi"))
+    addon = os.path.abspath(os.path.join("build", "screenshots.zip"))
     driver.install_addon(addon, temporary=True)
     yield driver
     driver.close()
