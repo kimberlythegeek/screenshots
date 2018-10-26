@@ -92,7 +92,7 @@ addon: npm set_backend set_sentry webextension/manifest.json addon_locales webex
 
 $(VENV): bin/require.pip
 	virtualenv -p python2.7 $(VENV)
-	. $(VENV)/bin/activate && pip install -r bin/require.pip
+	. $(VENV)/bin/activate && pip install -r requirements.txt
 
 .PHONY: flake8
 flake8: $(VENV)
