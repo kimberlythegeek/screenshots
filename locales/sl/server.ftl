@@ -18,7 +18,7 @@ buttonSignIn =
     .title = Prijava
 screenshotsLogo =
     .title = Domača stran Screenshots
-bannerMessage = Prijavite ali registrirajte se, da boste lahko dostopali do svojih posnetkov z več naprav in priljubljene shranili za vedno.
+bannerSignIn = <a>Prijavite ali registrirajte se</a>, da boste lahko svoje posnetke uporabljali na več napravah in priljubljene trajno shranili.
 bannerUpsell = { gScreenshotsDescription }<a>Prenesite Firefox zdaj</a>
 
 ## Footer
@@ -77,7 +77,7 @@ homePageCookiesLink = Piškotki
 
 leavePageRemoveAllData = Odstrani vse podatke
 # Note: do not translate 'Firefox Screenshots' when translating this string
-leavePageErrorAddonRequired = Za izbris računa morate imeti nameščen Firefox Screenshots
+leavePageErrorAuthRequired = Če želite izbrisati svoj račun, morate imeti nameščen Firefox Screenshots ali biti prijavljeni v Firefox Račun
 leavePageErrorGeneric = Prišlo je do napake
 # Note: do not translate 'Firefox Screenshots' when translating this string
 leavePageWarning = To bo trajno izbrisalo vse podatke Firefox Screenshots.

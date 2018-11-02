@@ -18,7 +18,7 @@ buttonSignIn =
     .title = Увійти
 screenshotsLogo =
     .title = Домівка Screenshots
-bannerMessage = Зареєструйтеся або увійдіть, щоб мати доступ до знімків на всіх пристроях та зберігати обрані назавжди.
+bannerSignIn = <a>Зареєструйтеся або увійдіть</a>, щоб мати доступ до знімків на всіх пристроях та зберігати обрані назавжди.
 bannerUpsell = { gScreenshotsDescription } <a>Отримати Firefox</a>
 
 ## Footer
@@ -77,7 +77,7 @@ homePageCookiesLink = Куки
 
 leavePageRemoveAllData = Видалити усі дані
 # Note: do not translate 'Firefox Screenshots' when translating this string
-leavePageErrorAddonRequired = Щоб видалити обліковий запис, у вас повинен бути встановлений Firefox Screenshots
+leavePageErrorAuthRequired = Щоб видалити обліковий запис, у вас повинен бути встановлений Firefox Screenshots або виконаний вхід в обліковий запис Firefox
 leavePageErrorGeneric = Сталася помилка
 # Note: do not translate 'Firefox Screenshots' when translating this string
 leavePageWarning = Ця дія назавжди видалить усі ваші дані Firefox Screenshots.

@@ -18,7 +18,7 @@ buttonSignIn =
     .title = Accedi
 screenshotsLogo =
     .title = Pagina iniziale Screenshots
-bannerMessage = Accedi o registrati per accedere alle tue immagini da qualsiasi dispositivo e conservare per sempre le tue preferite.
+bannerSignIn = <a>Accedi o registrati</a> per accedere alle tue immagini da qualsiasi dispositivo e conservare per sempre le tue preferite.
 bannerUpsell = { gScreenshotsDescription } <a>Scarica subito Firefox</a>
 
 ## Footer
@@ -77,7 +77,7 @@ homePageCookiesLink = Cookie
 
 leavePageRemoveAllData = Elimina tutti i dati
 # Note: do not translate 'Firefox Screenshots' when translating this string
-leavePageErrorAddonRequired = È necessario avere installato Firefox Screenshots per eliminare l’account
+leavePageErrorAuthRequired = È necessario avere installato Firefox Screenshots o essere connesso all’account Firefox per eliminare il proprio account
 leavePageErrorGeneric = Si è verificato un errore
 # Note: do not translate 'Firefox Screenshots' when translating this string
 leavePageWarning = Questa operazione eliminerà tutti i dati associati a Firefox Screenshots.

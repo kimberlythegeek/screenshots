@@ -9,9 +9,6 @@ $slide-height-small: 360px;
 $next-prev-size: 70px;
 $slide-status-color: $light-default;
 
-$medium-dark-blue: #009ec0;
-$super-blue: #00d1e6;
-
 html,
 body {
   box-sizing: border-box;
@@ -69,7 +66,7 @@ body {
       border-radius: 2px;
       color: #fff;
       font-size: 16px;
-      margin-left: 5px;
+      margin-inline-start: 5px;
       padding: 2px;
     }
   }
@@ -196,25 +193,19 @@ body {
 #prev {
   @extend %next-prev-button;
   background-image: url("MOZ_EXTENSION/icons/back.svg");
-  left: 50%;
-  html[dir="ltr"] & {
-     margin-left: - ($slide-width / 2) - ($next-prev-size / 2);
-  }
-  html[dir="rtl"] & {
-     margin-left: ($slide-width / 2) - ($next-prev-size / 2);
+  inset-inline-start: 50%;
+  margin-inline-start: - ($slide-width / 2) - ($next-prev-size / 2);
+
+  [dir="rtl"] & {
+    transform: rotate(180deg);
   }
 }
 
 #next,
 #done {
   @extend %next-prev-button;
-  left: 50%;
-  html[dir="ltr"] & {
-     margin-left: ($slide-width / 2) - ($next-prev-size / 2);
-  }
-  html[dir="rtl"] & {
-     margin-left: - ($slide-width / 2) - ($next-prev-size / 2);
-  }
+  inset-inline-start: 50%;
+  margin-inline-start: ($slide-width / 2) - ($next-prev-size / 2);
 }
 
 #prev,
@@ -239,17 +230,13 @@ body {
   background-image: url("MOZ_EXTENSION/icons/back.svg");
   transform: rotate(180deg);
 
+  [dir="rtl"] & {
+    transform: rotate(0deg);
+  }
+
   .active-slide-1 & {
     background-image: url("MOZ_EXTENSION/icons/back-highlight.svg");
   }
-}
-
-[dir='rtl'] #next {
-  transform: rotate(0deg);
-}
-
-[dir='rtl'] #prev {
-  transform: rotate(180deg);
 }
 
 #skip {
@@ -257,8 +244,8 @@ body {
   border: 0;
   color: #fff;
   font-size: 16px;
-  left: 50%;
-  margin-left: - ($slide-width / 2) + 20;
+  inset-inline-start: 50%;
+  margin-inline-start: - ($slide-width / 2) + 20;
   margin-top: ($slide-height / 2) - 3;
   opacity: 0.7;
   position: absolute;
@@ -319,16 +306,16 @@ body {
   }
 
   #skip {
-    margin-left: - ($slide-width-small / 2) + 20;
+    margin-inline-start: - ($slide-width-small / 2) + 20;
     margin-top: ($slide-height-small / 2) - 3;
   }
 
   #prev {
-    margin-left: - ($slide-width-small / 2) - ($next-prev-size / 2);
+    margin-inline-start: - ($slide-width-small / 2) - ($next-prev-size / 2);
   }
 
   #next,
   #done {
-    margin-left: ($slide-width-small / 2) - ($next-prev-size / 2);
+    margin-inline-start: ($slide-width-small / 2) - ($next-prev-size / 2);
   }
 }

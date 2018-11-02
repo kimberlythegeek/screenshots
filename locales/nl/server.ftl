@@ -18,7 +18,7 @@ buttonSignIn =
     .title = Aanmelden
 screenshotsLogo =
     .title = Startpagina van Screenshots
-bannerMessage = Meld u aan of registreer om uw afbeeldingen op meerdere apparaten te benaderen en uw favorieten voor altijd op te slaan.
+bannerSignIn = <a>Meld u aan of registreer</a> om uw afbeeldingen op meerdere apparaten te benaderen en uw favorieten voor altijd op te slaan.
 bannerUpsell = { gScreenshotsDescription } <a>Firefox nu downloaden</a>
 
 ## Footer
@@ -77,7 +77,7 @@ homePageCookiesLink = Cookies
 
 leavePageRemoveAllData = Alle gegevens verwijderen
 # Note: do not translate 'Firefox Screenshots' when translating this string
-leavePageErrorAddonRequired = U moet Firefox Screenshots hebben geïnstalleerd om uw account te verwijderen
+leavePageErrorAuthRequired = U moet Firefox Screenshots hebben geïnstalleerd of bij uw Firefox-account zijn aangemeld om uw account te verwijderen
 leavePageErrorGeneric = Er is een fout opgetreden
 # Note: do not translate 'Firefox Screenshots' when translating this string
 leavePageWarning = Hierdoor worden al uw Firefox Screenshots-gegevens definitief verwijderd.
