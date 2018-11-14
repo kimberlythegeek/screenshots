@@ -28,7 +28,7 @@ exports.SignInButton = class SignInButton extends React.Component {
       return <div className="fxa-signin">
           <Localized id="buttonSettings" attrs={{title: true}}>
             <a className="transparent nav-button icon-settings" tabIndex="0" href="/settings" title="Settings">
-              <img src={this.props.staticLink("/static/img/icon-settings.svg")} />
+              <img alt="Settings icon" src={this.props.staticLink("/static/img/icon-settings.svg")} />
             </a>
           </Localized>
         </div>;
@@ -43,7 +43,7 @@ exports.SignInButton = class SignInButton extends React.Component {
         <Localized id="buttonSignIn" attrs={{title: true}}>
           <a className="transparent nav-button icon-settings" tabIndex="0" href={logInURI} title="SignIn"
              onClick={this.clickHandler.bind(this)}>
-            <img src={this.props.staticLink("/static/img/icon-settings.svg")} />
+            <img alt="Settings icon" src={this.props.staticLink("/static/img/icon-settings.svg")} />
           </a>
         </Localized>
         { fxaOnboardingDialog }
